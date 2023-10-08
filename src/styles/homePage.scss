@@ -1,0 +1,19 @@
+@use "./index.scss" as global;
+
+#navigationArea {
+    display: flex;
+    flex-flow: column nowrap;
+
+    .navigationAreaButton {
+        @include global.coloredInteractable(#a5a500);
+        @include global.noDecorationLink;
+
+        border-radius: 5px;
+
+        margin: 5px;
+
+        text-align: center;
+
+        transition: 0.5s;
+    }
+}

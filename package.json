@@ -1,0 +1,26 @@
+{
+  "name": "schooladmina3",
+  "version": "1.0.0",
+  "description": "Administrates a school, college project.",
+  "main": "./src/index.tsx",
+  "type": "module",
+  "dependencies": {
+    "css-loader": "^6.8.1",
+    "process": "^0.11.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.16.0",
+    "react-router-dom": "^6.16.0",
+    "sass": "^1.69.0",
+    "sass-loader": "^13.3.2",
+    "source-map-loader": "^4.0.1",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.4.4",
+    "webpack": "^5.88.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.25",
+    "@types/react-dom": "^18.2.10",
+    "webpack-cli": "^5.1.4"
+  }
+}

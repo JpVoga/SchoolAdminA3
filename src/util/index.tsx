@@ -1,6 +1,7 @@
 export * from "./Student";
 export * from "./Test";
 export * from "./Grade";
+export * from "./globalContext";
 
 export const nameMaxLength = 50;
 

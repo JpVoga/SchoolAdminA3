@@ -1,3 +1,5 @@
+$normalYellow: #a5a500;
+
 @mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {
     background-color: $normalColor;
 
@@ -24,6 +26,33 @@
     color: black;
     text-decoration: none;
     font-style: normal;
+}
+
+@mixin noOutline() {
+    outline-width: 0px;
+}
+
+#popUpContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+
+    background: #0000007f;
+
+    #popUpBox {
+        width: 50%;
+        height: 35%;
+
+        border-radius: 25px;
+
+        background-color: white;
+    }
 }
 
 #pageHeader {

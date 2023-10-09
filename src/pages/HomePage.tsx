@@ -11,7 +11,6 @@ export function HomePage(): JSX.Element {
             <nav id="navigationArea">
                 <Link className="navigationAreaButton" to="/students">Alunos</Link>
                 <Link className="navigationAreaButton" to="/tests">Avaliações</Link>
-                <Link className="navigationAreaButton" to="/grades">Notas</Link>
             </nav>
         </>
     );

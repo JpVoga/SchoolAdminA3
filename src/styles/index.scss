@@ -55,6 +55,26 @@ $normalYellow: #a5a500;
     }
 }
 
+.dataFormButton {
+    @include coloredInteractable($normalYellow);
+
+    margin: 5px;
+
+    border: none;
+    border-radius: 5px;
+}
+
+.dataFormInput {
+    @include noOutline();
+
+    min-height: 25px;
+
+    border: none;
+    border-radius: 5px;
+
+    box-shadow: 1px 1px 5px black;
+}
+
 #pageHeader {
     display: flex;
     justify-content: center;

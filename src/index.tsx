@@ -3,7 +3,7 @@ import {createRoot} from "react-dom/client";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {HomePage, StudentsPage, TestsPage, GradesPage} from "./pages";
 import {globalContext} from "./util";
-import {StudentDataForm} from "./components";
+import {GradeDataForm} from "./components";
 
 
 // The root component of the front-end application
@@ -12,10 +12,10 @@ function App(): JSX.Element {
 
     useEffect(() => {
         setPopUpBox(
-            <StudentDataForm
-                confirmAction={s => console.log(`Confirmed student ${s.firstName} ${s.lastName}`)}
-                cancelAction={() => console.log("Canceled student")}
-                confirmActionButtonText="Salvar Aluno"
+            <GradeDataForm
+                confirmAction={g => console.log(`Confirmed grade ${g.grade} for student ${g.studentId} in test ${g.testId}`)}
+                cancelAction={() => console.log("Canceled grade")}
+                confirmActionButtonText="Salvar Nota"
                 cancelActionButtonText="Cancelar"
             />
         );

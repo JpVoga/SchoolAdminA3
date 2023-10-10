@@ -11,6 +11,11 @@ export class Grade implements IGradeData {
     private _studentId: number = 0;
     private _testId: number = 0;
 
+    static fromData(data: IGradeData): Grade {
+        if (!data.id) throw new Error("Id is required");
+        return new Grade(data.id, data.grade, data.studentId, data.testId);
+    }
+
     constructor(id: number, grade: number | null | undefined, studentId: number, testId: number) {
         this._id = Math.floor(id);
         this.grade = grade;

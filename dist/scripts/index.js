@@ -4091,6 +4091,91 @@ function getDoneFetcher(data) {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/gradeDataForm.scss":
+/*!********************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/gradeDataForm.scss ***!
+  \********************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `#popUpContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.4980392157);
+}
+#popUpContainer #popUpBox {
+  width: 50%;
+  height: 35%;
+  border-radius: 25px;
+  background-color: white;
+}
+
+.dataFormButton {
+  background-color: #a5a500;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+}
+.dataFormButton:hover {
+  background-color: #ffff26;
+}
+.dataFormButton:active, .dataFormButton:is(input:focus), .dataFormButton:has(:active), .dataFormButton:has(input:focus) {
+  background-color: #ffffa5;
+}
+
+.dataFormInput {
+  outline-width: 0px;
+  min-height: 25px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px black;
+}
+
+#pageHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: 750;
+}
+
+.gradeDataForm {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.gradeDataForm .gradeDataFormInputsArea > div {
+  min-width: 100px;
+  margin: 5px;
+  text-align: right;
+}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/gradeDataForm.scss"],"names":[],"mappings":"AAkCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,kBAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACnCJ;ADqCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACrCR;;ADyCA;EAtDI,yBAHW;EA4DX,WAAA;EAEA,YAAA;EACA,kBAAA;ACxCJ;ADlBI;EAEQ,yBAAA;ACmBZ;ADZI;EAEQ,yBAAA;ACaZ;;ADqCA;EAnCI,kBAAA;EAsCA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACrCJ;;ADwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACtCJ;;AA3CA;EACI,aAAA;EACA,wBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,YAAA;AA6CJ;AA1CQ;EACI,gBAAA;EAEA,WAAA;EAEA,iBAAA;AA0CZ","sourcesContent":["$normalYellow: #a5a500;\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: absolute;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}","@use \"./index.scss\" as global;\r\n\r\n.gradeDataForm {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n\r\n    .gradeDataFormInputsArea {\r\n        & > div {\r\n            min-width: 100px;\r\n\r\n            margin: 5px;\r\n\r\n            text-align: right;\r\n        }\r\n    }\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/homePage.scss":
 /*!***************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/homePage.scss ***!
@@ -4128,6 +4213,27 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#popUpContainer {
   background-color: white;
 }
 
+.dataFormButton {
+  background-color: #a5a500;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+}
+.dataFormButton:hover {
+  background-color: #ffff26;
+}
+.dataFormButton:active, .dataFormButton:is(input:focus), .dataFormButton:has(:active), .dataFormButton:has(input:focus) {
+  background-color: #ffffa5;
+}
+
+.dataFormInput {
+  outline-width: 0px;
+  min-height: 25px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px black;
+}
+
 #pageHeader {
   display: flex;
   justify-content: center;
@@ -4155,7 +4261,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#popUpContainer {
 }
 #navigationArea .navigationAreaButton:active, #navigationArea .navigationAreaButton:is(input:focus), #navigationArea .navigationAreaButton:has(:active), #navigationArea .navigationAreaButton:has(input:focus) {
   background-color: #ffffa5;
-}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/homePage.scss"],"names":[],"mappings":"AAkCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,kBAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACnCJ;ADqCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACrCR;;ADyCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACvCJ;;AAtBA;EACI,aAAA;EACA,wBAAA;AAyBJ;AAvBI;EDHA,yBAHW;EAyBX,YAAA;EACA,qBAAA;EACA,kBAAA;ECjBI,kBAAA;EAEA,WAAA;EAEA,kBAAA;EAEA,gBAAA;AAuBR;ADlCI;EAEQ,yBAAA;ACmCZ;AD5BI;EAEQ,yBAAA;AC6BZ","sourcesContent":["$normalYellow: #a5a500;\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: absolute;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}","@use \"./index.scss\" as global;\r\n\r\n#navigationArea {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n\r\n    .navigationAreaButton {\r\n        @include global.coloredInteractable(global.$normalYellow);\r\n        @include global.noDecorationLink;\r\n\r\n        border-radius: 5px;\r\n\r\n        margin: 5px;\r\n\r\n        text-align: center;\r\n\r\n        transition: 0.5s;\r\n    }\r\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/homePage.scss"],"names":[],"mappings":"AAkCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,kBAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACnCJ;ADqCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACrCR;;ADyCA;EAtDI,yBAHW;EA4DX,WAAA;EAEA,YAAA;EACA,kBAAA;ACxCJ;ADlBI;EAEQ,yBAAA;ACmBZ;ADZI;EAEQ,yBAAA;ACaZ;;ADqCA;EAnCI,kBAAA;EAsCA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACrCJ;;ADwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACtCJ;;AA3CA;EACI,aAAA;EACA,wBAAA;AA8CJ;AA5CI;EDHA,yBAHW;EAyBX,YAAA;EACA,qBAAA;EACA,kBAAA;ECjBI,kBAAA;EAEA,WAAA;EAEA,kBAAA;EAEA,gBAAA;AA4CR;ADvDI;EAEQ,yBAAA;ACwDZ;ADjDI;EAEQ,yBAAA;ACkDZ","sourcesContent":["$normalYellow: #a5a500;\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: absolute;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}","@use \"./index.scss\" as global;\r\n\r\n#navigationArea {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n\r\n    .navigationAreaButton {\r\n        @include global.coloredInteractable(global.$normalYellow);\r\n        @include global.noDecorationLink;\r\n\r\n        border-radius: 5px;\r\n\r\n        margin: 5px;\r\n\r\n        text-align: center;\r\n\r\n        transition: 0.5s;\r\n    }\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4199,6 +4305,27 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#popUpContainer {
   background-color: white;
 }
 
+.dataFormButton {
+  background-color: #a5a500;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+}
+.dataFormButton:hover {
+  background-color: #ffff26;
+}
+.dataFormButton:active, .dataFormButton:is(input:focus), .dataFormButton:has(:active), .dataFormButton:has(input:focus) {
+  background-color: #ffffa5;
+}
+
+.dataFormInput {
+  outline-width: 0px;
+  min-height: 25px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px black;
+}
+
 #pageHeader {
   display: flex;
   justify-content: center;
@@ -4219,19 +4346,87 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#popUpContainer {
   min-width: 100px;
   margin: 5px;
   text-align: right;
+}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/studentDataForm.scss"],"names":[],"mappings":"AAkCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,kBAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACnCJ;ADqCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACrCR;;ADyCA;EAtDI,yBAHW;EA4DX,WAAA;EAEA,YAAA;EACA,kBAAA;ACxCJ;ADlBI;EAEQ,yBAAA;ACmBZ;ADZI;EAEQ,yBAAA;ACaZ;;ADqCA;EAnCI,kBAAA;EAsCA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACrCJ;;ADwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACtCJ;;AA3CA;EACI,aAAA;EACA,wBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,YAAA;AA6CJ;AA1CQ;EACI,gBAAA;EAEA,WAAA;EAEA,iBAAA;AA0CZ","sourcesContent":["$normalYellow: #a5a500;\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: absolute;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}","@use \"./index.scss\" as global;\r\n\r\n.studentDataForm {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n\r\n    .studentDataFormInputsArea {\r\n        & > div {\r\n            min-width: 100px;\r\n\r\n            margin: 5px;\r\n\r\n            text-align: right;\r\n        }\r\n    }\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/testDataForm.scss":
+/*!*******************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/testDataForm.scss ***!
+  \*******************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `#popUpContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.4980392157);
 }
-.studentDataForm .studentDataFormButtonsArea button {
+#popUpContainer #popUpBox {
+  width: 50%;
+  height: 35%;
+  border-radius: 25px;
+  background-color: white;
+}
+
+.dataFormButton {
   background-color: #a5a500;
   margin: 5px;
   border: none;
   border-radius: 5px;
 }
-.studentDataForm .studentDataFormButtonsArea button:hover {
+.dataFormButton:hover {
   background-color: #ffff26;
 }
-.studentDataForm .studentDataFormButtonsArea button:active, .studentDataForm .studentDataFormButtonsArea button:is(input:focus), .studentDataForm .studentDataFormButtonsArea button:has(:active), .studentDataForm .studentDataFormButtonsArea button:has(input:focus) {
+.dataFormButton:active, .dataFormButton:is(input:focus), .dataFormButton:has(:active), .dataFormButton:has(input:focus) {
   background-color: #ffffa5;
-}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/studentDataForm.scss"],"names":[],"mappings":"AAkCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,kBAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACnCJ;ADqCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACrCR;;ADyCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACvCJ;;AAtBA;EACI,aAAA;EACA,wBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,YAAA;AAwBJ;AArBQ;EACI,gBAAA;EAEA,WAAA;EAEA,iBAAA;AAqBZ;AAhBQ;EDnBJ,yBAHW;ECyBH,WAAA;EAEA,YAAA;EAEA,kBAAA;AAeZ;ADvCI;EAEQ,yBAAA;ACwCZ;ADjCI;EAEQ,yBAAA;ACkCZ","sourcesContent":["$normalYellow: #a5a500;\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: absolute;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}","@use \"./index.scss\" as global;\r\n\r\n.studentDataForm {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n\r\n    .studentDataFormInputsArea {\r\n        & > div {\r\n            min-width: 100px;\r\n\r\n            margin: 5px;\r\n\r\n            text-align: right;\r\n        }\r\n    }\r\n\r\n    .studentDataFormButtonsArea {\r\n        button {\r\n            @include global.coloredInteractable(global.$normalYellow);\r\n\r\n            margin: 5px;\r\n\r\n            border: none;\r\n\r\n            border-radius: 5px;\r\n        }\r\n    }\r\n}"],"sourceRoot":""}]);
+}
+
+.dataFormInput {
+  outline-width: 0px;
+  min-height: 25px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px black;
+}
+
+#pageHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: 750;
+}
+
+.testDataForm {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/testDataForm.scss"],"names":[],"mappings":"AAkCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,kBAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACnCJ;ADqCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACrCR;;ADyCA;EAtDI,yBAHW;EA4DX,WAAA;EAEA,YAAA;EACA,kBAAA;ACxCJ;ADlBI;EAEQ,yBAAA;ACmBZ;ADZI;EAEQ,yBAAA;ACaZ;;ADqCA;EAnCI,kBAAA;EAsCA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACrCJ;;ADwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACtCJ;;AA3CA;EACI,aAAA;EACA,wBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,YAAA;AA6CJ","sourcesContent":["$normalYellow: #a5a500;\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: absolute;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}","@use \"./index.scss\" as global;\r\n\r\n.testDataForm {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -40317,6 +40512,60 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./src/styles/gradeDataForm.scss":
+/*!***************************************!*\
+  !*** ./src/styles/gradeDataForm.scss ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_gradeDataForm_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./gradeDataForm.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/gradeDataForm.scss");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_gradeDataForm_scss__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_gradeDataForm_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_gradeDataForm_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_gradeDataForm_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/styles/homePage.scss":
 /*!**********************************!*\
   !*** ./src/styles/homePage.scss ***!
@@ -40421,6 +40670,60 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_studentDataForm_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_studentDataForm_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_studentDataForm_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/styles/testDataForm.scss":
+/*!**************************************!*\
+  !*** ./src/styles/testDataForm.scss ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_testDataForm_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./testDataForm.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/testDataForm.scss");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_testDataForm_scss__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_testDataForm_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_testDataForm_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_testDataForm_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -40692,6 +40995,67 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/components/GradeDataForm.tsx":
+/*!******************************************!*\
+  !*** ./src/components/GradeDataForm.tsx ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   GradeDataForm: () => (/* binding */ GradeDataForm),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _styles_gradeDataForm_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/gradeDataForm.scss */ "./src/styles/gradeDataForm.scss");
+
+
+function GradeDataForm(props) {
+    const gradeInputId = (0,react__WEBPACK_IMPORTED_MODULE_0__.useId)();
+    const studentSelectId = (0,react__WEBPACK_IMPORTED_MODULE_0__.useId)();
+    const testSelectId = (0,react__WEBPACK_IMPORTED_MODULE_0__.useId)();
+    const gradeInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+    const studentSelectRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+    const testSelectRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+    function onSubmit(e) {
+        var _a, _b, _c, _d;
+        e.preventDefault();
+        let grade;
+        if (isNaN(parseFloat((_b = (_a = gradeInputRef === null || gradeInputRef === void 0 ? void 0 : gradeInputRef.current) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : ""))) {
+            grade = undefined;
+        }
+        else
+            grade = parseFloat((_d = (_c = gradeInputRef === null || gradeInputRef === void 0 ? void 0 : gradeInputRef.current) === null || _c === void 0 ? void 0 : _c.value) !== null && _d !== void 0 ? _d : "0");
+        props.confirmAction({ grade, studentId: 0, testId: 0 }); // TODO: Put in student and test ids!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        console.log(grade);
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", { className: "gradeDataForm", onSubmit: onSubmit },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "gradeDataFormInputsArea" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: gradeInputId }, "Nota: "),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { id: gradeInputId, className: "dataFormInput", type: "number", min: 0, max: 10, step: 0.01, ref: gradeInputRef })),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: studentSelectId }, "Aluno: "),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", { id: studentSelectId, className: "dataFormInput", ref: studentSelectRef },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { value: "A" }, "Placeholder"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { value: "B" }, "Placeholder"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { value: "C" }, "Placeholder"))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: testSelectId }, "Avalia\u00E7\u00E3o: "),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", { id: testSelectId, className: "dataFormInput", ref: testSelectRef },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { value: "A" }, "Placeholder"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { value: "B" }, "Placeholder"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { value: "C" }, "Placeholder")))),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "gradeDataFormButtonsArea" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "dataFormButton", type: "submit" }, props.confirmActionButtonText),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "dataFormButton", type: "button", onClick: props.cancelAction }, props.cancelActionButtonText))));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GradeDataForm);
+
+
+/***/ }),
+
 /***/ "./src/components/StudentDataForm.tsx":
 /*!********************************************!*\
   !*** ./src/components/StudentDataForm.tsx ***!
@@ -40722,15 +41086,53 @@ function StudentDataForm(props) {
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "studentDataFormInputsArea" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: studentFirstNameInputId }, "Nome: "),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { id: studentFirstNameInputId, type: "text", ref: studentFirstNameInputRef })),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { className: "dataFormInput", id: studentFirstNameInputId, type: "text", ref: studentFirstNameInputRef })),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: studentLastNameInputId }, "Sobrenome: "),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { id: studentLastNameInputId, type: "text", ref: studentLastNameInputRef }))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { className: "dataFormInput", id: studentLastNameInputId, type: "text", ref: studentLastNameInputRef }))),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "studentDataFormButtonsArea" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "submit" }, props.confirmActionButtonText),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "button", onClick: props.cancelAction }, props.cancelActionButtonText))));
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "dataFormButton", type: "submit" }, props.confirmActionButtonText),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "dataFormButton", type: "button", onClick: props.cancelAction }, props.cancelActionButtonText))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StudentDataForm);
+
+
+/***/ }),
+
+/***/ "./src/components/TestDataForm.tsx":
+/*!*****************************************!*\
+  !*** ./src/components/TestDataForm.tsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   TestDataForm: () => (/* binding */ TestDataForm),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _styles_testDataForm_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/testDataForm.scss */ "./src/styles/testDataForm.scss");
+
+
+function TestDataForm(props) {
+    const testNameInputId = (0,react__WEBPACK_IMPORTED_MODULE_0__.useId)();
+    const testNameInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+    function onSubmit(e) {
+        var _a, _b;
+        e.preventDefault();
+        props.confirmAction({ name: (_b = (_a = testNameInputRef === null || testNameInputRef === void 0 ? void 0 : testNameInputRef.current) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : "" });
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", { className: "testDataForm", onSubmit: onSubmit },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "testDataFormInputsArea" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: testNameInputId }, "Nome: "),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { className: "dataFormInput", type: "text", ref: testNameInputRef }))),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "testDataFormButtonsArea" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "submit", className: "dataFormButton" }, props.confirmActionButtonText),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "button", className: "dataFormButton", onClick: props.cancelAction }, props.cancelActionButtonText))));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TestDataForm);
 
 
 /***/ }),
@@ -40743,9 +41145,15 @@ function StudentDataForm(props) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   StudentDataForm: () => (/* reexport safe */ _StudentDataForm__WEBPACK_IMPORTED_MODULE_0__.StudentDataForm)
+/* harmony export */   GradeDataForm: () => (/* reexport safe */ _GradeDataForm__WEBPACK_IMPORTED_MODULE_2__.GradeDataForm),
+/* harmony export */   StudentDataForm: () => (/* reexport safe */ _StudentDataForm__WEBPACK_IMPORTED_MODULE_0__.StudentDataForm),
+/* harmony export */   TestDataForm: () => (/* reexport safe */ _TestDataForm__WEBPACK_IMPORTED_MODULE_1__.TestDataForm)
 /* harmony export */ });
 /* harmony import */ var _StudentDataForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StudentDataForm */ "./src/components/StudentDataForm.tsx");
+/* harmony import */ var _TestDataForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TestDataForm */ "./src/components/TestDataForm.tsx");
+/* harmony import */ var _GradeDataForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GradeDataForm */ "./src/components/GradeDataForm.tsx");
+
+
 
 
 
@@ -41158,7 +41566,7 @@ __webpack_require__.r(__webpack_exports__);
 function App() {
     const [popUpBox, setPopUpBox] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        setPopUpBox(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_4__.StudentDataForm, { confirmAction: s => console.log(`Confirmed student ${s.firstName} ${s.lastName}`), cancelAction: () => console.log("Canceled student"), confirmActionButtonText: "Salvar Aluno", cancelActionButtonText: "Cancelar" }));
+        setPopUpBox(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_4__.GradeDataForm, { confirmAction: g => console.log(`Confirmed grade ${g.grade} for student ${g.studentId} in test ${g.testId}`), cancelAction: () => console.log("Canceled grade"), confirmActionButtonText: "Salvar Nota", cancelActionButtonText: "Cancelar" }));
     }, []);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_util__WEBPACK_IMPORTED_MODULE_3__.globalContext.Provider, { value: { popUpBox, setPopUpBox } },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.BrowserRouter, { basename: "/" },

@@ -25,18 +25,18 @@ export function StudentDataForm(props: StudentDataFormProps): JSX.Element {
             <div className="studentDataFormInputsArea">
                 <div>
                     <label htmlFor={studentFirstNameInputId}>Nome: </label>
-                    <input id={studentFirstNameInputId} type="text" ref={studentFirstNameInputRef} />
+                    <input className="dataFormInput" id={studentFirstNameInputId} type="text" ref={studentFirstNameInputRef} />
                 </div>
 
                 <div>
                     <label htmlFor={studentLastNameInputId}>Sobrenome: </label>
-                    <input id={studentLastNameInputId} type="text" ref={studentLastNameInputRef} />
+                    <input className="dataFormInput" id={studentLastNameInputId} type="text" ref={studentLastNameInputRef} />
                 </div>
             </div>
 
             <div className="studentDataFormButtonsArea">
-                <button type="submit">{props.confirmActionButtonText}</button>
-                <button type="button" onClick={props.cancelAction}>{props.cancelActionButtonText}</button>
+                <button className="dataFormButton" type="submit">{props.confirmActionButtonText}</button>
+                <button className="dataFormButton" type="button" onClick={props.cancelAction}>{props.cancelActionButtonText}</button>
             </div>
         </form>
     );

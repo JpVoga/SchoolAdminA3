@@ -39,7 +39,7 @@ CREATE TABLE grade(
     test_id INT NOT NULL,
     
     CONSTRAINT grade_pk PRIMARY KEY(id),
-    CONSTRAINT grade_is_within_range_check CHECK(grade >= 0.0 AND grade <= 10.0),
+    CONSTRAINT grade_is_within_range_check CHECK((grade >= 0.0 AND grade <= 10.0) OR (grade IS NULL)),
     CONSTRAINT grade_student_fk FOREIGN KEY(student_id) REFERENCES student(id),
     CONSTRAINT grade_test_fk FOREIGN KEY(test_id) REFERENCES test(id)
 );

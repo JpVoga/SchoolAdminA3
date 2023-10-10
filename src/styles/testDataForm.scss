@@ -1,6 +1,6 @@
 @use "./index.scss" as global;
 
-.studentDataForm {
+.testDataForm {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
@@ -8,14 +8,4 @@
 
     width: 100%;
     height: 100%;
-
-    .studentDataFormInputsArea {
-        & > div {
-            min-width: 100px;
-
-            margin: 5px;
-
-            text-align: right;
-        }
-    }
 }

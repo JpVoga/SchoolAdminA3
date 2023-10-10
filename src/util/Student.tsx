@@ -11,6 +11,11 @@ export class Student implements IStudentData {
     private _firstName: string = "";
     private _lastName: string = "";
 
+    static fromData(data: IStudentData): Student {
+        if (!data.id) throw new Error("Id is required");
+        return new Student(data.id, data.firstName, data.lastName);
+    }
+
     constructor(id: number, firstName: string, lastName: string) {
         this._id = Math.floor(id);
         this.firstName = firstName;

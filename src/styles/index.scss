@@ -36,12 +36,16 @@ $normalRed: rgb(165, 0, 0);
     outline-width: 0px;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 #popUpContainer {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    position: absolute;
+    position: fixed;
     top: 0px;
     bottom: 0px;
     left: 0px;

@@ -1,0 +1,50 @@
+@use "./index.scss" as global;
+
+#addStudentArea {
+    margin: 5px;
+
+    #addStudentButton {
+        @include global.coloredInteractable(global.$normalGreen);
+
+        border: none;
+        border-radius: 5px;
+    }
+}
+
+#studentsList {
+    list-style: none;
+
+    .studentListItem {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+
+        width: 100%;
+        min-height: 100px;
+
+        border: 2px solid black;
+
+        margin: 5px;
+
+        .studentDetailsText {
+            width: 50%;
+
+            font-weight: 750;
+        }
+
+        .editStudentButton {
+            @include global.coloredInteractable(global.$normalYellow);
+
+            border: none;
+            border-radius: 5px;
+        }
+
+        .excludeStudentButton {
+            @include global.coloredInteractable(global.$normalRed);
+
+            border: none;
+            border-radius: 5px;
+        }
+    }
+}

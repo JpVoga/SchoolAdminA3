@@ -1,0 +1,24 @@
+@use "./index.scss" as global;
+
+.pageNavArea {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+
+    .pageNavLink {
+        @include global.noDecorationLink();
+        @include global.coloredInteractable(global.$normalYellow);
+
+        display: inline-block;
+
+        min-width: 25px;
+        min-height: 25px;
+        line-height: 25px;
+
+        border: 1px solid black;
+        border-radius: 5px;
+
+        margin: 5px;
+
+        text-align: center;
+    }
+}

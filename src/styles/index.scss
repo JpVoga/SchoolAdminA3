@@ -1,4 +1,6 @@
 $normalYellow: #a5a500;
+$normalGreen: #05a500;
+$normalRed: rgb(165, 0, 0);
 
 @mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {
     background-color: $normalColor;
@@ -20,6 +22,8 @@ $normalYellow: #a5a500;
             background-color: $activeColor;
         }
     }
+
+    transition: 0.25s;
 }
 
 @mixin noDecorationLink() {
@@ -82,4 +86,13 @@ $normalYellow: #a5a500;
 
     font-size: 2.5rem;
     font-weight: 750;
+}
+
+.errorMessage {
+    color: red;
+    font-family: "consolas", monospace;
+}
+
+.loadingMessage {
+    font-family: "consolas", monospace;
 }

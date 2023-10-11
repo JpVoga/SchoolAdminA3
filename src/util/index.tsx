@@ -16,3 +16,7 @@ export function assertNameIsInLength(name: string): void {
         throw new Error(`Name must be at least 1 character long and at most ${nameMaxLength} characters long.`);
     }
 }
+
+export function isError(x: any): x is Error {
+    return ((x != null) && (typeof x.name === "string") && (typeof x.message === "string"));
+}

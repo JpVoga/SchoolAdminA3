@@ -6,7 +6,10 @@ export type GlobalContext = {
     setPopUpBox: Dispatch<SetStateAction<ReactNode>>,
 
     students: Student[] | Error | null,
-    setStudents: Dispatch<SetStateAction<Student[] | Error | null>>
+    setStudents: Dispatch<SetStateAction<Student[] | Error | null>>,
+
+    tests: Test[] | Error | null,
+    setTests: Dispatch<SetStateAction<Test[] | Error | null>>
 };
 
 export const globalContext = createContext<GlobalContext>(null!);

@@ -1,12 +1,12 @@
-import React, {JSX, useContext, useEffect} from "react";
-import {Student, getCurrentPageNumber, globalContext, isError} from "../util";
+import React, {JSX, useContext, useEffect, useMemo} from "react";
+import {Student, filterForPage, getCurrentPageNumber, globalContext, isError, itemsPerPage} from "../util";
 import {ConfirmDialog, PageNavArea, StudentDataForm} from "../components";
 import "../styles/studentsPage.scss";
 
 
 export function StudentsPage(): JSX.Element {
     const {students, setStudents, setPopUpBox} = useContext(globalContext);
-    const studentsPerPage = 10;
+    const studentCount = useMemo(() => (Array.isArray(students))? students.length:0, [students]);
 
 
     function onAddStudentButtonClicked(): void {
@@ -16,7 +16,7 @@ export function StudentsPage(): JSX.Element {
                 cancelActionButtonText="Cancelar"
                 confirmAction={({firstName, lastName}) => {
                     if (Array.isArray(students)) {
-                        students.push(new Student(0, firstName, lastName)); // TODO: Change id to pull from DB!!!!!!!!!!
+                        setStudents(students.concat([(new Student(0, firstName, lastName))])); // TODO: Change id to pull from DB!!!!!!!!!!
                     }
 
                     setPopUpBox(null);
@@ -61,15 +61,14 @@ export function StudentsPage(): JSX.Element {
 
             <div id="addStudentArea"><button id="addStudentButton" onClick={onAddStudentButtonClicked}>+ Novo Aluno</button></div>
 
-            {(Array.isArray(students)) && (<PageNavArea pageCount={students.length / studentsPerPage} />)}
+            <PageNavArea pageCount={studentCount / itemsPerPage} />
 
             {
                 (() => {
                     if (isError(students)) return <span className="errorMessage">{students.message}</span>;
                     else if (students === null) return <span className="loadingMessage">Carregando...</span>;
                     else {
-                        const pageStudents: Student[] =
-                            students.filter((value, index) => ((index >= ((getCurrentPageNumber() - 1) * studentsPerPage)) && (index < (getCurrentPageNumber() * studentsPerPage))));
+                        const pageStudents: Student[] = filterForPage(students);
 
                             return (
                                 <ul id="studentsList">{
@@ -86,7 +85,7 @@ export function StudentsPage(): JSX.Element {
                 })()
             }
 
-            {(Array.isArray(students)) && (<PageNavArea pageCount={students.length / studentsPerPage} />)}
+            <PageNavArea pageCount={studentCount / itemsPerPage} />
         </>
     );
 }

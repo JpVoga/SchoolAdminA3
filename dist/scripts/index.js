@@ -41893,11 +41893,11 @@ __webpack_require__.r(__webpack_exports__);
 
 function StudentsPage() {
     const { students, setStudents, setPopUpBox } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_util__WEBPACK_IMPORTED_MODULE_1__.globalContext);
-    const studentsPerPage = 10;
+    const studentCount = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => (Array.isArray(students)) ? students.length : 0, [students]);
     function onAddStudentButtonClicked() {
         setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.StudentDataForm, { confirmActionButtonText: "Criar Aluno", cancelActionButtonText: "Cancelar", confirmAction: ({ firstName, lastName }) => {
                 if (Array.isArray(students)) {
-                    students.push(new _util__WEBPACK_IMPORTED_MODULE_1__.Student(0, firstName, lastName)); // TODO: Change id to pull from DB!!!!!!!!!!
+                    setStudents(students.concat([(new _util__WEBPACK_IMPORTED_MODULE_1__.Student(0, firstName, lastName))])); // TODO: Change id to pull from DB!!!!!!!!!!
                 }
                 setPopUpBox(null);
             }, cancelAction: () => setPopUpBox(null) })));
@@ -41921,14 +41921,14 @@ function StudentsPage() {
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Alunos:")),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "addStudentArea" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { id: "addStudentButton", onClick: onAddStudentButtonClicked }, "+ Novo Aluno")),
-        (Array.isArray(students)) && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.PageNavArea, { pageCount: students.length / studentsPerPage })),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.PageNavArea, { pageCount: studentCount / _util__WEBPACK_IMPORTED_MODULE_1__.itemsPerPage }),
         (() => {
             if ((0,_util__WEBPACK_IMPORTED_MODULE_1__.isError)(students))
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "errorMessage" }, students.message);
             else if (students === null)
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "loadingMessage" }, "Carregando...");
             else {
-                const pageStudents = students.filter((value, index) => ((index >= (((0,_util__WEBPACK_IMPORTED_MODULE_1__.getCurrentPageNumber)() - 1) * studentsPerPage)) && (index < ((0,_util__WEBPACK_IMPORTED_MODULE_1__.getCurrentPageNumber)() * studentsPerPage))));
+                const pageStudents = (0,_util__WEBPACK_IMPORTED_MODULE_1__.filterForPage)(students);
                 return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { id: "studentsList" }, pageStudents.map(student => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { className: "studentListItem", key: student.id },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "studentDetailsText" },
                         "(",
@@ -41941,7 +41941,7 @@ function StudentsPage() {
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "excludeStudentButton", onClick: () => onExcludeStudentButtonClicked(student) }, "Excluir Aluno"))))));
             }
         })(),
-        (Array.isArray(students)) && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.PageNavArea, { pageCount: students.length / studentsPerPage }))));
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.PageNavArea, { pageCount: studentCount / _util__WEBPACK_IMPORTED_MODULE_1__.itemsPerPage })));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StudentsPage);
 
@@ -41961,9 +41961,58 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./src/util/index.tsx");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components */ "./src/components/index.tsx");
+
+
 
 function TestsPage() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Tests");
+    const { tests, setTests, setPopUpBox } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_util__WEBPACK_IMPORTED_MODULE_1__.globalContext);
+    const testCount = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => Array.isArray(tests) ? tests.length : 0, [tests]);
+    function onAddTestButtonClicked() {
+        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.TestDataForm, { confirmActionButtonText: "Criar Avalia\u00E7\u00E3o", cancelActionButtonText: "Cancelar", confirmAction: ({ name }) => {
+                if (Array.isArray(tests))
+                    setTests(tests.concat([new _util__WEBPACK_IMPORTED_MODULE_1__.Test(0, name)])); // TODO: Change ID to pull from database!!!!!
+                setPopUpBox(null);
+            }, cancelAction: () => setPopUpBox(null) })));
+    }
+    function onEditTestButtonClicked(test) {
+        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.TestDataForm, { confirmActionButtonText: "Salvar Altera\u00E7\u00F5es", cancelActionButtonText: "Cancelar", confirmAction: ({ name }) => {
+                test.name = name;
+                setPopUpBox(null);
+            }, cancelAction: () => setPopUpBox(null) })));
+    }
+    function onExcludeTestButtonClicked(test) {
+        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.ConfirmDialog, { mainText: `Tem certeza que deseja descartar a avaliação ${test.name}?`, confirmAction: () => {
+                if (Array.isArray(tests))
+                    setTests(tests.filter(t => t.id != test.id));
+                setPopUpBox(null);
+            }, cancelAction: () => setPopUpBox(null) })));
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", { id: "pageHeader" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Avalia\u00E7\u00F5es: ")),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "addTestArea" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { id: "addTestButton", onClick: onAddTestButtonClicked }, "+ Nova Avalia\u00E7\u00E3o")),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.PageNavArea, { pageCount: testCount / _util__WEBPACK_IMPORTED_MODULE_1__.itemsPerPage }),
+        (() => {
+            if ((0,_util__WEBPACK_IMPORTED_MODULE_1__.isError)(tests))
+                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "errorMessage" }, tests.message);
+            else if (tests === null)
+                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "loadingMessage" }, "Carregando...");
+            else {
+                const pageTests = (0,_util__WEBPACK_IMPORTED_MODULE_1__.filterForPage)(tests);
+                return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "testsList" }, pageTests.map(test => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { className: "testsListItem", key: test.id },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "testDetailsText" },
+                        "(",
+                        test.id,
+                        ") ",
+                        test.name),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "editTestButton", onClick: () => onEditTestButtonClicked(test) }, "Editar Avalia\u00E7\u00E3o"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "excludeTestButton", onClick: () => onExcludeTestButtonClicked(test) }, "Excluir Avalia\u00E7\u00E3o"))))));
+            }
+        })(),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.PageNavArea, { pageCount: testCount / _util__WEBPACK_IMPORTED_MODULE_1__.itemsPerPage })));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TestsPage);
 
@@ -42156,9 +42205,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Student: () => (/* reexport safe */ _Student__WEBPACK_IMPORTED_MODULE_0__.Student),
 /* harmony export */   Test: () => (/* reexport safe */ _Test__WEBPACK_IMPORTED_MODULE_1__.Test),
 /* harmony export */   assertNameIsInLength: () => (/* binding */ assertNameIsInLength),
+/* harmony export */   filterForPage: () => (/* binding */ filterForPage),
 /* harmony export */   getCurrentPageNumber: () => (/* binding */ getCurrentPageNumber),
 /* harmony export */   globalContext: () => (/* reexport safe */ _globalContext__WEBPACK_IMPORTED_MODULE_3__.globalContext),
 /* harmony export */   isError: () => (/* binding */ isError),
+/* harmony export */   itemsPerPage: () => (/* binding */ itemsPerPage),
 /* harmony export */   nameMaxLength: () => (/* binding */ nameMaxLength)
 /* harmony export */ });
 /* harmony import */ var _Student__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Student */ "./src/util/Student.tsx");
@@ -42170,6 +42221,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const nameMaxLength = 50;
+const itemsPerPage = 10;
 function getCurrentPageNumber() {
     var _a;
     let pageNumber = parseInt((_a = ((new URL(document.URL)).searchParams.get("page"))) !== null && _a !== void 0 ? _a : "1");
@@ -42184,6 +42236,10 @@ function assertNameIsInLength(name) {
 }
 function isError(x) {
     return ((x != null) && (typeof x.name === "string") && (typeof x.message === "string"));
+}
+function filterForPage(array) {
+    return array.filter((value, index) => ((index >= ((getCurrentPageNumber() - 1) * itemsPerPage)) && (index < (getCurrentPageNumber() * itemsPerPage))));
+    ;
 }
 
 
@@ -42297,9 +42353,12 @@ __webpack_require__.r(__webpack_exports__);
 function App() {
     const [popUpBox, setPopUpBox] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
     const [students, setStudents] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+    const [tests, setTests] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         const studentUrl = "/json/sampleStudents.json"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        const testUrl = "/json/sampleTests.json"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         const possibleError = new Error("Erro ao conectar-se com o banco de dados");
+        // Fetch students
         fetch(studentUrl)
             .then(response => {
             response.json()
@@ -42313,8 +42372,22 @@ function App() {
                 .catch(() => setStudents(possibleError));
         })
             .catch(() => setStudents(possibleError));
+        // Fetch tests
+        fetch(testUrl)
+            .then(response => {
+            response.json()
+                .then(data => {
+                const array = [];
+                for (const i of data) {
+                    array.push(_util__WEBPACK_IMPORTED_MODULE_3__.Test.fromData(i));
+                }
+                setTests(array);
+            })
+                .catch(() => setTests(possibleError));
+        })
+            .catch(() => setTests(possibleError));
     }, []);
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_util__WEBPACK_IMPORTED_MODULE_3__.globalContext.Provider, { value: { popUpBox, setPopUpBox, students, setStudents } },
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_util__WEBPACK_IMPORTED_MODULE_3__.globalContext.Provider, { value: { popUpBox, setPopUpBox, students, setStudents, tests, setTests } },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, { basename: "/" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Routes, null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, { path: "/", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages__WEBPACK_IMPORTED_MODULE_2__.HomePage, null) }),

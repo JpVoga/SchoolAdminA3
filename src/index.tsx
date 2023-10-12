@@ -2,18 +2,21 @@ import React, {JSX, StrictMode, useState, ReactNode, useEffect} from "react";
 import {createRoot} from "react-dom/client";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {HomePage, StudentsPage, TestsPage, GradesPage} from "./pages";
-import {IStudentData, Student, globalContext} from "./util";
+import {IStudentData, Student, Test, globalContext} from "./util";
 
 
 // The root component of the front-end application
 function App(): JSX.Element {
     const [popUpBox, setPopUpBox] = useState<ReactNode>(null);
     const [students, setStudents] = useState<Student[] | Error | null>(null);
+    const [tests, setTests] = useState<Test[] | Error | null>(null);
 
     useEffect(() => {
         const studentUrl = "/json/sampleStudents.json"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        const testUrl = "/json/sampleTests.json"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         const possibleError = new Error("Erro ao conectar-se com o banco de dados");
 
+        // Fetch students
         fetch(studentUrl)
             .then(response => {
                 response.json()
@@ -27,11 +30,26 @@ function App(): JSX.Element {
                     .catch(() => setStudents(possibleError));
             })
             .catch(() => setStudents(possibleError));
+
+        // Fetch tests
+        fetch(testUrl)
+            .then(response => {
+                response.json()
+                    .then(data => {
+                        const array: Test[] = [];
+                        for (const i of data) {
+                            array.push(Test.fromData(i));
+                        }
+                        setTests(array);
+                    })
+                    .catch(() => setTests(possibleError));
+            })
+            .catch(() => setTests(possibleError));
     }, []);
 
 
     return (
-        <globalContext.Provider value={{popUpBox, setPopUpBox, students, setStudents}}>
+        <globalContext.Provider value={{popUpBox, setPopUpBox, students, setStudents, tests, setTests}}>
             <BrowserRouter basename="/">
                 <Routes>
                     <Route path="/" element={<HomePage />} />

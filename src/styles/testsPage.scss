@@ -1,9 +1,9 @@
 @use "./index.scss" as global;
 
-#addStudentArea {
+#addTestArea {
     margin: 5px;
 
-    #addStudentButton {
+    #addTestButton {
         @include global.coloredInteractable(global.$normalGreen);
 
         border: none;
@@ -11,12 +11,12 @@
     }
 }
 
-#studentsList {
+#testsList {
     list-style: none;
 
     margin: 0px;
 
-    .studentListItem {
+    .testsListItem {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -29,21 +29,29 @@
 
         margin: 5px;
 
-        .studentDetailsText {
+        .testDetailsText {
             width: 50%;
 
             font-weight: 750;
         }
 
-        .editStudentButton {
+        .editTestButton {
             @include global.coloredInteractable(global.$normalYellow);
 
             border: none;
             border-radius: 5px;
         }
 
-        .excludeStudentButton {
+        .excludeTestButton {
             @include global.coloredInteractable(global.$normalRed);
+
+            border: none;
+            border-radius: 5px;
+        }
+
+        .editTestGradesLink {
+            @include global.coloredInteractable(global.$normalYellow);
+            @include global.noDecorationLink();
 
             border: none;
             border-radius: 5px;

@@ -1,6 +1,7 @@
 import React, {JSX, useContext, useMemo} from "react";
 import {Test, filterForPage, globalContext, isError, itemsPerPage} from "../util";
 import {ConfirmDialog, PageNavArea, TestDataForm} from "../components";
+import "../styles/testsPage.scss";
 
 
 export function TestsPage(): JSX.Element {
@@ -64,12 +65,13 @@ export function TestsPage(): JSX.Element {
                         const pageTests = filterForPage(tests);
 
                         return (
-                            <ul className="testsList">{
+                            <ul id="testsList">{
                                 pageTests.map(test => (
                                     <li className="testsListItem" key={test.id}>
                                         <span className="testDetailsText">({test.id}) {test.name}</span>
                                         <button className="editTestButton" onClick={() => onEditTestButtonClicked(test)}>Editar Avaliação</button>
                                         <button className="excludeTestButton" onClick={() => onExcludeTestButtonClicked(test)}>Excluir Avaliação</button>
+                                        <a className="editTestGradesLink" href={`/grades?page=1&test=${encodeURIComponent(test.id)}`}>Notas</a>
                                     </li>
                                 ))
                             }</ul>

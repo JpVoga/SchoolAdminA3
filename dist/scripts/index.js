@@ -4766,7 +4766,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 }
 #studentsList .studentListItem .excludeStudentButton:active, #studentsList .studentListItem .excludeStudentButton:is(input:focus), #studentsList .studentListItem .excludeStudentButton:has(:active), #studentsList .studentListItem .excludeStudentButton:has(input:focus) {
   background-color: #ffa5a5;
-}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/studentsPage.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;ACrCJ;;ADwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACvCJ;ADyCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACzCR;;AD6CA;EA5DI,yBALW;EAyBX,iBAAA;EA2CA,WAAA;EAEA,YAAA;EACA,kBAAA;AC3CJ;ADrBI;EAEQ,yBAAA;ACsBZ;ADfI;EAEQ,yBAAA;ACgBZ;;ADwCA;EAvCI,kBAAA;EA0CA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACxCJ;;AD2CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACzCJ;;AD4CA;EACI,UAAA;EACA,kCAAA;ACzCJ;;AD4CA;EACI,kCAAA;ACzCJ;;AAzDA;EACI,WAAA;AA4DJ;AA1DI;EDAA,yBAJU;EAwBV,iBAAA;ECjBI,YAAA;EACA,kBAAA;AA4DR;AD9DI;EAEQ,yBAAA;AC+DZ;ADxDI;EAEQ,yBAAA;ACyDZ;;AA9DA;EACI,gBAAA;EACA,WAAA;AAiEJ;AA/DI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;AA8DR;AA5DQ;EACI,UAAA;EAEA,gBAAA;AA6DZ;AA1DQ;ED/BJ,yBALW;EAyBX,iBAAA;ECcQ,YAAA;EACA,kBAAA;AA4DZ;AD7FI;EAEQ,yBAAA;AC8FZ;ADvFI;EAEQ,yBAAA;ACwFZ;AA/DQ;EDtCJ,gCAHQ;EAuBR,iBAAA;ECqBQ,YAAA;EACA,kBAAA;AAiEZ;ADzGI;EAEQ,yBAAA;AC0GZ;ADnGI;EAEQ,yBAAA;ACoGZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}","@use \"./index.scss\" as global;\r\n\r\n#addStudentArea {\r\n    margin: 5px;\r\n\r\n    #addStudentButton {\r\n        @include global.coloredInteractable(global.$normalGreen);\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n    }\r\n}\r\n\r\n#studentsList {\r\n    list-style: none;\r\n    margin: 0px;\r\n\r\n    .studentListItem {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .studentDetailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editStudentButton {\r\n            @include global.coloredInteractable(global.$normalYellow);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n\r\n        .excludeStudentButton {\r\n            @include global.coloredInteractable(global.$normalRed);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n    }\r\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/studentsPage.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;ACrCJ;;ADwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACvCJ;ADyCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACzCR;;AD6CA;EA5DI,yBALW;EAyBX,iBAAA;EA2CA,WAAA;EAEA,YAAA;EACA,kBAAA;AC3CJ;ADrBI;EAEQ,yBAAA;ACsBZ;ADfI;EAEQ,yBAAA;ACgBZ;;ADwCA;EAvCI,kBAAA;EA0CA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACxCJ;;AD2CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACzCJ;;AD4CA;EACI,UAAA;EACA,kCAAA;ACzCJ;;AD4CA;EACI,kCAAA;ACzCJ;;AAzDA;EACI,WAAA;AA4DJ;AA1DI;EDAA,yBAJU;EAwBV,iBAAA;ECjBI,YAAA;EACA,kBAAA;AA4DR;AD9DI;EAEQ,yBAAA;AC+DZ;ADxDI;EAEQ,yBAAA;ACyDZ;;AA9DA;EACI,gBAAA;EAEA,WAAA;AAgEJ;AA9DI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;AA6DR;AA3DQ;EACI,UAAA;EAEA,gBAAA;AA4DZ;AAzDQ;EDhCJ,yBALW;EAyBX,iBAAA;ECeQ,YAAA;EACA,kBAAA;AA2DZ;AD7FI;EAEQ,yBAAA;AC8FZ;ADvFI;EAEQ,yBAAA;ACwFZ;AA9DQ;EDvCJ,gCAHQ;EAuBR,iBAAA;ECsBQ,YAAA;EACA,kBAAA;AAgEZ;ADzGI;EAEQ,yBAAA;AC0GZ;ADnGI;EAEQ,yBAAA;ACoGZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}","@use \"./index.scss\" as global;\r\n\r\n#addStudentArea {\r\n    margin: 5px;\r\n\r\n    #addStudentButton {\r\n        @include global.coloredInteractable(global.$normalGreen);\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n    }\r\n}\r\n\r\n#studentsList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    .studentListItem {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .studentDetailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editStudentButton {\r\n            @include global.coloredInteractable(global.$normalYellow);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n\r\n        .excludeStudentButton {\r\n            @include global.coloredInteractable(global.$normalRed);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n    }\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4861,6 +4861,165 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   width: 100%;
   height: 100%;
 }`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/testDataForm.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;ACrCJ;;ADwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACvCJ;ADyCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACzCR;;AD6CA;EA5DI,yBALW;EAyBX,iBAAA;EA2CA,WAAA;EAEA,YAAA;EACA,kBAAA;AC3CJ;ADrBI;EAEQ,yBAAA;ACsBZ;ADfI;EAEQ,yBAAA;ACgBZ;;ADwCA;EAvCI,kBAAA;EA0CA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACxCJ;;AD2CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACzCJ;;AD4CA;EACI,UAAA;EACA,kCAAA;ACzCJ;;AD4CA;EACI,kCAAA;ACzCJ;;AAzDA;EACI,aAAA;EACA,wBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,YAAA;AA2DJ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}","@use \"./index.scss\" as global;\r\n\r\n.testDataForm {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/testsPage.scss":
+/*!****************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/testsPage.scss ***!
+  \****************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `* {
+  box-sizing: border-box;
+}
+
+#popUpContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.4980392157);
+}
+#popUpContainer #popUpBox {
+  width: 50%;
+  height: 35%;
+  border-radius: 25px;
+  background-color: white;
+}
+
+.dataFormButton {
+  background-color: #a5a500;
+  transition: 0.25s;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+}
+.dataFormButton:hover {
+  background-color: #ffff26;
+}
+.dataFormButton:active, .dataFormButton:is(input:focus), .dataFormButton:has(:active), .dataFormButton:has(input:focus) {
+  background-color: #ffffa5;
+}
+
+.dataFormInput {
+  outline-width: 0px;
+  min-height: 25px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px black;
+}
+
+#pageHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: 750;
+}
+
+.errorMessage {
+  color: red;
+  font-family: "consolas", monospace;
+}
+
+.loadingMessage {
+  font-family: "consolas", monospace;
+}
+
+#addTestArea {
+  margin: 5px;
+}
+#addTestArea #addTestButton {
+  background-color: #05a500;
+  transition: 0.25s;
+  border: none;
+  border-radius: 5px;
+}
+#addTestArea #addTestButton:hover {
+  background-color: #2cff26;
+}
+#addTestArea #addTestButton:active, #addTestArea #addTestButton:is(input:focus), #addTestArea #addTestButton:has(:active), #addTestArea #addTestButton:has(input:focus) {
+  background-color: #a8ffa5;
+}
+
+#testsList {
+  list-style: none;
+  margin: 0px;
+}
+#testsList .testsListItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  min-height: 100px;
+  border: 2px solid black;
+  margin: 5px;
+}
+#testsList .testsListItem .testDetailsText {
+  width: 50%;
+  font-weight: 750;
+}
+#testsList .testsListItem .editTestButton {
+  background-color: #a5a500;
+  transition: 0.25s;
+  border: none;
+  border-radius: 5px;
+}
+#testsList .testsListItem .editTestButton:hover {
+  background-color: #ffff26;
+}
+#testsList .testsListItem .editTestButton:active, #testsList .testsListItem .editTestButton:is(input:focus), #testsList .testsListItem .editTestButton:has(:active), #testsList .testsListItem .editTestButton:has(input:focus) {
+  background-color: #ffffa5;
+}
+#testsList .testsListItem .excludeTestButton {
+  background-color: rgb(165, 0, 0);
+  transition: 0.25s;
+  border: none;
+  border-radius: 5px;
+}
+#testsList .testsListItem .excludeTestButton:hover {
+  background-color: #ff2626;
+}
+#testsList .testsListItem .excludeTestButton:active, #testsList .testsListItem .excludeTestButton:is(input:focus), #testsList .testsListItem .excludeTestButton:has(:active), #testsList .testsListItem .excludeTestButton:has(input:focus) {
+  background-color: #ffa5a5;
+}
+#testsList .testsListItem .editTestGradesLink {
+  background-color: #a5a500;
+  transition: 0.25s;
+  color: black;
+  text-decoration: none;
+  font-style: normal;
+  border: none;
+  border-radius: 5px;
+}
+#testsList .testsListItem .editTestGradesLink:hover {
+  background-color: #ffff26;
+}
+#testsList .testsListItem .editTestGradesLink:active, #testsList .testsListItem .editTestGradesLink:is(input:focus), #testsList .testsListItem .editTestGradesLink:has(:active), #testsList .testsListItem .editTestGradesLink:has(input:focus) {
+  background-color: #ffffa5;
+}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/testsPage.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;ACrCJ;;ADwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACvCJ;ADyCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACzCR;;AD6CA;EA5DI,yBALW;EAyBX,iBAAA;EA2CA,WAAA;EAEA,YAAA;EACA,kBAAA;AC3CJ;ADrBI;EAEQ,yBAAA;ACsBZ;ADfI;EAEQ,yBAAA;ACgBZ;;ADwCA;EAvCI,kBAAA;EA0CA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACxCJ;;AD2CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACzCJ;;AD4CA;EACI,UAAA;EACA,kCAAA;ACzCJ;;AD4CA;EACI,kCAAA;ACzCJ;;AAzDA;EACI,WAAA;AA4DJ;AA1DI;EDAA,yBAJU;EAwBV,iBAAA;ECjBI,YAAA;EACA,kBAAA;AA4DR;AD9DI;EAEQ,yBAAA;AC+DZ;ADxDI;EAEQ,yBAAA;ACyDZ;;AA9DA;EACI,gBAAA;EAEA,WAAA;AAgEJ;AA9DI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;AA6DR;AA3DQ;EACI,UAAA;EAEA,gBAAA;AA4DZ;AAzDQ;EDhCJ,yBALW;EAyBX,iBAAA;ECeQ,YAAA;EACA,kBAAA;AA2DZ;AD7FI;EAEQ,yBAAA;AC8FZ;ADvFI;EAEQ,yBAAA;ACwFZ;AA9DQ;EDvCJ,gCAHQ;EAuBR,iBAAA;ECsBQ,YAAA;EACA,kBAAA;AAgEZ;ADzGI;EAEQ,yBAAA;AC0GZ;ADnGI;EAEQ,yBAAA;ACoGZ;AAnEQ;ED9CJ,yBALW;EAyBX,iBAAA;EAIA,YAAA;EACA,qBAAA;EACA,kBAAA;ECwBQ,YAAA;EACA,kBAAA;AAuEZ;ADxHI;EAEQ,yBAAA;ACyHZ;ADlHI;EAEQ,yBAAA;ACmHZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}","@use \"./index.scss\" as global;\r\n\r\n#addTestArea {\r\n    margin: 5px;\r\n\r\n    #addTestButton {\r\n        @include global.coloredInteractable(global.$normalGreen);\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n    }\r\n}\r\n\r\n#testsList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    .testsListItem {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .testDetailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editTestButton {\r\n            @include global.coloredInteractable(global.$normalYellow);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n\r\n        .excludeTestButton {\r\n            @include global.coloredInteractable(global.$normalRed);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n\r\n        .editTestGradesLink {\r\n            @include global.coloredInteractable(global.$normalYellow);\r\n            @include global.noDecorationLink();\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n    }\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -41324,6 +41483,60 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/styles/testsPage.scss":
+/*!***********************************!*\
+  !*** ./src/styles/testsPage.scss ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_testsPage_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./testsPage.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/testsPage.scss");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_testsPage_scss__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_testsPage_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_testsPage_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_testsPage_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -41963,6 +42176,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./src/util/index.tsx");
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components */ "./src/components/index.tsx");
+/* harmony import */ var _styles_testsPage_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/testsPage.scss */ "./src/styles/testsPage.scss");
+
 
 
 
@@ -42002,14 +42217,15 @@ function TestsPage() {
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "loadingMessage" }, "Carregando...");
             else {
                 const pageTests = (0,_util__WEBPACK_IMPORTED_MODULE_1__.filterForPage)(tests);
-                return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "testsList" }, pageTests.map(test => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { className: "testsListItem", key: test.id },
+                return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { id: "testsList" }, pageTests.map(test => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { className: "testsListItem", key: test.id },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "testDetailsText" },
                         "(",
                         test.id,
                         ") ",
                         test.name),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "editTestButton", onClick: () => onEditTestButtonClicked(test) }, "Editar Avalia\u00E7\u00E3o"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "excludeTestButton", onClick: () => onExcludeTestButtonClicked(test) }, "Excluir Avalia\u00E7\u00E3o"))))));
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "excludeTestButton", onClick: () => onExcludeTestButtonClicked(test) }, "Excluir Avalia\u00E7\u00E3o"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { className: "editTestGradesLink", href: `/grades?page=1&test=${encodeURIComponent(test.id)}` }, "Notas"))))));
             }
         })(),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.PageNavArea, { pageCount: testCount / _util__WEBPACK_IMPORTED_MODULE_1__.itemsPerPage })));

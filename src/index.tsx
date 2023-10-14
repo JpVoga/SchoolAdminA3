@@ -2,7 +2,8 @@ import React, {JSX, StrictMode, useState, ReactNode, useEffect} from "react";
 import {createRoot} from "react-dom/client";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {HomePage, StudentsPage, TestsPage, GradesPage} from "./pages";
-import {IStudentData, Student, Test, globalContext} from "./util";
+import {IStudentData, Student, Test, Grade, globalContext} from "./util";
+import { GradeDataForm } from "./components";
 
 
 // The root component of the front-end application
@@ -10,11 +11,21 @@ function App(): JSX.Element {
     const [popUpBox, setPopUpBox] = useState<ReactNode>(null);
     const [students, setStudents] = useState<Student[] | Error | null>(null);
     const [tests, setTests] = useState<Test[] | Error | null>(null);
+    const [grades, setGrades] = useState<Grade[] | Error | null>([]); // TODO: Pull grades from DB !!!!!!!!!!!!!!!!!!!
 
     useEffect(() => {
         const studentUrl = "/json/sampleStudents.json"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         const testUrl = "/json/sampleTests.json"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         const possibleError = new Error("Erro ao conectar-se com o banco de dados");
+
+        setPopUpBox((
+            <GradeDataForm
+                confirmAction={grade => console.log(grade)}
+                cancelAction={() => console.log("Cancel")}
+                confirmActionButtonText="Confirmar nota"
+                cancelActionButtonText="Cancelar nota"
+            />
+        ));
 
         // Fetch students
         fetch(studentUrl)
@@ -45,11 +56,26 @@ function App(): JSX.Element {
                     .catch(() => setTests(possibleError));
             })
             .catch(() => setTests(possibleError));
+
+        // Fetch grades
+        /*fetch("") // TODO: Change this to actual URL!!!!!!!!!!!!!!!!!!!
+            .then(response => {
+                response.json()
+                    .then(data => {
+                        const array: Grade[] = [];
+                        for (const i of data) {
+                            array.push(Grade.fromData(i));
+                        }
+                        setGrades(array);
+                    })
+                    .catch(() => setGrades(possibleError));
+            })
+            .catch(() => setGrades(possibleError));*/
     }, []);
 
 
     return (
-        <globalContext.Provider value={{popUpBox, setPopUpBox, students, setStudents, tests, setTests}}>
+        <globalContext.Provider value={{popUpBox, setPopUpBox, students, setStudents, tests, setTests, grades, setGrades}}>
             <BrowserRouter basename="/">
                 <Routes>
                     <Route path="/" element={<HomePage />} />

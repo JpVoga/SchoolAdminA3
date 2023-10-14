@@ -59,10 +59,6 @@ export function StudentsPage(): JSX.Element {
         <>
             <header id="pageHeader"><div>Alunos:</div></header>
 
-            <div id="addStudentArea"><button id="addStudentButton" onClick={onAddStudentButtonClicked}>+ Novo Aluno</button></div>
-
-            <PageNavArea pageCount={studentCount / itemsPerPage} />
-
             {
                 (() => {
                     if (isError(students)) return <span className="errorMessage">{students.message}</span>;
@@ -71,21 +67,28 @@ export function StudentsPage(): JSX.Element {
                         const pageStudents: Student[] = filterForPage(students);
 
                             return (
-                                <ul id="studentsList">{
-                                    pageStudents.map(student => (
-                                        <li className="studentListItem" key={student.id}>
-                                            <span className="studentDetailsText">({student.id}) {student.firstName} {student.lastName}</span>
-                                            <button className="editStudentButton" onClick={() => onEditStudentButtonClicked(student)}>Editar Aluno</button>
-                                            <button className="excludeStudentButton" onClick={() => onExcludeStudentButtonClicked(student)}>Excluir Aluno</button>
-                                        </li>
-                                    ))
-                                }</ul>
+                                <>
+                                    <div id="addStudentArea"><button id="addStudentButton" onClick={onAddStudentButtonClicked}>+ Novo Aluno</button></div>
+
+                                    <PageNavArea pageCount={studentCount / itemsPerPage} />
+
+                                    <ul id="studentsList">{
+                                        pageStudents.map(student => (
+                                            <li className="studentListItem" key={student.id}>
+                                                <span className="studentDetailsText">({student.id}) {student.firstName} {student.lastName}</span>
+                                                <button className="editStudentButton" onClick={() => onEditStudentButtonClicked(student)}>Editar Aluno</button>
+                                                <button className="excludeStudentButton" onClick={() => onExcludeStudentButtonClicked(student)}>Excluir Aluno</button>
+                                            </li>
+                                        ))
+                                    }</ul>
+
+                                    <PageNavArea pageCount={studentCount / itemsPerPage} />
+                                </>
+                                
                             );
                     }
                 })()
             }
-
-            <PageNavArea pageCount={studentCount / itemsPerPage} />
         </>
     );
 }

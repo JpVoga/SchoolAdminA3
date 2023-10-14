@@ -9,7 +9,10 @@ export type GlobalContext = {
     setStudents: Dispatch<SetStateAction<Student[] | Error | null>>,
 
     tests: Test[] | Error | null,
-    setTests: Dispatch<SetStateAction<Test[] | Error | null>>
+    setTests: Dispatch<SetStateAction<Test[] | Error | null>>,
+
+    grades: Grade[] | Error | null,
+    setGrades: Dispatch<SetStateAction<Grade[] | Error | null>>
 };
 
 export const globalContext = createContext<GlobalContext>(null!);

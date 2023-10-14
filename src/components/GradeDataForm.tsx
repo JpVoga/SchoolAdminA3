@@ -1,5 +1,5 @@
-import React, {FormEvent, JSX, useId, useRef} from "react";
-import {IGradeData} from "../util";
+import React, {FormEvent, JSX, useId, useRef, useContext} from "react";
+import {IGradeData, globalContext} from "../util";
 import "../styles/gradeDataForm.scss";
 
 
@@ -19,6 +19,8 @@ export function GradeDataForm(props: GradeDataFormProps): JSX.Element {
     const studentSelectRef = useRef<HTMLSelectElement>(null);
     const testSelectRef = useRef<HTMLSelectElement>(null);
 
+    const {students, tests, grades} = useContext(globalContext);
+
     function onSubmit(e: FormEvent): void {
         e.preventDefault();
 
@@ -28,7 +30,11 @@ export function GradeDataForm(props: GradeDataFormProps): JSX.Element {
         }
         else grade = parseFloat(gradeInputRef?.current?.value ?? "0");
 
-        props.confirmAction({grade, studentId: 0, testId: 0}); // TODO: Put in student and test ids!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        const studentId = parseInt((studentSelectRef?.current?.value)!);
+
+        const testId = parseInt((testSelectRef?.current?.value)!);
+
+        props.confirmAction({grade, studentId, testId}); // TODO: Put in student and test ids!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         console.log(grade);
     }
@@ -43,20 +49,24 @@ export function GradeDataForm(props: GradeDataFormProps): JSX.Element {
 
                 <div>
                     <label htmlFor={studentSelectId}>Aluno: </label>
-                    <select id={studentSelectId} className="dataFormInput" ref={studentSelectRef}>
-                        <option value="A">Placeholder</option>
-                        <option value="B">Placeholder</option>
-                        <option value="C">Placeholder</option>
-                    </select>
+                    <select id={studentSelectId} className="dataFormInput" ref={studentSelectRef}>{
+                        (Array.isArray(students)) && (
+                            students.map(student => (
+                                <option key={student.id} value={student.id}>{student.firstName} {student.lastName}</option>
+                            ))
+                        )
+                    }</select>
                 </div>
 
                 <div>
                     <label htmlFor={testSelectId}>Avaliação: </label>
-                    <select id={testSelectId} className="dataFormInput" ref={testSelectRef}>
-                        <option value="A">Placeholder</option>
-                        <option value="B">Placeholder</option>
-                        <option value="C">Placeholder</option>
-                    </select>
+                    <select id={testSelectId} className="dataFormInput" ref={testSelectRef}>{
+                        (Array.isArray(tests)) && (
+                            tests.map(test => (
+                                <option key={test.id} value={test.id}>{test.name}</option>
+                            ))
+                        )
+                    }</select>
                 </div>
             </div>
 

@@ -53,10 +53,6 @@ export function TestsPage(): JSX.Element {
         <>
             <header id="pageHeader"><div>Avaliações: </div></header>
 
-            <div id="addTestArea"><button id="addTestButton" onClick={onAddTestButtonClicked}>+ Nova Avaliação</button></div>
-
-            <PageNavArea pageCount={testCount / itemsPerPage} />
-
             {
                 (() => {
                     if (isError(tests)) return <span className="errorMessage">{tests.message}</span>;
@@ -65,22 +61,28 @@ export function TestsPage(): JSX.Element {
                         const pageTests = filterForPage(tests);
 
                         return (
-                            <ul id="testsList">{
-                                pageTests.map(test => (
-                                    <li className="testsListItem" key={test.id}>
-                                        <span className="testDetailsText">({test.id}) {test.name}</span>
-                                        <button className="editTestButton" onClick={() => onEditTestButtonClicked(test)}>Editar Avaliação</button>
-                                        <button className="excludeTestButton" onClick={() => onExcludeTestButtonClicked(test)}>Excluir Avaliação</button>
-                                        <a className="editTestGradesLink" href={`/grades?page=1&test=${encodeURIComponent(test.id)}`}>Notas</a>
-                                    </li>
-                                ))
-                            }</ul>
+                            <>
+                                <div id="addTestArea"><button id="addTestButton" onClick={onAddTestButtonClicked}>+ Nova Avaliação</button></div>
+
+                                <PageNavArea pageCount={testCount / itemsPerPage} />
+
+                                <ul id="testsList">{
+                                    pageTests.map(test => (
+                                        <li className="testsListItem" key={test.id}>
+                                            <span className="testDetailsText">({test.id}) {test.name}</span>
+                                            <button className="editTestButton" onClick={() => onEditTestButtonClicked(test)}>Editar Avaliação</button>
+                                            <button className="excludeTestButton" onClick={() => onExcludeTestButtonClicked(test)}>Excluir Avaliação</button>
+                                            <a className="editTestGradesLink" href={`/grades?page=1&test=${encodeURIComponent(test.id)}`}>Notas</a>
+                                        </li>
+                                    ))
+                                }</ul>
+
+                                <PageNavArea pageCount={testCount / itemsPerPage} />
+                            </>
                         );
                     }
                 })()
             }
-
-            <PageNavArea pageCount={testCount / itemsPerPage} />
         </>
     );
 }

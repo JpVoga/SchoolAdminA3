@@ -1,4 +1,4 @@
-import {assertNameIsInLength} from ".";
+import {assertNameIsValid} from ".";
 
 export interface IStudentData {
     id?: number;
@@ -27,14 +27,14 @@ export class Student implements IStudentData {
     public get firstName() {return this._firstName;}
 
     public set firstName(firstName: string) {
-        assertNameIsInLength(firstName);
+        assertNameIsValid(firstName);
         this._firstName = firstName;
     }
 
     public get lastName() {return this._lastName;}
 
     public set lastName(lastName: string) {
-        assertNameIsInLength(lastName);
+        assertNameIsValid(lastName);
         this._lastName = lastName;
     }
 }

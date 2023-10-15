@@ -41858,7 +41858,17 @@ function GradeDataForm(props) {
     const gradeInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
     const studentSelectRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
     const testSelectRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+    const [isDataValid, setIsDataValid] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
     const { students, tests, grades } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_util__WEBPACK_IMPORTED_MODULE_1__.globalContext);
+    function updateIsDataValid() {
+        if ((0,_util__WEBPACK_IMPORTED_MODULE_1__.isError)(students) || (0,_util__WEBPACK_IMPORTED_MODULE_1__.isError)(tests) || (!tests) || (!students)) {
+            setIsDataValid(false);
+        }
+        else {
+            setIsDataValid((students.filter(s => { var _a, _b; return s.id === parseInt((_b = (_a = studentSelectRef === null || studentSelectRef === void 0 ? void 0 : studentSelectRef.current) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : ""); }).length > 0) &&
+                (tests.filter(t => { var _a, _b; return t.id === parseInt((_b = (_a = testSelectRef === null || testSelectRef === void 0 ? void 0 : testSelectRef.current) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : ""); }).length > 0));
+        }
+    }
     function onSubmit(e) {
         var _a, _b, _c, _d, _e, _f;
         e.preventDefault();
@@ -41877,18 +41887,25 @@ function GradeDataForm(props) {
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "gradeDataFormInputsArea" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: gradeInputId }, "Nota: "),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { id: gradeInputId, className: "dataFormInput", type: "number", min: 0, max: 10, step: 0.01, ref: gradeInputRef })),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { id: gradeInputId, className: "dataFormInput", type: "number", min: 0, max: 10, step: 0.01, ref: gradeInputRef, defaultValue: props.gradeInitialValue })),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: studentSelectId }, "Aluno: "),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", { id: studentSelectId, className: "dataFormInput", ref: studentSelectRef }, (Array.isArray(students)) && (students.map(student => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { key: student.id, value: student.id },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", { id: studentSelectId, className: "dataFormInput", ref: studentSelectRef, value: props.studentIdFixedValue, onChange: updateIsDataValid }, (Array.isArray(students)) && (students.map(student => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { key: student.id, value: student.id },
+                    "(",
+                    student.id,
+                    ") ",
                     student.firstName,
                     " ",
                     student.lastName)))))),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: testSelectId }, "Avalia\u00E7\u00E3o: "),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", { id: testSelectId, className: "dataFormInput", ref: testSelectRef }, (Array.isArray(tests)) && (tests.map(test => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { key: test.id, value: test.id }, test.name))))))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", { id: testSelectId, className: "dataFormInput", ref: testSelectRef, value: props.testIdFixedValue, onChange: updateIsDataValid }, (Array.isArray(tests)) && (tests.map(test => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { key: test.id, value: test.id },
+                    "(",
+                    test.id,
+                    ") ",
+                    test.name))))))),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "gradeDataFormButtonsArea" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "dataFormButton", type: "submit" }, props.confirmActionButtonText),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "dataFormButton", type: "submit", disabled: !isDataValid }, props.confirmActionButtonText),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "dataFormButton", type: "button", onClick: props.cancelAction }, props.cancelActionButtonText))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GradeDataForm);
@@ -41937,7 +41954,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _styles_studentDataForm_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/studentDataForm.scss */ "./src/styles/studentDataForm.scss");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./src/util/index.tsx");
+/* harmony import */ var _styles_studentDataForm_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/studentDataForm.scss */ "./src/styles/studentDataForm.scss");
+
 
 
 function StudentDataForm(props) {
@@ -41945,21 +41964,26 @@ function StudentDataForm(props) {
     const studentLastNameInputId = (0,react__WEBPACK_IMPORTED_MODULE_0__.useId)();
     const studentFirstNameInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
     const studentLastNameInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+    const [isDataValid, setIsDataValid] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
     function onSubmit(e) {
         var _a, _b, _c, _d;
         e.preventDefault();
         props.confirmAction({ firstName: (_b = (_a = studentFirstNameInputRef === null || studentFirstNameInputRef === void 0 ? void 0 : studentFirstNameInputRef.current) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : "", lastName: (_d = (_c = studentLastNameInputRef === null || studentLastNameInputRef === void 0 ? void 0 : studentLastNameInputRef.current) === null || _c === void 0 ? void 0 : _c.value) !== null && _d !== void 0 ? _d : "" });
     }
+    function updateIsDataValid() {
+        var _a, _b, _c, _d;
+        setIsDataValid(((0,_util__WEBPACK_IMPORTED_MODULE_1__.isNameValid)((_b = (_a = studentFirstNameInputRef === null || studentFirstNameInputRef === void 0 ? void 0 : studentFirstNameInputRef.current) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : "")) && ((0,_util__WEBPACK_IMPORTED_MODULE_1__.isNameValid)((_d = (_c = studentLastNameInputRef === null || studentLastNameInputRef === void 0 ? void 0 : studentLastNameInputRef.current) === null || _c === void 0 ? void 0 : _c.value) !== null && _d !== void 0 ? _d : "")));
+    }
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", { className: "studentDataForm", onSubmit: onSubmit },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "studentDataFormInputsArea" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: studentFirstNameInputId }, "Nome: "),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { className: "dataFormInput", id: studentFirstNameInputId, type: "text", ref: studentFirstNameInputRef })),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { className: "dataFormInput", id: studentFirstNameInputId, type: "text", ref: studentFirstNameInputRef, onChange: updateIsDataValid })),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: studentLastNameInputId }, "Sobrenome: "),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { className: "dataFormInput", id: studentLastNameInputId, type: "text", ref: studentLastNameInputRef }))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { className: "dataFormInput", id: studentLastNameInputId, type: "text", ref: studentLastNameInputRef, onChange: updateIsDataValid }))),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "studentDataFormButtonsArea" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "dataFormButton", type: "submit" }, props.confirmActionButtonText),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "dataFormButton", type: "submit", disabled: !isDataValid }, props.confirmActionButtonText),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "dataFormButton", type: "button", onClick: props.cancelAction }, props.cancelActionButtonText))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StudentDataForm);
@@ -41980,24 +42004,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _styles_testDataForm_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/testDataForm.scss */ "./src/styles/testDataForm.scss");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./src/util/index.tsx");
+/* harmony import */ var _styles_testDataForm_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/testDataForm.scss */ "./src/styles/testDataForm.scss");
+
 
 
 function TestDataForm(props) {
     const testNameInputId = (0,react__WEBPACK_IMPORTED_MODULE_0__.useId)();
     const testNameInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+    const [isDataValid, setIsDataValid] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
     function onSubmit(e) {
         var _a, _b;
         e.preventDefault();
         props.confirmAction({ name: (_b = (_a = testNameInputRef === null || testNameInputRef === void 0 ? void 0 : testNameInputRef.current) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : "" });
     }
+    function updateIsDataValid() {
+        var _a, _b;
+        setIsDataValid((0,_util__WEBPACK_IMPORTED_MODULE_1__.isNameValid)((_b = (_a = testNameInputRef === null || testNameInputRef === void 0 ? void 0 : testNameInputRef.current) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : ""));
+    }
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", { className: "testDataForm", onSubmit: onSubmit },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "testDataFormInputsArea" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: testNameInputId }, "Nome: "),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { className: "dataFormInput", type: "text", ref: testNameInputRef }))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { className: "dataFormInput", type: "text", ref: testNameInputRef, onChange: updateIsDataValid }))),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "testDataFormButtonsArea" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "submit", className: "dataFormButton" }, props.confirmActionButtonText),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "submit", className: "dataFormButton", disabled: !isDataValid }, props.confirmActionButtonText),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "button", className: "dataFormButton", onClick: props.cancelAction }, props.cancelActionButtonText))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TestDataForm);
@@ -42047,38 +42078,96 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./src/util/index.tsx");
-/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components */ "./src/components/index.tsx");
+
 
 
 
 function GradesPage() {
     var _a;
-    const { setPopUpBox, tests, grades, setGrades } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_util__WEBPACK_IMPORTED_MODULE_1__.globalContext);
+    const { setPopUpBox, students, tests, grades, setGrades } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_util__WEBPACK_IMPORTED_MODULE_1__.globalContext);
     const testId = parseInt((_a = new URL(document.URL).searchParams.get("test")) !== null && _a !== void 0 ? _a : "0");
-    const navigate = (0,react_router__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
+    const navigate = (0,react_router__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
+    function onAddGradeButtonClicked() {
+        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.GradeDataForm, { confirmAction: ({ grade, studentId, testId }) => {
+                if (Array.isArray(grades)) {
+                    const gradesWithStudentAndTest = grades.filter(g => ((g.studentId == studentId) && (g.testId == testId)));
+                    if (gradesWithStudentAndTest.length > 0) {
+                        gradesWithStudentAndTest.forEach(target => { target.grade = grade; });
+                    }
+                    else {
+                        grades.push(new _util__WEBPACK_IMPORTED_MODULE_1__.Grade(0, grade, studentId, testId)); // TODO: Pull ID from DB!!!!!!!!!!!
+                    }
+                }
+                setPopUpBox(null);
+            }, cancelAction: () => setPopUpBox(null), confirmActionButtonText: "Lan\u00E7ar Nota", cancelActionButtonText: "Cancelar" })));
+    }
+    function onEditGradeButtonClicked(grade) {
+        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.GradeDataForm, { confirmAction: ({ grade: value, studentId, testId }) => {
+                grade.grade = value;
+                grade.studentId = studentId;
+                grade.testId = testId;
+                setPopUpBox(null);
+            }, cancelAction: () => setPopUpBox(null), confirmActionButtonText: "Salvar Nota", cancelActionButtonText: "Cancelar", gradeInitialValue: grade.grade, studentIdFixedValue: grade.studentId, testIdFixedValue: grade.testId })));
+    }
+    function onExcludeGradeButtonClicked(grade) {
+        setPopUpBox(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.ConfirmDialog, { mainText: "Deseja excluir essa nota?", confirmAction: () => {
+                if (Array.isArray(grades))
+                    setGrades(grades.filter(g => g.id != grade.id));
+                setPopUpBox(null);
+            }, cancelAction: () => setPopUpBox(null) }));
+    }
     if ((isNaN(testId)) || (testId < 1)) {
         navigate("/");
         return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null));
     }
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", { id: "pageHeader" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Notas")),
-        (() => {
-            if ((0,_util__WEBPACK_IMPORTED_MODULE_1__.isError)(tests))
-                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "errorMessage" }, tests.message);
-            if ((0,_util__WEBPACK_IMPORTED_MODULE_1__.isError)(grades))
-                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "errorMessage" }, grades.message);
-            if ((!tests) || (!grades))
-                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "loadingMessage" }, "Carregando...");
-            else {
-                const testsFilteredForTestId = tests.filter(t => t.id === testId);
-                if (testsFilteredForTestId.length < 1)
-                    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "errorMessage" }, "Avalia\u00E7\u00E3o n\u00E3o encontrada");
-                const test = testsFilteredForTestId[0];
-                const gradesFilteredForTest = grades.filter(g => g.testId = test.id);
-                // TODO: Finish this !!!!!!!!
-            }
-        })()));
+    if ((0,_util__WEBPACK_IMPORTED_MODULE_1__.isError)(students))
+        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "errorMessage" }, students.message);
+    if ((0,_util__WEBPACK_IMPORTED_MODULE_1__.isError)(tests))
+        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "errorMessage" }, tests.message);
+    if ((0,_util__WEBPACK_IMPORTED_MODULE_1__.isError)(grades))
+        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "errorMessage" }, grades.message);
+    if ((!students) || (!tests) || (!grades))
+        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "loadingMessage" }, "Carregando...");
+    else {
+        const testsFilteredForTestId = tests.filter(t => t.id === testId);
+        if (testsFilteredForTestId.length < 1)
+            return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "errorMessage" }, "Avalia\u00E7\u00E3o n\u00E3o encontrada");
+        const test = testsFilteredForTestId[0];
+        const gradesFilteredForTest = grades.filter(g => g.testId = test.id);
+        const pageGrades = (0,_util__WEBPACK_IMPORTED_MODULE_1__.filterForPage)(gradesFilteredForTest);
+        return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", { id: "pageHeader" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
+                    "Notas da avalia\u00E7\u00E3o \"",
+                    test.name,
+                    "\":")),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "addGradeArea" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { id: "addGradeButton", onClick: onAddGradeButtonClicked }, "+ Nova Nota")),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.PageNavArea, { pageCount: pageGrades.length / _util__WEBPACK_IMPORTED_MODULE_1__.itemsPerPage }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { id: "gradesList" }, pageGrades.map(grade => {
+                var _a;
+                const studentsFilteredForStudentId = students.filter(s => s.id === grade.studentId);
+                if (studentsFilteredForStudentId.length < 1)
+                    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null));
+                const student = studentsFilteredForStudentId[0];
+                return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { className: "gradesListItem", key: grade.id },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "gradeDetailsText" },
+                        "ID do Aluno: ",
+                        student.id,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                        "Nome: ",
+                        student.firstName,
+                        " ",
+                        student.lastName,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                        "Nota: ", (_a = grade.grade) !== null && _a !== void 0 ? _a : "Não Definida"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "editGradeButton", onClick: () => onEditGradeButtonClicked(grade) }, "Editar Nota"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "excludeGradeButton", onClick: () => onExcludeGradeButtonClicked(grade) }, "Excluir Nota")));
+            })),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.PageNavArea, { pageCount: pageGrades.length / _util__WEBPACK_IMPORTED_MODULE_1__.itemsPerPage })));
+    }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GradesPage);
 
@@ -42372,12 +42461,12 @@ class Student {
     get id() { return this._id; }
     get firstName() { return this._firstName; }
     set firstName(firstName) {
-        (0,___WEBPACK_IMPORTED_MODULE_0__.assertNameIsInLength)(firstName);
+        (0,___WEBPACK_IMPORTED_MODULE_0__.assertNameIsValid)(firstName);
         this._firstName = firstName;
     }
     get lastName() { return this._lastName; }
     set lastName(lastName) {
-        (0,___WEBPACK_IMPORTED_MODULE_0__.assertNameIsInLength)(lastName);
+        (0,___WEBPACK_IMPORTED_MODULE_0__.assertNameIsValid)(lastName);
         this._lastName = lastName;
     }
 }
@@ -42414,7 +42503,7 @@ class Test {
     get id() { return this._id; }
     get name() { return this._name; }
     set name(name) {
-        (0,___WEBPACK_IMPORTED_MODULE_0__.assertNameIsInLength)(name);
+        (0,___WEBPACK_IMPORTED_MODULE_0__.assertNameIsValid)(name);
         this._name = name;
     }
 }
@@ -42454,11 +42543,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Grade: () => (/* reexport safe */ _Grade__WEBPACK_IMPORTED_MODULE_2__.Grade),
 /* harmony export */   Student: () => (/* reexport safe */ _Student__WEBPACK_IMPORTED_MODULE_0__.Student),
 /* harmony export */   Test: () => (/* reexport safe */ _Test__WEBPACK_IMPORTED_MODULE_1__.Test),
-/* harmony export */   assertNameIsInLength: () => (/* binding */ assertNameIsInLength),
+/* harmony export */   assertNameIsValid: () => (/* binding */ assertNameIsValid),
 /* harmony export */   filterForPage: () => (/* binding */ filterForPage),
 /* harmony export */   getCurrentPageNumber: () => (/* binding */ getCurrentPageNumber),
 /* harmony export */   globalContext: () => (/* reexport safe */ _globalContext__WEBPACK_IMPORTED_MODULE_3__.globalContext),
 /* harmony export */   isError: () => (/* binding */ isError),
+/* harmony export */   isNameValid: () => (/* binding */ isNameValid),
 /* harmony export */   itemsPerPage: () => (/* binding */ itemsPerPage),
 /* harmony export */   nameMaxLength: () => (/* binding */ nameMaxLength)
 /* harmony export */ });
@@ -42479,8 +42569,11 @@ function getCurrentPageNumber() {
         pageNumber = 1;
     return pageNumber;
 }
-function assertNameIsInLength(name) {
-    if ((name.length <= 0) || (name.length > nameMaxLength)) {
+function isNameValid(name) {
+    return ((name.length > 0) && (name.length <= nameMaxLength));
+}
+function assertNameIsValid(name) {
+    if (!(isNameValid(name))) {
         throw new Error(`Name must be at least 1 character long and at most ${nameMaxLength} characters long.`);
     }
 }
@@ -42590,12 +42683,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _pages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages */ "./src/pages/index.tsx");
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./util */ "./src/util/index.tsx");
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components */ "./src/components/index.tsx");
-
 
 
 
@@ -42611,7 +42702,6 @@ function App() {
         const studentUrl = "/json/sampleStudents.json"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         const testUrl = "/json/sampleTests.json"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         const possibleError = new Error("Erro ao conectar-se com o banco de dados");
-        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_4__.GradeDataForm, { confirmAction: grade => console.log(grade), cancelAction: () => console.log("Cancel"), confirmActionButtonText: "Confirmar nota", cancelActionButtonText: "Cancelar nota" })));
         // Fetch students
         fetch(studentUrl)
             .then(response => {
@@ -42656,12 +42746,12 @@ function App() {
             .catch(() => setGrades(possibleError));*/
     }, []);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_util__WEBPACK_IMPORTED_MODULE_3__.globalContext.Provider, { value: { popUpBox, setPopUpBox, students, setStudents, tests, setTests, grades, setGrades } },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.BrowserRouter, { basename: "/" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Routes, null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, { path: "/", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages__WEBPACK_IMPORTED_MODULE_2__.HomePage, null) }),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, { path: "students", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages__WEBPACK_IMPORTED_MODULE_2__.StudentsPage, null) }),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, { path: "tests", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages__WEBPACK_IMPORTED_MODULE_2__.TestsPage, null) }),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, { path: "grades", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages__WEBPACK_IMPORTED_MODULE_2__.GradesPage, null) }))),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, { basename: "/" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Routes, null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, { path: "/", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages__WEBPACK_IMPORTED_MODULE_2__.HomePage, null) }),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, { path: "students", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages__WEBPACK_IMPORTED_MODULE_2__.StudentsPage, null) }),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, { path: "tests", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages__WEBPACK_IMPORTED_MODULE_2__.TestsPage, null) }),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, { path: "grades", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_pages__WEBPACK_IMPORTED_MODULE_2__.GradesPage, null) }))),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "popUpContainer", style: { display: (popUpBox != null) ? undefined : "none" } },
             " ",
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "popUpBox" }, popUpBox))));

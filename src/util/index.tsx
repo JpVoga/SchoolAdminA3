@@ -12,8 +12,12 @@ export function getCurrentPageNumber(): number {
     return pageNumber;
 }
 
-export function assertNameIsInLength(name: string): void {
-    if ((name.length <= 0) || (name.length > nameMaxLength)) {
+export function isNameValid(name: string): boolean {
+    return ((name.length > 0) && (name.length <= nameMaxLength));
+}
+
+export function assertNameIsValid(name: string): void {
+    if (!(isNameValid(name))) {
         throw new Error(`Name must be at least 1 character long and at most ${nameMaxLength} characters long.`);
     }
 }

@@ -1,5 +1,5 @@
-import React, {FormEvent, JSX, useId, useRef} from "react";
-import {ITestData} from "../util";
+import React, {FormEvent, JSX, useId, useRef, useState} from "react";
+import {ITestData, isNameValid} from "../util";
 import "../styles/testDataForm.scss";
 
 
@@ -14,10 +14,15 @@ export type TestDataFormProps = {
 export function TestDataForm(props: TestDataFormProps): JSX.Element {
     const testNameInputId = useId();
     const testNameInputRef = useRef<HTMLInputElement>(null);
+    const [isDataValid, setIsDataValid] = useState(false);
 
     function onSubmit(e: FormEvent): void {
         e.preventDefault();
         props.confirmAction({name: testNameInputRef?.current?.value ?? ""});
+    }
+
+    function updateIsDataValid(): void {
+        setIsDataValid(isNameValid(testNameInputRef?.current?.value ?? ""));
     }
 
     return (
@@ -25,12 +30,12 @@ export function TestDataForm(props: TestDataFormProps): JSX.Element {
             <div className="testDataFormInputsArea">
                 <div>
                     <label htmlFor={testNameInputId}>Nome: </label>
-                    <input className="dataFormInput" type="text" ref={testNameInputRef} />
+                    <input className="dataFormInput" type="text" ref={testNameInputRef} onChange={updateIsDataValid} />
                 </div>
             </div>
 
             <div className="testDataFormButtonsArea">
-                <button type="submit" className="dataFormButton">{props.confirmActionButtonText}</button>
+                <button type="submit" className="dataFormButton" disabled={!isDataValid}>{props.confirmActionButtonText}</button>
                 <button type="button" className="dataFormButton" onClick={props.cancelAction}>{props.cancelActionButtonText}</button>
             </div>
         </form>

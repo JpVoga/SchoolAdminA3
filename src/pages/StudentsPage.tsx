@@ -1,5 +1,5 @@
 import React, {JSX, useContext, useEffect, useMemo} from "react";
-import {Student, filterForPage, getCurrentPageNumber, globalContext, isError, itemsPerPage} from "../util";
+import {Student, filterForPage, getCurrentPageNumber, globalContext, isError, isNameValid, itemsPerPage} from "../util";
 import {ConfirmDialog, PageNavArea, StudentDataForm} from "../components";
 import "../styles/studentsPage.scss";
 

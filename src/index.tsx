@@ -18,15 +18,6 @@ function App(): JSX.Element {
         const testUrl = "/json/sampleTests.json"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         const possibleError = new Error("Erro ao conectar-se com o banco de dados");
 
-        setPopUpBox((
-            <GradeDataForm
-                confirmAction={grade => console.log(grade)}
-                cancelAction={() => console.log("Cancel")}
-                confirmActionButtonText="Confirmar nota"
-                cancelActionButtonText="Cancelar nota"
-            />
-        ));
-
         // Fetch students
         fetch(studentUrl)
             .then(response => {

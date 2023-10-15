@@ -1,39 +1,120 @@
 import React, {JSX, useContext} from "react";
-import {globalContext, isError} from "../util";
+import {Grade, filterForPage, globalContext, isError, itemsPerPage} from "../util";
 import {useNavigate} from "react-router";
+import {ConfirmDialog, GradeDataForm, PageNavArea} from "../components";
 
 
 export function GradesPage(): JSX.Element {
-    const {setPopUpBox, tests, grades, setGrades} = useContext(globalContext);
+    const {setPopUpBox, students, tests, grades, setGrades} = useContext(globalContext);
     const testId = parseInt(new URL(document.URL).searchParams.get("test") ?? "0");
     const navigate = useNavigate();
+
+    function onAddGradeButtonClicked(): void {
+        setPopUpBox((
+            <GradeDataForm
+                confirmAction={({grade, studentId, testId}) => {
+                    if (Array.isArray(grades)) {
+                        const gradesWithStudentAndTest = grades.filter(g => ((g.studentId == studentId) && (g.testId == testId)));
+                        if (gradesWithStudentAndTest.length > 0) {
+                            gradesWithStudentAndTest.forEach(target => {target.grade = grade;});
+                        }
+                        else {
+                            grades.push(new Grade(0, grade, studentId, testId)); // TODO: Pull ID from DB!!!!!!!!!!!
+                        }
+                    }
+
+                    setPopUpBox(null);
+                }}
+                cancelAction={() => setPopUpBox(null)}
+                confirmActionButtonText="Lançar Nota"
+                cancelActionButtonText="Cancelar"
+            />
+        ));
+    }
+
+    function onEditGradeButtonClicked(grade: Grade): void {
+        setPopUpBox((
+            <GradeDataForm
+                confirmAction={({grade: value, studentId, testId}) => {
+                    grade.grade = value;
+                    grade.studentId = studentId;
+                    grade.testId = testId;
+                    setPopUpBox(null);
+                }}
+                cancelAction={() => setPopUpBox(null)}
+                confirmActionButtonText="Salvar Nota"
+                cancelActionButtonText="Cancelar"
+                gradeInitialValue={grade.grade}
+                studentIdFixedValue={grade.studentId}
+                testIdFixedValue={grade.testId}
+            />
+        ));
+    }
+
+    function onExcludeGradeButtonClicked(grade: Grade): void {
+        setPopUpBox(
+            <ConfirmDialog
+                mainText="Deseja excluir essa nota?"
+                confirmAction={() => {
+                    if (Array.isArray(grades)) setGrades(grades.filter(g => g.id != grade.id));
+                    setPopUpBox(null);
+                }}
+                cancelAction={() => setPopUpBox(null)}
+            />
+        );
+    }
 
     if ((isNaN(testId)) || (testId < 1)) {
         navigate("/");
         return (<></>);
     }
 
-    return (
-        <>
-            <header id="pageHeader"><div>Notas</div></header>
+    if (isError(students)) return <span className="errorMessage">{students.message}</span>;
+    if (isError(tests)) return <span className="errorMessage">{tests.message}</span>;
+    if (isError(grades)) return <span className="errorMessage">{grades.message}</span>;
+    if ((!students) || (!tests) || (!grades)) return <span className="loadingMessage">Carregando...</span>;
+    else {
+        const testsFilteredForTestId = tests.filter(t => t.id === testId);
+        if (testsFilteredForTestId.length < 1) return <span className="errorMessage">Avaliação não encontrada</span>;
 
-            {
-                (() => {
-                    if (isError(tests)) return <span className="errorMessage">{tests.message}</span>;
-                    if (isError(grades)) return <span className="errorMessage">{grades.message}</span>;
-                    if ((!tests) || (!grades)) return <span className="loadingMessage">Carregando...</span>;
-                    else {
-                        const testsFilteredForTestId = tests.filter(t => t.id === testId);
-                        if (testsFilteredForTestId.length < 1) return <span className="errorMessage">Avaliação não encontrada</span>;
+        const test = testsFilteredForTestId[0];
+        const gradesFilteredForTest = grades.filter(g => g.testId = test.id);
+        const pageGrades = filterForPage(gradesFilteredForTest);
 
-                        const test = testsFilteredForTestId[0];
-                        const gradesFilteredForTest = grades.filter(g => g.testId = test.id);
+        return (
+            <>
+                <header id="pageHeader"><div>Notas da avaliação "{test.name}":</div></header>
 
-                        // TODO: Finish this !!!!!!!!
-                    }
-                })()
-            }
-        </>
-    );
+                <div id="addGradeArea"><button id="addGradeButton" onClick={onAddGradeButtonClicked}>+ Nova Nota</button></div>
+
+                <PageNavArea pageCount={pageGrades.length / itemsPerPage} />
+
+                <ul id="gradesList">{
+                    pageGrades.map(grade => {
+                        const studentsFilteredForStudentId = students.filter(s => s.id === grade.studentId);
+                        if (studentsFilteredForStudentId.length < 1) return (<></>);
+
+                        const student = studentsFilteredForStudentId[0];
+
+                        return (
+                            <li className="gradesListItem" key={grade.id}>
+                                <div className="gradeDetailsText">
+                                    ID do Aluno: {student.id}<br />
+                                    Nome: {student.firstName} {student.lastName}<br />
+                                    Nota: {grade.grade ?? "Não Definida"}
+                                </div>
+
+                                <button className="editGradeButton" onClick={() => onEditGradeButtonClicked(grade)}>Editar Nota</button>
+
+                                <button className="excludeGradeButton" onClick={() => onExcludeGradeButtonClicked(grade)}>Excluir Nota</button>
+                            </li>
+                        );
+                    })
+                }</ul>
+
+                <PageNavArea pageCount={pageGrades.length / itemsPerPage} />
+            </>
+        );
+    }
 }
 export default GradesPage;

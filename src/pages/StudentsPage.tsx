@@ -1,7 +1,7 @@
 import React, {JSX, useContext, useEffect, useMemo} from "react";
 import {Student, filterForPage, getCurrentPageNumber, globalContext, isError, isNameValid, itemsPerPage} from "../util";
 import {ConfirmDialog, PageNavArea, StudentDataForm} from "../components";
-import "../styles/studentsPage.scss";
+import "../styles/index.scss";
 
 
 export function StudentsPage(): JSX.Element {
@@ -68,16 +68,16 @@ export function StudentsPage(): JSX.Element {
 
                             return (
                                 <>
-                                    <div id="addStudentArea"><button id="addStudentButton" onClick={onAddStudentButtonClicked}>+ Novo Aluno</button></div>
+                                    <div id="addDataArea"><button id="addDataButton" onClick={onAddStudentButtonClicked}>+ Novo Aluno</button></div>
 
                                     <PageNavArea pageCount={studentCount / itemsPerPage} />
 
-                                    <ul id="studentsList">{
+                                    <ul className="dataList">{
                                         pageStudents.map(student => (
-                                            <li className="studentListItem" key={student.id}>
-                                                <span className="studentDetailsText">({student.id}) {student.firstName} {student.lastName}</span>
-                                                <button className="editStudentButton" onClick={() => onEditStudentButtonClicked(student)}>Editar Aluno</button>
-                                                <button className="excludeStudentButton" onClick={() => onExcludeStudentButtonClicked(student)}>Excluir Aluno</button>
+                                            <li key={student.id}>
+                                                <span className="detailsText">({student.id}) {student.firstName} {student.lastName}</span>
+                                                <button className="editDataButton" onClick={() => onEditStudentButtonClicked(student)}>Editar Aluno</button>
+                                                <button className="excludeDataButton" onClick={() => onExcludeStudentButtonClicked(student)}>Excluir Aluno</button>
                                             </li>
                                         ))
                                     }</ul>

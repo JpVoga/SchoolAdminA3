@@ -8,19 +8,17 @@ export type GradeDataFormProps = {
     cancelAction: () => void,
     confirmActionButtonText: string,
     cancelActionButtonText: string,
+    testId: number,
     gradeInitialValue?: number,
-    studentIdFixedValue?: number,
-    testIdFixedValue?: number
+    studentIdFixedValue?: number
 };
 
 
 export function GradeDataForm(props: GradeDataFormProps): JSX.Element {
     const gradeInputId = useId();
     const studentSelectId = useId();
-    const testSelectId = useId();
     const gradeInputRef = useRef<HTMLInputElement>(null);
     const studentSelectRef = useRef<HTMLSelectElement>(null);
-    const testSelectRef = useRef<HTMLSelectElement>(null);
     const [isDataValid, setIsDataValid] = useState(true);
     const {students, tests, grades} = useContext(globalContext);
 
@@ -30,8 +28,7 @@ export function GradeDataForm(props: GradeDataFormProps): JSX.Element {
         }
         else {
             setIsDataValid(
-                (students.filter(s => s.id === parseInt(studentSelectRef?.current?.value ?? "")).length > 0) &&
-                (tests.filter(t => t.id === parseInt(testSelectRef?.current?.value ?? "")).length > 0)
+                (students.filter(s => s.id === parseInt(studentSelectRef?.current?.value ?? "")).length > 0)
             );
         }
     }
@@ -47,9 +44,7 @@ export function GradeDataForm(props: GradeDataFormProps): JSX.Element {
 
         const studentId = parseInt((studentSelectRef?.current?.value)!);
 
-        const testId = parseInt((testSelectRef?.current?.value)!);
-
-        props.confirmAction({grade, studentId, testId}); // TODO: Put in student and test ids!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        props.confirmAction({grade, studentId, testId: props.testId});
 
         console.log(grade);
     }
@@ -68,17 +63,6 @@ export function GradeDataForm(props: GradeDataFormProps): JSX.Element {
                         (Array.isArray(students)) && (
                             students.map(student => (
                                 <option key={student.id} value={student.id}>({student.id}) {student.firstName} {student.lastName}</option>
-                            ))
-                        )
-                    }</select>
-                </div>
-
-                <div>
-                    <label htmlFor={testSelectId}>Avaliação: </label>
-                    <select id={testSelectId} className="dataFormInput" ref={testSelectRef} value={props.testIdFixedValue} onChange={updateIsDataValid}>{
-                        (Array.isArray(tests)) && (
-                            tests.map(test => (
-                                <option key={test.id} value={test.id}>({test.id}) {test.name}</option>
                             ))
                         )
                     }</select>

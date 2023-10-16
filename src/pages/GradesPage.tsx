@@ -2,6 +2,7 @@ import React, {JSX, useContext} from "react";
 import {Grade, filterForPage, globalContext, isError, itemsPerPage} from "../util";
 import {useNavigate} from "react-router";
 import {ConfirmDialog, GradeDataForm, PageNavArea} from "../components";
+import "../styles/gradesPage.scss";
 
 
 export function GradesPage(): JSX.Element {
@@ -28,6 +29,7 @@ export function GradesPage(): JSX.Element {
                 cancelAction={() => setPopUpBox(null)}
                 confirmActionButtonText="Lançar Nota"
                 cancelActionButtonText="Cancelar"
+                testId={testId}
             />
         ));
     }
@@ -46,7 +48,7 @@ export function GradesPage(): JSX.Element {
                 cancelActionButtonText="Cancelar"
                 gradeInitialValue={grade.grade}
                 studentIdFixedValue={grade.studentId}
-                testIdFixedValue={grade.testId}
+                testId={testId}
             />
         ));
     }
@@ -78,18 +80,18 @@ export function GradesPage(): JSX.Element {
         if (testsFilteredForTestId.length < 1) return <span className="errorMessage">Avaliação não encontrada</span>;
 
         const test = testsFilteredForTestId[0];
-        const gradesFilteredForTest = grades.filter(g => g.testId = test.id);
+        const gradesFilteredForTest = grades.filter(g => g.testId === test.id);
         const pageGrades = filterForPage(gradesFilteredForTest);
 
         return (
             <>
                 <header id="pageHeader"><div>Notas da avaliação "{test.name}":</div></header>
 
-                <div id="addGradeArea"><button id="addGradeButton" onClick={onAddGradeButtonClicked}>+ Nova Nota</button></div>
+                <div id="addDataArea"><button id="addDataButton" onClick={onAddGradeButtonClicked}>+ Nova Nota</button></div>
 
                 <PageNavArea pageCount={pageGrades.length / itemsPerPage} />
 
-                <ul id="gradesList">{
+                <ul className="dataList">{
                     pageGrades.map(grade => {
                         const studentsFilteredForStudentId = students.filter(s => s.id === grade.studentId);
                         if (studentsFilteredForStudentId.length < 1) return (<></>);
@@ -97,16 +99,16 @@ export function GradesPage(): JSX.Element {
                         const student = studentsFilteredForStudentId[0];
 
                         return (
-                            <li className="gradesListItem" key={grade.id}>
-                                <div className="gradeDetailsText">
+                            <li key={grade.id}>
+                                <div className="detailsText">
                                     ID do Aluno: {student.id}<br />
                                     Nome: {student.firstName} {student.lastName}<br />
                                     Nota: {grade.grade ?? "Não Definida"}
                                 </div>
 
-                                <button className="editGradeButton" onClick={() => onEditGradeButtonClicked(grade)}>Editar Nota</button>
+                                <button className="editDataButton" onClick={() => onEditGradeButtonClicked(grade)}>Editar Nota</button>
 
-                                <button className="excludeGradeButton" onClick={() => onExcludeGradeButtonClicked(grade)}>Excluir Nota</button>
+                                <button className="excludeDataButton" onClick={() => onExcludeGradeButtonClicked(grade)}>Excluir Nota</button>
                             </li>
                         );
                     })

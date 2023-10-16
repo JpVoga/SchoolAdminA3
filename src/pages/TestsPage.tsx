@@ -62,16 +62,16 @@ export function TestsPage(): JSX.Element {
 
                         return (
                             <>
-                                <div id="addTestArea"><button id="addTestButton" onClick={onAddTestButtonClicked}>+ Nova Avaliação</button></div>
+                                <div id="addDataArea"><button id="addDataButton" onClick={onAddTestButtonClicked}>+ Nova Avaliação</button></div>
 
                                 <PageNavArea pageCount={testCount / itemsPerPage} />
 
-                                <ul id="testsList">{
+                                <ul className="dataList">{
                                     pageTests.map(test => (
-                                        <li className="testsListItem" key={test.id}>
-                                            <span className="testDetailsText">({test.id}) {test.name}</span>
-                                            <button className="editTestButton" onClick={() => onEditTestButtonClicked(test)}>Editar Avaliação</button>
-                                            <button className="excludeTestButton" onClick={() => onExcludeTestButtonClicked(test)}>Excluir Avaliação</button>
+                                        <li key={test.id}>
+                                            <span className="detailsText">({test.id}) {test.name}</span>
+                                            <button className="editDataButton" onClick={() => onEditTestButtonClicked(test)}>Editar Avaliação</button>
+                                            <button className="excludeDataButton" onClick={() => onExcludeTestButtonClicked(test)}>Excluir Avaliação</button>
                                             <a className="editTestGradesLink" href={`/grades?page=1&test=${encodeURIComponent(test.id)}`}>Notas</a>
                                         </li>
                                     ))

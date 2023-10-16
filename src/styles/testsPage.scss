@@ -1,60 +1,9 @@
 @use "./index.scss" as global;
 
-#addTestArea {
-    margin: 5px;
+.editTestGradesLink {
+    @include global.coloredInteractable(global.$normalYellow);
+    @include global.noDecorationLink();
 
-    #addTestButton {
-        @include global.coloredInteractable(global.$normalGreen);
-
-        border: none;
-        border-radius: 5px;
-    }
-}
-
-#testsList {
-    list-style: none;
-
-    margin: 0px;
-
-    .testsListItem {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: center;
-
-        width: 100%;
-        min-height: 100px;
-
-        border: 2px solid black;
-
-        margin: 5px;
-
-        .testDetailsText {
-            width: 50%;
-
-            font-weight: 750;
-        }
-
-        .editTestButton {
-            @include global.coloredInteractable(global.$normalYellow);
-
-            border: none;
-            border-radius: 5px;
-        }
-
-        .excludeTestButton {
-            @include global.coloredInteractable(global.$normalRed);
-
-            border: none;
-            border-radius: 5px;
-        }
-
-        .editTestGradesLink {
-            @include global.coloredInteractable(global.$normalYellow);
-            @include global.noDecorationLink();
-
-            border: none;
-            border-radius: 5px;
-        }
-    }
+    border: none;
+    border-radius: 5px;
 }

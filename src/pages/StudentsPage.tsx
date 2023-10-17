@@ -1,6 +1,6 @@
 import React, {JSX, useContext, useEffect, useMemo} from "react";
 import {Student, filterForPage, getCurrentPageNumber, globalContext, isError, isNameValid, itemsPerPage} from "../util";
-import {ConfirmDialog, PageNavArea, StudentDataForm} from "../components";
+import {BackButton, ConfirmDialog, PageNavArea, StudentDataForm} from "../components";
 import "../styles/index.scss";
 
 
@@ -68,6 +68,8 @@ export function StudentsPage(): JSX.Element {
 
                             return (
                                 <>
+                                    <div id="backArea"><BackButton /></div>
+
                                     <div id="addDataArea"><button id="addDataButton" onClick={onAddStudentButtonClicked}>+ Novo Aluno</button></div>
 
                                     <PageNavArea pageCount={studentCount / itemsPerPage} />

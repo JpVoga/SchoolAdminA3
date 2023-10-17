@@ -1,9 +1,8 @@
 import React, {JSX, StrictMode, useState, ReactNode, useEffect} from "react";
 import {createRoot} from "react-dom/client";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route, useLocation} from "react-router-dom";
 import {HomePage, StudentsPage, TestsPage, GradesPage} from "./pages";
-import {IStudentData, Student, Test, Grade, globalContext} from "./util";
-import { GradeDataForm } from "./components";
+import {Student, Test, Grade, globalContext} from "./util";
 
 
 // The root component of the front-end application

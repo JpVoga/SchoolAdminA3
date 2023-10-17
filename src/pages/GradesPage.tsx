@@ -1,7 +1,7 @@
 import React, {JSX, useContext} from "react";
 import {Grade, filterForPage, globalContext, isError, itemsPerPage} from "../util";
 import {useNavigate} from "react-router";
-import {ConfirmDialog, GradeDataForm, PageNavArea} from "../components";
+import {BackButton, ConfirmDialog, GradeDataForm, PageNavArea} from "../components";
 import "../styles/gradesPage.scss";
 
 
@@ -86,6 +86,8 @@ export function GradesPage(): JSX.Element {
         return (
             <>
                 <header id="pageHeader"><div>Notas da avaliação "{test.name}":</div></header>
+
+                <div id="backArea"><BackButton /></div>
 
                 <div id="addDataArea"><button id="addDataButton" onClick={onAddGradeButtonClicked}>+ Nova Nota</button></div>
 

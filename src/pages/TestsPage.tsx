@@ -1,6 +1,6 @@
 import React, {JSX, useContext, useMemo} from "react";
 import {Test, filterForPage, globalContext, isError, itemsPerPage} from "../util";
-import {ConfirmDialog, PageNavArea, TestDataForm} from "../components";
+import {BackButton, ConfirmDialog, PageNavArea, TestDataForm} from "../components";
 import "../styles/testsPage.scss";
 
 
@@ -62,6 +62,8 @@ export function TestsPage(): JSX.Element {
 
                         return (
                             <>
+                                <div id="backArea"><BackButton /></div>
+
                                 <div id="addDataArea"><button id="addDataButton" onClick={onAddTestButtonClicked}>+ Nova Avaliação</button></div>
 
                                 <PageNavArea pageCount={testCount / itemsPerPage} />

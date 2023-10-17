@@ -151,3 +151,10 @@ $normalRed: rgb(165, 0, 0);
         }
     }
 }
+
+.backButton {
+    @include coloredInteractable($normalRed);
+
+    border: none;
+    border-radius: 5px;
+}

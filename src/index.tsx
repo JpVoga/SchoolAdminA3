@@ -63,6 +63,18 @@ function App(): JSX.Element {
             .catch(() => setGrades(possibleError));*/
     }, []);
 
+    useEffect(() => {
+        // TODO: Update DB!!!!!!!!
+    }, [students]);
+
+    useEffect(() => {
+        // TODO: Update DB!!!!!!!!
+    }, [tests]);
+
+    useEffect(() => {
+        // TODO: Update DB!!!!!!!!
+    }, [grades]);
+
 
     return (
         <globalContext.Provider value={{popUpBox, setPopUpBox, students, setStudents, tests, setTests, grades, setGrades}}>

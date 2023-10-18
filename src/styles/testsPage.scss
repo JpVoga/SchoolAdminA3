@@ -4,6 +4,13 @@
     @include global.coloredInteractable(global.$normalYellow);
     @include global.noDecorationLink();
 
+    width: 125px;
+    height: 50px;
+    line-height: 50px;
+
     border: none;
     border-radius: 5px;
+
+    font-size: 1.25rem;
+    text-align: center;
 }

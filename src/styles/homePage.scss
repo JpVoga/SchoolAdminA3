@@ -4,15 +4,21 @@
     display: flex;
     flex-flow: column nowrap;
 
+    margin-top: 30vh;
+
     .navigationAreaButton {
         @include global.coloredInteractable(global.$normalYellow);
         @include global.noDecorationLink;
+
+        height: 100px;
+        line-height: 100px;
 
         border-radius: 5px;
 
         margin: 5px;
 
         text-align: center;
+        font-size: 2vw;
 
         transition: 0.5s;
     }

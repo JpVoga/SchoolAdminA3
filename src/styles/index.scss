@@ -38,6 +38,12 @@ $normalRed: rgb(165, 0, 0);
 
 * {
     box-sizing: border-box;
+
+    font-family: sans-serif, Arial;
+}
+
+body {
+    background-color: rgb(200, 200, 200);
 }
 
 #popUpContainer {
@@ -101,14 +107,33 @@ $normalRed: rgb(165, 0, 0);
     font-family: "consolas", monospace;
 }
 
+.backButton {
+    @include coloredInteractable($normalRed);
+
+    width: 250px;
+    height: 50px;
+
+    border: none;
+    border-radius: 5px;
+
+    margin: 5px;
+
+    font-size: 1.25rem;
+}
+
 #addDataArea {
     margin: 5px;
 
     #addDataButton {
         @include coloredInteractable($normalGreen);
 
+        width: 250px;
+        height: 50px;
+
         border: none;
         border-radius: 5px;
+
+        font-size: 1.25rem;
     }
 }
 
@@ -139,22 +164,25 @@ $normalRed: rgb(165, 0, 0);
         .editDataButton {
             @include coloredInteractable($normalYellow);
 
+            width: 250px;
+            height: 50px;
+
             border: none;
             border-radius: 5px;
+
+            font-size: 1.25rem;
         }
 
         .excludeDataButton {
             @include coloredInteractable($normalRed);
 
+            width: 250px;
+            height: 50px;
+
             border: none;
             border-radius: 5px;
+
+            font-size: 1.25rem;
         }
     }
-}
-
-.backButton {
-    @include coloredInteractable($normalRed);
-
-    border: none;
-    border-radius: 5px;
 }

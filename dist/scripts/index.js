@@ -4112,6 +4112,11 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `* {
   box-sizing: border-box;
+  font-family: sans-serif, Arial;
+}
+
+body {
+  background-color: rgb(200, 200, 200);
 }
 
 #popUpContainer {
@@ -4171,14 +4176,34 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   font-family: "consolas", monospace;
 }
 
+.backButton {
+  background-color: rgb(165, 0, 0);
+  transition: 0.25s;
+  width: 250px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 1.25rem;
+}
+.backButton:hover {
+  background-color: #ff2626;
+}
+.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
+  background-color: #ffa5a5;
+}
+
 #addDataArea {
   margin: 5px;
 }
 #addDataArea #addDataButton {
   background-color: #05a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 #addDataArea #addDataButton:hover {
   background-color: #2cff26;
@@ -4208,8 +4233,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .editDataButton {
   background-color: #a5a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .editDataButton:hover {
   background-color: #ffff26;
@@ -4220,26 +4248,16 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .excludeDataButton {
   background-color: rgb(165, 0, 0);
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .excludeDataButton:hover {
   background-color: #ff2626;
 }
 .dataList li .excludeDataButton:active, .dataList li .excludeDataButton:is(input:focus), .dataList li .excludeDataButton:has(:active), .dataList li .excludeDataButton:has(input:focus) {
-  background-color: #ffa5a5;
-}
-
-.backButton {
-  background-color: rgb(165, 0, 0);
-  transition: 0.25s;
-  border: none;
-  border-radius: 5px;
-}
-.backButton:hover {
-  background-color: #ff2626;
-}
-.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
   background-color: #ffa5a5;
 }
 
@@ -4278,7 +4296,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 }
 .noButton:active, .noButton:is(input:focus), .noButton:has(:active), .noButton:has(input:focus) {
   background-color: #ffa5a5;
-}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/confirmDialog.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;ACrCJ;;ADwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACvCJ;ADyCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACzCR;;AD6CA;EA5DI,yBALW;EAyBX,iBAAA;EA2CA,WAAA;EAEA,YAAA;EACA,kBAAA;AC3CJ;ADrBI;EAEQ,yBAAA;ACsBZ;ADfI;EAEQ,yBAAA;ACgBZ;;ADwCA;EAvCI,kBAAA;EA0CA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACxCJ;;AD2CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACzCJ;;AD4CA;EACI,UAAA;EACA,kCAAA;ACzCJ;;AD4CA;EACI,kCAAA;ACzCJ;;AD4CA;EACI,WAAA;ACzCJ;AD2CI;EArGA,yBAJU;EAwBV,iBAAA;EAoFI,YAAA;EACA,kBAAA;ACzCR;AD9DI;EAEQ,yBAAA;AC+DZ;ADxDI;EAEQ,yBAAA;ACyDZ;;ADuCA;EACI,gBAAA;EAEA,WAAA;ACrCJ;ADuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;ACxCR;AD0CQ;EACI,UAAA;EAEA,gBAAA;ACzCZ;AD4CQ;EArIJ,yBALW;EAyBX,iBAAA;EAoHQ,YAAA;EACA,kBAAA;AC1CZ;AD7FI;EAEQ,yBAAA;AC8FZ;ADvFI;EAEQ,yBAAA;ACwFZ;ADuCQ;EA5IJ,gCAHQ;EAuBR,iBAAA;EA2HQ,YAAA;EACA,kBAAA;ACrCZ;ADzGI;EAEQ,yBAAA;AC0GZ;ADnGI;EAEQ,yBAAA;ACoGZ;;ADoCA;EArJI,gCAHQ;EAuBR,iBAAA;EAoIA,YAAA;EACA,kBAAA;ACjCJ;ADtHI;EAEQ,yBAAA;ACuHZ;ADhHI;EAEQ,yBAAA;ACiHZ;;AAjIA;EACI,aAAA;EACA,sBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,YAAA;AAmIJ;;AAhIA;EDPI,yBAJU;EAwBV,iBAAA;ECVA,YAAA;EACA,kBAAA;EAEA,iBAAA;AAkIJ;AD7II;EAEQ,yBAAA;AC8IZ;ADvII;EAEQ,yBAAA;ACwIZ;;AArIA;EDhBI,gCAHQ;EAuBR,iBAAA;ECDA,YAAA;EACA,kBAAA;EAEA,iBAAA;AAuIJ;AD3JI;EAEQ,yBAAA;AC4JZ;ADrJI;EAEQ,yBAAA;ACsJZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n    }\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}","@use \"./index.scss\" as global;\r\n\r\n.confirmDialog {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.yesButton {\r\n    @include global.coloredInteractable(global.$normalGreen);\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n.noButton {\r\n    @include global.coloredInteractable(global.$normalRed);\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    transition: 0.25s;\r\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/confirmDialog.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;EAEA,8BAAA;ACtCJ;;ADyCA;EACI,oCAAA;ACtCJ;;ADyCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACxCJ;AD0CI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;AC1CR;;AD8CA;EAlEI,yBALW;EAyBX,iBAAA;EAiDA,WAAA;EAEA,YAAA;EACA,kBAAA;AC5CJ;AD1BI;EAEQ,yBAAA;AC2BZ;ADpBI;EAEQ,yBAAA;ACqBZ;;ADyCA;EA7CI,kBAAA;EAgDA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACzCJ;;AD4CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;AC1CJ;;AD6CA;EACI,UAAA;EACA,kCAAA;AC1CJ;;AD6CA;EACI,kCAAA;AC1CJ;;AD6CA;EAxGI,gCAHQ;EAuBR,iBAAA;EAuFA,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,WAAA;EAEA,kBAAA;AC7CJ;ADpEI;EAEQ,yBAAA;ACqEZ;AD9DI;EAEQ,yBAAA;AC+DZ;;AD0CA;EACI,WAAA;ACvCJ;ADyCI;EAzHA,yBAJU;EAwBV,iBAAA;EAwGI,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;ACzCR;ADvFI;EAEQ,yBAAA;ACwFZ;ADjFI;EAEQ,yBAAA;ACkFZ;;ADuCA;EACI,gBAAA;EAEA,WAAA;ACrCJ;ADuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;ACxCR;AD0CQ;EACI,UAAA;EAEA,gBAAA;ACzCZ;AD4CQ;EA9JJ,yBALW;EAyBX,iBAAA;EA6IQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;AC5CZ;ADzHI;EAEQ,yBAAA;AC0HZ;ADnHI;EAEQ,yBAAA;ACoHZ;ADyCQ;EA1KJ,gCAHQ;EAuBR,iBAAA;EAyJQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;ACzCZ;ADxII;EAEQ,yBAAA;ACyIZ;ADlII;EAEQ,yBAAA;ACmIZ;;AAnJA;EACI,aAAA;EACA,sBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,YAAA;AAqJJ;;AAlJA;EDPI,yBAJU;EAwBV,iBAAA;ECVA,YAAA;EACA,kBAAA;EAEA,iBAAA;AAoJJ;AD/JI;EAEQ,yBAAA;ACgKZ;ADzJI;EAEQ,yBAAA;AC0JZ;;AAvJA;EDhBI,gCAHQ;EAuBR,iBAAA;ECDA,YAAA;EACA,kBAAA;EAEA,iBAAA;AAyJJ;AD7KI;EAEQ,yBAAA;AC8KZ;ADvKI;EAEQ,yBAAA;ACwKZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n\r\n    font-family: sans-serif, Arial;\r\n}\r\n\r\nbody {\r\n    background-color: rgb(200, 200, 200);\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    width: 250px;\r\n    height: 50px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    margin: 5px;\r\n\r\n    font-size: 1.25rem;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        width: 250px;\r\n        height: 50px;\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n\r\n        font-size: 1.25rem;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n    }\r\n}","@use \"./index.scss\" as global;\r\n\r\n.confirmDialog {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.yesButton {\r\n    @include global.coloredInteractable(global.$normalGreen);\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n.noButton {\r\n    @include global.coloredInteractable(global.$normalRed);\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    transition: 0.25s;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4306,6 +4324,11 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `* {
   box-sizing: border-box;
+  font-family: sans-serif, Arial;
+}
+
+body {
+  background-color: rgb(200, 200, 200);
 }
 
 #popUpContainer {
@@ -4365,14 +4388,34 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   font-family: "consolas", monospace;
 }
 
+.backButton {
+  background-color: rgb(165, 0, 0);
+  transition: 0.25s;
+  width: 250px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 1.25rem;
+}
+.backButton:hover {
+  background-color: #ff2626;
+}
+.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
+  background-color: #ffa5a5;
+}
+
 #addDataArea {
   margin: 5px;
 }
 #addDataArea #addDataButton {
   background-color: #05a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 #addDataArea #addDataButton:hover {
   background-color: #2cff26;
@@ -4402,8 +4445,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .editDataButton {
   background-color: #a5a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .editDataButton:hover {
   background-color: #ffff26;
@@ -4414,26 +4460,16 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .excludeDataButton {
   background-color: rgb(165, 0, 0);
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .excludeDataButton:hover {
   background-color: #ff2626;
 }
 .dataList li .excludeDataButton:active, .dataList li .excludeDataButton:is(input:focus), .dataList li .excludeDataButton:has(:active), .dataList li .excludeDataButton:has(input:focus) {
-  background-color: #ffa5a5;
-}
-
-.backButton {
-  background-color: rgb(165, 0, 0);
-  transition: 0.25s;
-  border: none;
-  border-radius: 5px;
-}
-.backButton:hover {
-  background-color: #ff2626;
-}
-.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
   background-color: #ffa5a5;
 }
 
@@ -4449,7 +4485,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   min-width: 100px;
   margin: 5px;
   text-align: right;
-}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/gradeDataForm.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;ACrCJ;;ADwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACvCJ;ADyCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACzCR;;AD6CA;EA5DI,yBALW;EAyBX,iBAAA;EA2CA,WAAA;EAEA,YAAA;EACA,kBAAA;AC3CJ;ADrBI;EAEQ,yBAAA;ACsBZ;ADfI;EAEQ,yBAAA;ACgBZ;;ADwCA;EAvCI,kBAAA;EA0CA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACxCJ;;AD2CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACzCJ;;AD4CA;EACI,UAAA;EACA,kCAAA;ACzCJ;;AD4CA;EACI,kCAAA;ACzCJ;;AD4CA;EACI,WAAA;ACzCJ;AD2CI;EArGA,yBAJU;EAwBV,iBAAA;EAoFI,YAAA;EACA,kBAAA;ACzCR;AD9DI;EAEQ,yBAAA;AC+DZ;ADxDI;EAEQ,yBAAA;ACyDZ;;ADuCA;EACI,gBAAA;EAEA,WAAA;ACrCJ;ADuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;ACxCR;AD0CQ;EACI,UAAA;EAEA,gBAAA;ACzCZ;AD4CQ;EArIJ,yBALW;EAyBX,iBAAA;EAoHQ,YAAA;EACA,kBAAA;AC1CZ;AD7FI;EAEQ,yBAAA;AC8FZ;ADvFI;EAEQ,yBAAA;ACwFZ;ADuCQ;EA5IJ,gCAHQ;EAuBR,iBAAA;EA2HQ,YAAA;EACA,kBAAA;ACrCZ;ADzGI;EAEQ,yBAAA;AC0GZ;ADnGI;EAEQ,yBAAA;ACoGZ;;ADoCA;EArJI,gCAHQ;EAuBR,iBAAA;EAoIA,YAAA;EACA,kBAAA;ACjCJ;ADtHI;EAEQ,yBAAA;ACuHZ;ADhHI;EAEQ,yBAAA;ACiHZ;;AAjIA;EACI,aAAA;EACA,wBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,YAAA;AAmIJ;AAhIQ;EACI,gBAAA;EAEA,WAAA;EAEA,iBAAA;AAgIZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n    }\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}","@use \"./index.scss\" as global;\r\n\r\n.gradeDataForm {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n\r\n    .gradeDataFormInputsArea {\r\n        & > div {\r\n            min-width: 100px;\r\n\r\n            margin: 5px;\r\n\r\n            text-align: right;\r\n        }\r\n    }\r\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/gradeDataForm.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;EAEA,8BAAA;ACtCJ;;ADyCA;EACI,oCAAA;ACtCJ;;ADyCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACxCJ;AD0CI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;AC1CR;;AD8CA;EAlEI,yBALW;EAyBX,iBAAA;EAiDA,WAAA;EAEA,YAAA;EACA,kBAAA;AC5CJ;AD1BI;EAEQ,yBAAA;AC2BZ;ADpBI;EAEQ,yBAAA;ACqBZ;;ADyCA;EA7CI,kBAAA;EAgDA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACzCJ;;AD4CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;AC1CJ;;AD6CA;EACI,UAAA;EACA,kCAAA;AC1CJ;;AD6CA;EACI,kCAAA;AC1CJ;;AD6CA;EAxGI,gCAHQ;EAuBR,iBAAA;EAuFA,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,WAAA;EAEA,kBAAA;AC7CJ;ADpEI;EAEQ,yBAAA;ACqEZ;AD9DI;EAEQ,yBAAA;AC+DZ;;AD0CA;EACI,WAAA;ACvCJ;ADyCI;EAzHA,yBAJU;EAwBV,iBAAA;EAwGI,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;ACzCR;ADvFI;EAEQ,yBAAA;ACwFZ;ADjFI;EAEQ,yBAAA;ACkFZ;;ADuCA;EACI,gBAAA;EAEA,WAAA;ACrCJ;ADuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;ACxCR;AD0CQ;EACI,UAAA;EAEA,gBAAA;ACzCZ;AD4CQ;EA9JJ,yBALW;EAyBX,iBAAA;EA6IQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;AC5CZ;ADzHI;EAEQ,yBAAA;AC0HZ;ADnHI;EAEQ,yBAAA;ACoHZ;ADyCQ;EA1KJ,gCAHQ;EAuBR,iBAAA;EAyJQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;ACzCZ;ADxII;EAEQ,yBAAA;ACyIZ;ADlII;EAEQ,yBAAA;ACmIZ;;AAnJA;EACI,aAAA;EACA,wBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,YAAA;AAqJJ;AAlJQ;EACI,gBAAA;EAEA,WAAA;EAEA,iBAAA;AAkJZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n\r\n    font-family: sans-serif, Arial;\r\n}\r\n\r\nbody {\r\n    background-color: rgb(200, 200, 200);\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    width: 250px;\r\n    height: 50px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    margin: 5px;\r\n\r\n    font-size: 1.25rem;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        width: 250px;\r\n        height: 50px;\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n\r\n        font-size: 1.25rem;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n    }\r\n}","@use \"./index.scss\" as global;\r\n\r\n.gradeDataForm {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n\r\n    .gradeDataFormInputsArea {\r\n        & > div {\r\n            min-width: 100px;\r\n\r\n            margin: 5px;\r\n\r\n            text-align: right;\r\n        }\r\n    }\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4477,6 +4513,11 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `* {
   box-sizing: border-box;
+  font-family: sans-serif, Arial;
+}
+
+body {
+  background-color: rgb(200, 200, 200);
 }
 
 #popUpContainer {
@@ -4536,14 +4577,34 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   font-family: "consolas", monospace;
 }
 
+.backButton {
+  background-color: rgb(165, 0, 0);
+  transition: 0.25s;
+  width: 250px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 1.25rem;
+}
+.backButton:hover {
+  background-color: #ff2626;
+}
+.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
+  background-color: #ffa5a5;
+}
+
 #addDataArea {
   margin: 5px;
 }
 #addDataArea #addDataButton {
   background-color: #05a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 #addDataArea #addDataButton:hover {
   background-color: #2cff26;
@@ -4573,8 +4634,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .editDataButton {
   background-color: #a5a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .editDataButton:hover {
   background-color: #ffff26;
@@ -4585,8 +4649,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .excludeDataButton {
   background-color: rgb(165, 0, 0);
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .excludeDataButton:hover {
   background-color: #ff2626;
@@ -4595,24 +4662,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   background-color: #ffa5a5;
 }
 
-.backButton {
-  background-color: rgb(165, 0, 0);
-  transition: 0.25s;
-  border: none;
-  border-radius: 5px;
-}
-.backButton:hover {
-  background-color: #ff2626;
-}
-.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
-  background-color: #ffa5a5;
-}
-
 .gradeDetailsText {
   width: 500px;
   font-weight: 750;
   text-align: right;
-}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/gradesPage.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;ACrCJ;;ADwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACvCJ;ADyCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACzCR;;AD6CA;EA5DI,yBALW;EAyBX,iBAAA;EA2CA,WAAA;EAEA,YAAA;EACA,kBAAA;AC3CJ;ADrBI;EAEQ,yBAAA;ACsBZ;ADfI;EAEQ,yBAAA;ACgBZ;;ADwCA;EAvCI,kBAAA;EA0CA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACxCJ;;AD2CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACzCJ;;AD4CA;EACI,UAAA;EACA,kCAAA;ACzCJ;;AD4CA;EACI,kCAAA;ACzCJ;;AD4CA;EACI,WAAA;ACzCJ;AD2CI;EArGA,yBAJU;EAwBV,iBAAA;EAoFI,YAAA;EACA,kBAAA;ACzCR;AD9DI;EAEQ,yBAAA;AC+DZ;ADxDI;EAEQ,yBAAA;ACyDZ;;ADuCA;EACI,gBAAA;EAEA,WAAA;ACrCJ;ADuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;ACxCR;AD0CQ;EACI,UAAA;EAEA,gBAAA;ACzCZ;AD4CQ;EArIJ,yBALW;EAyBX,iBAAA;EAoHQ,YAAA;EACA,kBAAA;AC1CZ;AD7FI;EAEQ,yBAAA;AC8FZ;ADvFI;EAEQ,yBAAA;ACwFZ;ADuCQ;EA5IJ,gCAHQ;EAuBR,iBAAA;EA2HQ,YAAA;EACA,kBAAA;ACrCZ;ADzGI;EAEQ,yBAAA;AC0GZ;ADnGI;EAEQ,yBAAA;ACoGZ;;ADoCA;EArJI,gCAHQ;EAuBR,iBAAA;EAoIA,YAAA;EACA,kBAAA;ACjCJ;ADtHI;EAEQ,yBAAA;ACuHZ;ADhHI;EAEQ,yBAAA;ACiHZ;;AAjIA;EACI,YAAA;EAEA,gBAAA;EACA,iBAAA;AAmIJ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n    }\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}","@use \"./index.scss\" as global;\r\n\r\n.gradeDetailsText {\r\n    width: 500px;\r\n\r\n    font-weight: 750;\r\n    text-align: right;\r\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/gradesPage.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;EAEA,8BAAA;ACtCJ;;ADyCA;EACI,oCAAA;ACtCJ;;ADyCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACxCJ;AD0CI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;AC1CR;;AD8CA;EAlEI,yBALW;EAyBX,iBAAA;EAiDA,WAAA;EAEA,YAAA;EACA,kBAAA;AC5CJ;AD1BI;EAEQ,yBAAA;AC2BZ;ADpBI;EAEQ,yBAAA;ACqBZ;;ADyCA;EA7CI,kBAAA;EAgDA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACzCJ;;AD4CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;AC1CJ;;AD6CA;EACI,UAAA;EACA,kCAAA;AC1CJ;;AD6CA;EACI,kCAAA;AC1CJ;;AD6CA;EAxGI,gCAHQ;EAuBR,iBAAA;EAuFA,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,WAAA;EAEA,kBAAA;AC7CJ;ADpEI;EAEQ,yBAAA;ACqEZ;AD9DI;EAEQ,yBAAA;AC+DZ;;AD0CA;EACI,WAAA;ACvCJ;ADyCI;EAzHA,yBAJU;EAwBV,iBAAA;EAwGI,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;ACzCR;ADvFI;EAEQ,yBAAA;ACwFZ;ADjFI;EAEQ,yBAAA;ACkFZ;;ADuCA;EACI,gBAAA;EAEA,WAAA;ACrCJ;ADuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;ACxCR;AD0CQ;EACI,UAAA;EAEA,gBAAA;ACzCZ;AD4CQ;EA9JJ,yBALW;EAyBX,iBAAA;EA6IQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;AC5CZ;ADzHI;EAEQ,yBAAA;AC0HZ;ADnHI;EAEQ,yBAAA;ACoHZ;ADyCQ;EA1KJ,gCAHQ;EAuBR,iBAAA;EAyJQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;ACzCZ;ADxII;EAEQ,yBAAA;ACyIZ;ADlII;EAEQ,yBAAA;ACmIZ;;AAnJA;EACI,YAAA;EAEA,gBAAA;EACA,iBAAA;AAqJJ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n\r\n    font-family: sans-serif, Arial;\r\n}\r\n\r\nbody {\r\n    background-color: rgb(200, 200, 200);\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    width: 250px;\r\n    height: 50px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    margin: 5px;\r\n\r\n    font-size: 1.25rem;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        width: 250px;\r\n        height: 50px;\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n\r\n        font-size: 1.25rem;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n    }\r\n}","@use \"./index.scss\" as global;\r\n\r\n.gradeDetailsText {\r\n    width: 500px;\r\n\r\n    font-weight: 750;\r\n    text-align: right;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4640,6 +4694,11 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `* {
   box-sizing: border-box;
+  font-family: sans-serif, Arial;
+}
+
+body {
+  background-color: rgb(200, 200, 200);
 }
 
 #popUpContainer {
@@ -4699,14 +4758,34 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   font-family: "consolas", monospace;
 }
 
+.backButton {
+  background-color: rgb(165, 0, 0);
+  transition: 0.25s;
+  width: 250px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 1.25rem;
+}
+.backButton:hover {
+  background-color: #ff2626;
+}
+.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
+  background-color: #ffa5a5;
+}
+
 #addDataArea {
   margin: 5px;
 }
 #addDataArea #addDataButton {
   background-color: #05a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 #addDataArea #addDataButton:hover {
   background-color: #2cff26;
@@ -4736,8 +4815,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .editDataButton {
   background-color: #a5a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .editDataButton:hover {
   background-color: #ffff26;
@@ -4748,8 +4830,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .excludeDataButton {
   background-color: rgb(165, 0, 0);
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .excludeDataButton:hover {
   background-color: #ff2626;
@@ -4758,22 +4843,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   background-color: #ffa5a5;
 }
 
-.backButton {
-  background-color: rgb(165, 0, 0);
-  transition: 0.25s;
-  border: none;
-  border-radius: 5px;
-}
-.backButton:hover {
-  background-color: #ff2626;
-}
-.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
-  background-color: #ffa5a5;
-}
-
 #navigationArea {
   display: flex;
   flex-flow: column nowrap;
+  margin-top: 30vh;
 }
 #navigationArea .navigationAreaButton {
   background-color: #a5a500;
@@ -4781,9 +4854,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   color: black;
   text-decoration: none;
   font-style: normal;
+  height: 100px;
+  line-height: 100px;
   border-radius: 5px;
   margin: 5px;
   text-align: center;
+  font-size: 2vw;
   transition: 0.5s;
 }
 #navigationArea .navigationAreaButton:hover {
@@ -4791,7 +4867,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 }
 #navigationArea .navigationAreaButton:active, #navigationArea .navigationAreaButton:is(input:focus), #navigationArea .navigationAreaButton:has(:active), #navigationArea .navigationAreaButton:has(input:focus) {
   background-color: #ffffa5;
-}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/homePage.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;ACrCJ;;ADwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACvCJ;ADyCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACzCR;;AD6CA;EA5DI,yBALW;EAyBX,iBAAA;EA2CA,WAAA;EAEA,YAAA;EACA,kBAAA;AC3CJ;ADrBI;EAEQ,yBAAA;ACsBZ;ADfI;EAEQ,yBAAA;ACgBZ;;ADwCA;EAvCI,kBAAA;EA0CA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACxCJ;;AD2CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACzCJ;;AD4CA;EACI,UAAA;EACA,kCAAA;ACzCJ;;AD4CA;EACI,kCAAA;ACzCJ;;AD4CA;EACI,WAAA;ACzCJ;AD2CI;EArGA,yBAJU;EAwBV,iBAAA;EAoFI,YAAA;EACA,kBAAA;ACzCR;AD9DI;EAEQ,yBAAA;AC+DZ;ADxDI;EAEQ,yBAAA;ACyDZ;;ADuCA;EACI,gBAAA;EAEA,WAAA;ACrCJ;ADuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;ACxCR;AD0CQ;EACI,UAAA;EAEA,gBAAA;ACzCZ;AD4CQ;EArIJ,yBALW;EAyBX,iBAAA;EAoHQ,YAAA;EACA,kBAAA;AC1CZ;AD7FI;EAEQ,yBAAA;AC8FZ;ADvFI;EAEQ,yBAAA;ACwFZ;ADuCQ;EA5IJ,gCAHQ;EAuBR,iBAAA;EA2HQ,YAAA;EACA,kBAAA;ACrCZ;ADzGI;EAEQ,yBAAA;AC0GZ;ADnGI;EAEQ,yBAAA;ACoGZ;;ADoCA;EArJI,gCAHQ;EAuBR,iBAAA;EAoIA,YAAA;EACA,kBAAA;ACjCJ;ADtHI;EAEQ,yBAAA;ACuHZ;ADhHI;EAEQ,yBAAA;ACiHZ;;AAjIA;EACI,aAAA;EACA,wBAAA;AAoIJ;AAlII;EDDA,yBALW;EAyBX,iBAAA;EAIA,YAAA;EACA,qBAAA;EACA,kBAAA;ECrBI,kBAAA;EAEA,WAAA;EAEA,kBAAA;EAEA,gBAAA;AAmIR;AD5II;EAEQ,yBAAA;AC6IZ;ADtII;EAEQ,yBAAA;ACuIZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n    }\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}","@use \"./index.scss\" as global;\r\n\r\n#navigationArea {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n\r\n    .navigationAreaButton {\r\n        @include global.coloredInteractable(global.$normalYellow);\r\n        @include global.noDecorationLink;\r\n\r\n        border-radius: 5px;\r\n\r\n        margin: 5px;\r\n\r\n        text-align: center;\r\n\r\n        transition: 0.5s;\r\n    }\r\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/homePage.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;EAEA,8BAAA;ACtCJ;;ADyCA;EACI,oCAAA;ACtCJ;;ADyCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACxCJ;AD0CI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;AC1CR;;AD8CA;EAlEI,yBALW;EAyBX,iBAAA;EAiDA,WAAA;EAEA,YAAA;EACA,kBAAA;AC5CJ;AD1BI;EAEQ,yBAAA;AC2BZ;ADpBI;EAEQ,yBAAA;ACqBZ;;ADyCA;EA7CI,kBAAA;EAgDA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACzCJ;;AD4CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;AC1CJ;;AD6CA;EACI,UAAA;EACA,kCAAA;AC1CJ;;AD6CA;EACI,kCAAA;AC1CJ;;AD6CA;EAxGI,gCAHQ;EAuBR,iBAAA;EAuFA,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,WAAA;EAEA,kBAAA;AC7CJ;ADpEI;EAEQ,yBAAA;ACqEZ;AD9DI;EAEQ,yBAAA;AC+DZ;;AD0CA;EACI,WAAA;ACvCJ;ADyCI;EAzHA,yBAJU;EAwBV,iBAAA;EAwGI,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;ACzCR;ADvFI;EAEQ,yBAAA;ACwFZ;ADjFI;EAEQ,yBAAA;ACkFZ;;ADuCA;EACI,gBAAA;EAEA,WAAA;ACrCJ;ADuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;ACxCR;AD0CQ;EACI,UAAA;EAEA,gBAAA;ACzCZ;AD4CQ;EA9JJ,yBALW;EAyBX,iBAAA;EA6IQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;AC5CZ;ADzHI;EAEQ,yBAAA;AC0HZ;ADnHI;EAEQ,yBAAA;ACoHZ;ADyCQ;EA1KJ,gCAHQ;EAuBR,iBAAA;EAyJQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;ACzCZ;ADxII;EAEQ,yBAAA;ACyIZ;ADlII;EAEQ,yBAAA;ACmIZ;;AAnJA;EACI,aAAA;EACA,wBAAA;EAEA,gBAAA;AAqJJ;AAnJI;EDHA,yBALW;EAyBX,iBAAA;EAIA,YAAA;EACA,qBAAA;EACA,kBAAA;ECnBI,aAAA;EACA,kBAAA;EAEA,kBAAA;EAEA,WAAA;EAEA,kBAAA;EACA,cAAA;EAEA,gBAAA;AAmJR;ADlKI;EAEQ,yBAAA;ACmKZ;AD5JI;EAEQ,yBAAA;AC6JZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n\r\n    font-family: sans-serif, Arial;\r\n}\r\n\r\nbody {\r\n    background-color: rgb(200, 200, 200);\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    width: 250px;\r\n    height: 50px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    margin: 5px;\r\n\r\n    font-size: 1.25rem;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        width: 250px;\r\n        height: 50px;\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n\r\n        font-size: 1.25rem;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n    }\r\n}","@use \"./index.scss\" as global;\r\n\r\n#navigationArea {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n\r\n    margin-top: 30vh;\r\n\r\n    .navigationAreaButton {\r\n        @include global.coloredInteractable(global.$normalYellow);\r\n        @include global.noDecorationLink;\r\n\r\n        height: 100px;\r\n        line-height: 100px;\r\n\r\n        border-radius: 5px;\r\n\r\n        margin: 5px;\r\n\r\n        text-align: center;\r\n        font-size: 2vw;\r\n\r\n        transition: 0.5s;\r\n    }\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4819,6 +4895,11 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `* {
   box-sizing: border-box;
+  font-family: sans-serif, Arial;
+}
+
+body {
+  background-color: rgb(200, 200, 200);
 }
 
 #popUpContainer {
@@ -4878,14 +4959,34 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   font-family: "consolas", monospace;
 }
 
+.backButton {
+  background-color: rgb(165, 0, 0);
+  transition: 0.25s;
+  width: 250px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 1.25rem;
+}
+.backButton:hover {
+  background-color: #ff2626;
+}
+.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
+  background-color: #ffa5a5;
+}
+
 #addDataArea {
   margin: 5px;
 }
 #addDataArea #addDataButton {
   background-color: #05a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 #addDataArea #addDataButton:hover {
   background-color: #2cff26;
@@ -4915,8 +5016,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .editDataButton {
   background-color: #a5a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .editDataButton:hover {
   background-color: #ffff26;
@@ -4927,28 +5031,18 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .excludeDataButton {
   background-color: rgb(165, 0, 0);
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .excludeDataButton:hover {
   background-color: #ff2626;
 }
 .dataList li .excludeDataButton:active, .dataList li .excludeDataButton:is(input:focus), .dataList li .excludeDataButton:has(:active), .dataList li .excludeDataButton:has(input:focus) {
   background-color: #ffa5a5;
-}
-
-.backButton {
-  background-color: rgb(165, 0, 0);
-  transition: 0.25s;
-  border: none;
-  border-radius: 5px;
-}
-.backButton:hover {
-  background-color: #ff2626;
-}
-.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
-  background-color: #ffa5a5;
-}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;AArCJ;;AAwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;AAvCJ;AAyCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;AAzCR;;AA6CA;EA5DI,yBALW;EAyBX,iBAAA;EA2CA,WAAA;EAEA,YAAA;EACA,kBAAA;AA3CJ;AArBI;EAEQ,yBAAA;AAsBZ;AAfI;EAEQ,yBAAA;AAgBZ;;AAwCA;EAvCI,kBAAA;EA0CA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;AAxCJ;;AA2CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;AAzCJ;;AA4CA;EACI,UAAA;EACA,kCAAA;AAzCJ;;AA4CA;EACI,kCAAA;AAzCJ;;AA4CA;EACI,WAAA;AAzCJ;AA2CI;EArGA,yBAJU;EAwBV,iBAAA;EAoFI,YAAA;EACA,kBAAA;AAzCR;AA9DI;EAEQ,yBAAA;AA+DZ;AAxDI;EAEQ,yBAAA;AAyDZ;;AAuCA;EACI,gBAAA;EAEA,WAAA;AArCJ;AAuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;AAxCR;AA0CQ;EACI,UAAA;EAEA,gBAAA;AAzCZ;AA4CQ;EArIJ,yBALW;EAyBX,iBAAA;EAoHQ,YAAA;EACA,kBAAA;AA1CZ;AA7FI;EAEQ,yBAAA;AA8FZ;AAvFI;EAEQ,yBAAA;AAwFZ;AAuCQ;EA5IJ,gCAHQ;EAuBR,iBAAA;EA2HQ,YAAA;EACA,kBAAA;AArCZ;AAzGI;EAEQ,yBAAA;AA0GZ;AAnGI;EAEQ,yBAAA;AAoGZ;;AAoCA;EArJI,gCAHQ;EAuBR,iBAAA;EAoIA,YAAA;EACA,kBAAA;AAjCJ;AAtHI;EAEQ,yBAAA;AAuHZ;AAhHI;EAEQ,yBAAA;AAiHZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n    }\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;EAEA,8BAAA;AAtCJ;;AAyCA;EACI,oCAAA;AAtCJ;;AAyCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;AAxCJ;AA0CI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;AA1CR;;AA8CA;EAlEI,yBALW;EAyBX,iBAAA;EAiDA,WAAA;EAEA,YAAA;EACA,kBAAA;AA5CJ;AA1BI;EAEQ,yBAAA;AA2BZ;AApBI;EAEQ,yBAAA;AAqBZ;;AAyCA;EA7CI,kBAAA;EAgDA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;AAzCJ;;AA4CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;AA1CJ;;AA6CA;EACI,UAAA;EACA,kCAAA;AA1CJ;;AA6CA;EACI,kCAAA;AA1CJ;;AA6CA;EAxGI,gCAHQ;EAuBR,iBAAA;EAuFA,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,WAAA;EAEA,kBAAA;AA7CJ;AApEI;EAEQ,yBAAA;AAqEZ;AA9DI;EAEQ,yBAAA;AA+DZ;;AA0CA;EACI,WAAA;AAvCJ;AAyCI;EAzHA,yBAJU;EAwBV,iBAAA;EAwGI,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;AAzCR;AAvFI;EAEQ,yBAAA;AAwFZ;AAjFI;EAEQ,yBAAA;AAkFZ;;AAuCA;EACI,gBAAA;EAEA,WAAA;AArCJ;AAuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;AAxCR;AA0CQ;EACI,UAAA;EAEA,gBAAA;AAzCZ;AA4CQ;EA9JJ,yBALW;EAyBX,iBAAA;EA6IQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;AA5CZ;AAzHI;EAEQ,yBAAA;AA0HZ;AAnHI;EAEQ,yBAAA;AAoHZ;AAyCQ;EA1KJ,gCAHQ;EAuBR,iBAAA;EAyJQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;AAzCZ;AAxII;EAEQ,yBAAA;AAyIZ;AAlII;EAEQ,yBAAA;AAmIZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n\r\n    font-family: sans-serif, Arial;\r\n}\r\n\r\nbody {\r\n    background-color: rgb(200, 200, 200);\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    width: 250px;\r\n    height: 50px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    margin: 5px;\r\n\r\n    font-size: 1.25rem;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        width: 250px;\r\n        height: 50px;\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n\r\n        font-size: 1.25rem;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n    }\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4976,6 +5070,11 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `* {
   box-sizing: border-box;
+  font-family: sans-serif, Arial;
+}
+
+body {
+  background-color: rgb(200, 200, 200);
 }
 
 #popUpContainer {
@@ -5035,14 +5134,34 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   font-family: "consolas", monospace;
 }
 
+.backButton {
+  background-color: rgb(165, 0, 0);
+  transition: 0.25s;
+  width: 250px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 1.25rem;
+}
+.backButton:hover {
+  background-color: #ff2626;
+}
+.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
+  background-color: #ffa5a5;
+}
+
 #addDataArea {
   margin: 5px;
 }
 #addDataArea #addDataButton {
   background-color: #05a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 #addDataArea #addDataButton:hover {
   background-color: #2cff26;
@@ -5072,8 +5191,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .editDataButton {
   background-color: #a5a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .editDataButton:hover {
   background-color: #ffff26;
@@ -5084,26 +5206,16 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .excludeDataButton {
   background-color: rgb(165, 0, 0);
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .excludeDataButton:hover {
   background-color: #ff2626;
 }
 .dataList li .excludeDataButton:active, .dataList li .excludeDataButton:is(input:focus), .dataList li .excludeDataButton:has(:active), .dataList li .excludeDataButton:has(input:focus) {
-  background-color: #ffa5a5;
-}
-
-.backButton {
-  background-color: rgb(165, 0, 0);
-  transition: 0.25s;
-  border: none;
-  border-radius: 5px;
-}
-.backButton:hover {
-  background-color: #ff2626;
-}
-.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
   background-color: #ffa5a5;
 }
 
@@ -5131,7 +5243,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 }
 .pageNavArea .pageNavLink:active, .pageNavArea .pageNavLink:is(input:focus), .pageNavArea .pageNavLink:has(:active), .pageNavArea .pageNavLink:has(input:focus) {
   background-color: #ffffa5;
-}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/pageNavArea.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;ACrCJ;;ADwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACvCJ;ADyCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACzCR;;AD6CA;EA5DI,yBALW;EAyBX,iBAAA;EA2CA,WAAA;EAEA,YAAA;EACA,kBAAA;AC3CJ;ADrBI;EAEQ,yBAAA;ACsBZ;ADfI;EAEQ,yBAAA;ACgBZ;;ADwCA;EAvCI,kBAAA;EA0CA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACxCJ;;AD2CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACzCJ;;AD4CA;EACI,UAAA;EACA,kCAAA;ACzCJ;;AD4CA;EACI,kCAAA;ACzCJ;;AD4CA;EACI,WAAA;ACzCJ;AD2CI;EArGA,yBAJU;EAwBV,iBAAA;EAoFI,YAAA;EACA,kBAAA;ACzCR;AD9DI;EAEQ,yBAAA;AC+DZ;ADxDI;EAEQ,yBAAA;ACyDZ;;ADuCA;EACI,gBAAA;EAEA,WAAA;ACrCJ;ADuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;ACxCR;AD0CQ;EACI,UAAA;EAEA,gBAAA;ACzCZ;AD4CQ;EArIJ,yBALW;EAyBX,iBAAA;EAoHQ,YAAA;EACA,kBAAA;AC1CZ;AD7FI;EAEQ,yBAAA;AC8FZ;ADvFI;EAEQ,yBAAA;ACwFZ;ADuCQ;EA5IJ,gCAHQ;EAuBR,iBAAA;EA2HQ,YAAA;EACA,kBAAA;ACrCZ;ADzGI;EAEQ,yBAAA;AC0GZ;ADnGI;EAEQ,yBAAA;ACoGZ;;ADoCA;EArJI,gCAHQ;EAuBR,iBAAA;EAoIA,YAAA;EACA,kBAAA;ACjCJ;ADtHI;EAEQ,yBAAA;ACuHZ;ADhHI;EAEQ,yBAAA;ACiHZ;;AAjIA;EACI,2BAAA;EACA,8BAAA;AAoIJ;AAlII;EDuBA,YAAA;EACA,qBAAA;EACA,kBAAA;EA1BA,yBALW;EAyBX,iBAAA;ECfI,qBAAA;EAEA,eAAA;EACA,gBAAA;EACA,iBAAA;EAEA,uBAAA;EACA,kBAAA;EAEA,WAAA;EAEA,kBAAA;AAkIR;ADhJI;EAEQ,yBAAA;ACiJZ;AD1II;EAEQ,yBAAA;AC2IZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n    }\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}","@use \"./index.scss\" as global;\r\n\r\n.pageNavArea {\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n\r\n    .pageNavLink {\r\n        @include global.noDecorationLink();\r\n        @include global.coloredInteractable(global.$normalYellow);\r\n\r\n        display: inline-block;\r\n\r\n        min-width: 25px;\r\n        min-height: 25px;\r\n        line-height: 25px;\r\n\r\n        border: 1px solid black;\r\n        border-radius: 5px;\r\n\r\n        margin: 5px;\r\n\r\n        text-align: center;\r\n    }\r\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/pageNavArea.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;EAEA,8BAAA;ACtCJ;;ADyCA;EACI,oCAAA;ACtCJ;;ADyCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACxCJ;AD0CI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;AC1CR;;AD8CA;EAlEI,yBALW;EAyBX,iBAAA;EAiDA,WAAA;EAEA,YAAA;EACA,kBAAA;AC5CJ;AD1BI;EAEQ,yBAAA;AC2BZ;ADpBI;EAEQ,yBAAA;ACqBZ;;ADyCA;EA7CI,kBAAA;EAgDA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACzCJ;;AD4CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;AC1CJ;;AD6CA;EACI,UAAA;EACA,kCAAA;AC1CJ;;AD6CA;EACI,kCAAA;AC1CJ;;AD6CA;EAxGI,gCAHQ;EAuBR,iBAAA;EAuFA,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,WAAA;EAEA,kBAAA;AC7CJ;ADpEI;EAEQ,yBAAA;ACqEZ;AD9DI;EAEQ,yBAAA;AC+DZ;;AD0CA;EACI,WAAA;ACvCJ;ADyCI;EAzHA,yBAJU;EAwBV,iBAAA;EAwGI,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;ACzCR;ADvFI;EAEQ,yBAAA;ACwFZ;ADjFI;EAEQ,yBAAA;ACkFZ;;ADuCA;EACI,gBAAA;EAEA,WAAA;ACrCJ;ADuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;ACxCR;AD0CQ;EACI,UAAA;EAEA,gBAAA;ACzCZ;AD4CQ;EA9JJ,yBALW;EAyBX,iBAAA;EA6IQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;AC5CZ;ADzHI;EAEQ,yBAAA;AC0HZ;ADnHI;EAEQ,yBAAA;ACoHZ;ADyCQ;EA1KJ,gCAHQ;EAuBR,iBAAA;EAyJQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;ACzCZ;ADxII;EAEQ,yBAAA;ACyIZ;ADlII;EAEQ,yBAAA;ACmIZ;;AAnJA;EACI,2BAAA;EACA,8BAAA;AAsJJ;AApJI;EDuBA,YAAA;EACA,qBAAA;EACA,kBAAA;EA1BA,yBALW;EAyBX,iBAAA;ECfI,qBAAA;EAEA,eAAA;EACA,gBAAA;EACA,iBAAA;EAEA,uBAAA;EACA,kBAAA;EAEA,WAAA;EAEA,kBAAA;AAoJR;ADlKI;EAEQ,yBAAA;ACmKZ;AD5JI;EAEQ,yBAAA;AC6JZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n\r\n    font-family: sans-serif, Arial;\r\n}\r\n\r\nbody {\r\n    background-color: rgb(200, 200, 200);\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    width: 250px;\r\n    height: 50px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    margin: 5px;\r\n\r\n    font-size: 1.25rem;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        width: 250px;\r\n        height: 50px;\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n\r\n        font-size: 1.25rem;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n    }\r\n}","@use \"./index.scss\" as global;\r\n\r\n.pageNavArea {\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n\r\n    .pageNavLink {\r\n        @include global.noDecorationLink();\r\n        @include global.coloredInteractable(global.$normalYellow);\r\n\r\n        display: inline-block;\r\n\r\n        min-width: 25px;\r\n        min-height: 25px;\r\n        line-height: 25px;\r\n\r\n        border: 1px solid black;\r\n        border-radius: 5px;\r\n\r\n        margin: 5px;\r\n\r\n        text-align: center;\r\n    }\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5159,6 +5271,11 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `* {
   box-sizing: border-box;
+  font-family: sans-serif, Arial;
+}
+
+body {
+  background-color: rgb(200, 200, 200);
 }
 
 #popUpContainer {
@@ -5218,14 +5335,34 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   font-family: "consolas", monospace;
 }
 
+.backButton {
+  background-color: rgb(165, 0, 0);
+  transition: 0.25s;
+  width: 250px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 1.25rem;
+}
+.backButton:hover {
+  background-color: #ff2626;
+}
+.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
+  background-color: #ffa5a5;
+}
+
 #addDataArea {
   margin: 5px;
 }
 #addDataArea #addDataButton {
   background-color: #05a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 #addDataArea #addDataButton:hover {
   background-color: #2cff26;
@@ -5255,8 +5392,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .editDataButton {
   background-color: #a5a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .editDataButton:hover {
   background-color: #ffff26;
@@ -5267,26 +5407,16 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .excludeDataButton {
   background-color: rgb(165, 0, 0);
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .excludeDataButton:hover {
   background-color: #ff2626;
 }
 .dataList li .excludeDataButton:active, .dataList li .excludeDataButton:is(input:focus), .dataList li .excludeDataButton:has(:active), .dataList li .excludeDataButton:has(input:focus) {
-  background-color: #ffa5a5;
-}
-
-.backButton {
-  background-color: rgb(165, 0, 0);
-  transition: 0.25s;
-  border: none;
-  border-radius: 5px;
-}
-.backButton:hover {
-  background-color: #ff2626;
-}
-.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
   background-color: #ffa5a5;
 }
 
@@ -5302,7 +5432,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   min-width: 100px;
   margin: 5px;
   text-align: right;
-}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/studentDataForm.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;ACrCJ;;ADwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACvCJ;ADyCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACzCR;;AD6CA;EA5DI,yBALW;EAyBX,iBAAA;EA2CA,WAAA;EAEA,YAAA;EACA,kBAAA;AC3CJ;ADrBI;EAEQ,yBAAA;ACsBZ;ADfI;EAEQ,yBAAA;ACgBZ;;ADwCA;EAvCI,kBAAA;EA0CA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACxCJ;;AD2CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACzCJ;;AD4CA;EACI,UAAA;EACA,kCAAA;ACzCJ;;AD4CA;EACI,kCAAA;ACzCJ;;AD4CA;EACI,WAAA;ACzCJ;AD2CI;EArGA,yBAJU;EAwBV,iBAAA;EAoFI,YAAA;EACA,kBAAA;ACzCR;AD9DI;EAEQ,yBAAA;AC+DZ;ADxDI;EAEQ,yBAAA;ACyDZ;;ADuCA;EACI,gBAAA;EAEA,WAAA;ACrCJ;ADuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;ACxCR;AD0CQ;EACI,UAAA;EAEA,gBAAA;ACzCZ;AD4CQ;EArIJ,yBALW;EAyBX,iBAAA;EAoHQ,YAAA;EACA,kBAAA;AC1CZ;AD7FI;EAEQ,yBAAA;AC8FZ;ADvFI;EAEQ,yBAAA;ACwFZ;ADuCQ;EA5IJ,gCAHQ;EAuBR,iBAAA;EA2HQ,YAAA;EACA,kBAAA;ACrCZ;ADzGI;EAEQ,yBAAA;AC0GZ;ADnGI;EAEQ,yBAAA;ACoGZ;;ADoCA;EArJI,gCAHQ;EAuBR,iBAAA;EAoIA,YAAA;EACA,kBAAA;ACjCJ;ADtHI;EAEQ,yBAAA;ACuHZ;ADhHI;EAEQ,yBAAA;ACiHZ;;AAjIA;EACI,aAAA;EACA,wBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,YAAA;AAmIJ;AAhIQ;EACI,gBAAA;EAEA,WAAA;EAEA,iBAAA;AAgIZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n    }\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}","@use \"./index.scss\" as global;\r\n\r\n.studentDataForm {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n\r\n    .studentDataFormInputsArea {\r\n        & > div {\r\n            min-width: 100px;\r\n\r\n            margin: 5px;\r\n\r\n            text-align: right;\r\n        }\r\n    }\r\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/studentDataForm.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;EAEA,8BAAA;ACtCJ;;ADyCA;EACI,oCAAA;ACtCJ;;ADyCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACxCJ;AD0CI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;AC1CR;;AD8CA;EAlEI,yBALW;EAyBX,iBAAA;EAiDA,WAAA;EAEA,YAAA;EACA,kBAAA;AC5CJ;AD1BI;EAEQ,yBAAA;AC2BZ;ADpBI;EAEQ,yBAAA;ACqBZ;;ADyCA;EA7CI,kBAAA;EAgDA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACzCJ;;AD4CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;AC1CJ;;AD6CA;EACI,UAAA;EACA,kCAAA;AC1CJ;;AD6CA;EACI,kCAAA;AC1CJ;;AD6CA;EAxGI,gCAHQ;EAuBR,iBAAA;EAuFA,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,WAAA;EAEA,kBAAA;AC7CJ;ADpEI;EAEQ,yBAAA;ACqEZ;AD9DI;EAEQ,yBAAA;AC+DZ;;AD0CA;EACI,WAAA;ACvCJ;ADyCI;EAzHA,yBAJU;EAwBV,iBAAA;EAwGI,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;ACzCR;ADvFI;EAEQ,yBAAA;ACwFZ;ADjFI;EAEQ,yBAAA;ACkFZ;;ADuCA;EACI,gBAAA;EAEA,WAAA;ACrCJ;ADuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;ACxCR;AD0CQ;EACI,UAAA;EAEA,gBAAA;ACzCZ;AD4CQ;EA9JJ,yBALW;EAyBX,iBAAA;EA6IQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;AC5CZ;ADzHI;EAEQ,yBAAA;AC0HZ;ADnHI;EAEQ,yBAAA;ACoHZ;ADyCQ;EA1KJ,gCAHQ;EAuBR,iBAAA;EAyJQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;ACzCZ;ADxII;EAEQ,yBAAA;ACyIZ;ADlII;EAEQ,yBAAA;ACmIZ;;AAnJA;EACI,aAAA;EACA,wBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,YAAA;AAqJJ;AAlJQ;EACI,gBAAA;EAEA,WAAA;EAEA,iBAAA;AAkJZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n\r\n    font-family: sans-serif, Arial;\r\n}\r\n\r\nbody {\r\n    background-color: rgb(200, 200, 200);\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    width: 250px;\r\n    height: 50px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    margin: 5px;\r\n\r\n    font-size: 1.25rem;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        width: 250px;\r\n        height: 50px;\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n\r\n        font-size: 1.25rem;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n    }\r\n}","@use \"./index.scss\" as global;\r\n\r\n.studentDataForm {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n\r\n    .studentDataFormInputsArea {\r\n        & > div {\r\n            min-width: 100px;\r\n\r\n            margin: 5px;\r\n\r\n            text-align: right;\r\n        }\r\n    }\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5330,6 +5460,11 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `* {
   box-sizing: border-box;
+  font-family: sans-serif, Arial;
+}
+
+body {
+  background-color: rgb(200, 200, 200);
 }
 
 #popUpContainer {
@@ -5389,14 +5524,34 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   font-family: "consolas", monospace;
 }
 
+.backButton {
+  background-color: rgb(165, 0, 0);
+  transition: 0.25s;
+  width: 250px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 1.25rem;
+}
+.backButton:hover {
+  background-color: #ff2626;
+}
+.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
+  background-color: #ffa5a5;
+}
+
 #addDataArea {
   margin: 5px;
 }
 #addDataArea #addDataButton {
   background-color: #05a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 #addDataArea #addDataButton:hover {
   background-color: #2cff26;
@@ -5426,8 +5581,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .editDataButton {
   background-color: #a5a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .editDataButton:hover {
   background-color: #ffff26;
@@ -5438,26 +5596,16 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .excludeDataButton {
   background-color: rgb(165, 0, 0);
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .excludeDataButton:hover {
   background-color: #ff2626;
 }
 .dataList li .excludeDataButton:active, .dataList li .excludeDataButton:is(input:focus), .dataList li .excludeDataButton:has(:active), .dataList li .excludeDataButton:has(input:focus) {
-  background-color: #ffa5a5;
-}
-
-.backButton {
-  background-color: rgb(165, 0, 0);
-  transition: 0.25s;
-  border: none;
-  border-radius: 5px;
-}
-.backButton:hover {
-  background-color: #ff2626;
-}
-.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
   background-color: #ffa5a5;
 }
 
@@ -5468,7 +5616,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   align-items: center;
   width: 100%;
   height: 100%;
-}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/testDataForm.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;ACrCJ;;ADwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACvCJ;ADyCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACzCR;;AD6CA;EA5DI,yBALW;EAyBX,iBAAA;EA2CA,WAAA;EAEA,YAAA;EACA,kBAAA;AC3CJ;ADrBI;EAEQ,yBAAA;ACsBZ;ADfI;EAEQ,yBAAA;ACgBZ;;ADwCA;EAvCI,kBAAA;EA0CA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACxCJ;;AD2CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACzCJ;;AD4CA;EACI,UAAA;EACA,kCAAA;ACzCJ;;AD4CA;EACI,kCAAA;ACzCJ;;AD4CA;EACI,WAAA;ACzCJ;AD2CI;EArGA,yBAJU;EAwBV,iBAAA;EAoFI,YAAA;EACA,kBAAA;ACzCR;AD9DI;EAEQ,yBAAA;AC+DZ;ADxDI;EAEQ,yBAAA;ACyDZ;;ADuCA;EACI,gBAAA;EAEA,WAAA;ACrCJ;ADuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;ACxCR;AD0CQ;EACI,UAAA;EAEA,gBAAA;ACzCZ;AD4CQ;EArIJ,yBALW;EAyBX,iBAAA;EAoHQ,YAAA;EACA,kBAAA;AC1CZ;AD7FI;EAEQ,yBAAA;AC8FZ;ADvFI;EAEQ,yBAAA;ACwFZ;ADuCQ;EA5IJ,gCAHQ;EAuBR,iBAAA;EA2HQ,YAAA;EACA,kBAAA;ACrCZ;ADzGI;EAEQ,yBAAA;AC0GZ;ADnGI;EAEQ,yBAAA;ACoGZ;;ADoCA;EArJI,gCAHQ;EAuBR,iBAAA;EAoIA,YAAA;EACA,kBAAA;ACjCJ;ADtHI;EAEQ,yBAAA;ACuHZ;ADhHI;EAEQ,yBAAA;ACiHZ;;AAjIA;EACI,aAAA;EACA,wBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,YAAA;AAmIJ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n    }\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}","@use \"./index.scss\" as global;\r\n\r\n.testDataForm {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/testDataForm.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;EAEA,8BAAA;ACtCJ;;ADyCA;EACI,oCAAA;ACtCJ;;ADyCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACxCJ;AD0CI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;AC1CR;;AD8CA;EAlEI,yBALW;EAyBX,iBAAA;EAiDA,WAAA;EAEA,YAAA;EACA,kBAAA;AC5CJ;AD1BI;EAEQ,yBAAA;AC2BZ;ADpBI;EAEQ,yBAAA;ACqBZ;;ADyCA;EA7CI,kBAAA;EAgDA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACzCJ;;AD4CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;AC1CJ;;AD6CA;EACI,UAAA;EACA,kCAAA;AC1CJ;;AD6CA;EACI,kCAAA;AC1CJ;;AD6CA;EAxGI,gCAHQ;EAuBR,iBAAA;EAuFA,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,WAAA;EAEA,kBAAA;AC7CJ;ADpEI;EAEQ,yBAAA;ACqEZ;AD9DI;EAEQ,yBAAA;AC+DZ;;AD0CA;EACI,WAAA;ACvCJ;ADyCI;EAzHA,yBAJU;EAwBV,iBAAA;EAwGI,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;ACzCR;ADvFI;EAEQ,yBAAA;ACwFZ;ADjFI;EAEQ,yBAAA;ACkFZ;;ADuCA;EACI,gBAAA;EAEA,WAAA;ACrCJ;ADuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;ACxCR;AD0CQ;EACI,UAAA;EAEA,gBAAA;ACzCZ;AD4CQ;EA9JJ,yBALW;EAyBX,iBAAA;EA6IQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;AC5CZ;ADzHI;EAEQ,yBAAA;AC0HZ;ADnHI;EAEQ,yBAAA;ACoHZ;ADyCQ;EA1KJ,gCAHQ;EAuBR,iBAAA;EAyJQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;ACzCZ;ADxII;EAEQ,yBAAA;ACyIZ;ADlII;EAEQ,yBAAA;ACmIZ;;AAnJA;EACI,aAAA;EACA,wBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,YAAA;AAqJJ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n\r\n    font-family: sans-serif, Arial;\r\n}\r\n\r\nbody {\r\n    background-color: rgb(200, 200, 200);\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    width: 250px;\r\n    height: 50px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    margin: 5px;\r\n\r\n    font-size: 1.25rem;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        width: 250px;\r\n        height: 50px;\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n\r\n        font-size: 1.25rem;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n    }\r\n}","@use \"./index.scss\" as global;\r\n\r\n.testDataForm {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5496,6 +5644,11 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `* {
   box-sizing: border-box;
+  font-family: sans-serif, Arial;
+}
+
+body {
+  background-color: rgb(200, 200, 200);
 }
 
 #popUpContainer {
@@ -5555,14 +5708,34 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   font-family: "consolas", monospace;
 }
 
+.backButton {
+  background-color: rgb(165, 0, 0);
+  transition: 0.25s;
+  width: 250px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 1.25rem;
+}
+.backButton:hover {
+  background-color: #ff2626;
+}
+.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
+  background-color: #ffa5a5;
+}
+
 #addDataArea {
   margin: 5px;
 }
 #addDataArea #addDataButton {
   background-color: #05a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 #addDataArea #addDataButton:hover {
   background-color: #2cff26;
@@ -5592,8 +5765,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .editDataButton {
   background-color: #a5a500;
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .editDataButton:hover {
   background-color: #ffff26;
@@ -5604,26 +5780,16 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 .dataList li .excludeDataButton {
   background-color: rgb(165, 0, 0);
   transition: 0.25s;
+  width: 250px;
+  height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
 }
 .dataList li .excludeDataButton:hover {
   background-color: #ff2626;
 }
 .dataList li .excludeDataButton:active, .dataList li .excludeDataButton:is(input:focus), .dataList li .excludeDataButton:has(:active), .dataList li .excludeDataButton:has(input:focus) {
-  background-color: #ffa5a5;
-}
-
-.backButton {
-  background-color: rgb(165, 0, 0);
-  transition: 0.25s;
-  border: none;
-  border-radius: 5px;
-}
-.backButton:hover {
-  background-color: #ff2626;
-}
-.backButton:active, .backButton:is(input:focus), .backButton:has(:active), .backButton:has(input:focus) {
   background-color: #ffa5a5;
 }
 
@@ -5633,15 +5799,20 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
   color: black;
   text-decoration: none;
   font-style: normal;
+  width: 125px;
+  height: 50px;
+  line-height: 50px;
   border: none;
   border-radius: 5px;
+  font-size: 1.25rem;
+  text-align: center;
 }
 .editTestGradesLink:hover {
   background-color: #ffff26;
 }
 .editTestGradesLink:active, .editTestGradesLink:is(input:focus), .editTestGradesLink:has(:active), .editTestGradesLink:has(input:focus) {
   background-color: #ffffa5;
-}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/testsPage.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;ACrCJ;;ADwCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACvCJ;ADyCI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;ACzCR;;AD6CA;EA5DI,yBALW;EAyBX,iBAAA;EA2CA,WAAA;EAEA,YAAA;EACA,kBAAA;AC3CJ;ADrBI;EAEQ,yBAAA;ACsBZ;ADfI;EAEQ,yBAAA;ACgBZ;;ADwCA;EAvCI,kBAAA;EA0CA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACxCJ;;AD2CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;ACzCJ;;AD4CA;EACI,UAAA;EACA,kCAAA;ACzCJ;;AD4CA;EACI,kCAAA;ACzCJ;;AD4CA;EACI,WAAA;ACzCJ;AD2CI;EArGA,yBAJU;EAwBV,iBAAA;EAoFI,YAAA;EACA,kBAAA;ACzCR;AD9DI;EAEQ,yBAAA;AC+DZ;ADxDI;EAEQ,yBAAA;ACyDZ;;ADuCA;EACI,gBAAA;EAEA,WAAA;ACrCJ;ADuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;ACxCR;AD0CQ;EACI,UAAA;EAEA,gBAAA;ACzCZ;AD4CQ;EArIJ,yBALW;EAyBX,iBAAA;EAoHQ,YAAA;EACA,kBAAA;AC1CZ;AD7FI;EAEQ,yBAAA;AC8FZ;ADvFI;EAEQ,yBAAA;ACwFZ;ADuCQ;EA5IJ,gCAHQ;EAuBR,iBAAA;EA2HQ,YAAA;EACA,kBAAA;ACrCZ;ADzGI;EAEQ,yBAAA;AC0GZ;ADnGI;EAEQ,yBAAA;ACoGZ;;ADoCA;EArJI,gCAHQ;EAuBR,iBAAA;EAoIA,YAAA;EACA,kBAAA;ACjCJ;ADtHI;EAEQ,yBAAA;ACuHZ;ADhHI;EAEQ,yBAAA;ACiHZ;;AAjIA;EDGI,yBALW;EAyBX,iBAAA;EAIA,YAAA;EACA,qBAAA;EACA,kBAAA;ECzBA,YAAA;EACA,kBAAA;AAsIJ;ADtII;EAEQ,yBAAA;ACuIZ;ADhII;EAEQ,yBAAA;ACiIZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n        }\r\n    }\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}","@use \"./index.scss\" as global;\r\n\r\n.editTestGradesLink {\r\n    @include global.coloredInteractable(global.$normalYellow);\r\n    @include global.noDecorationLink();\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/index.scss","webpack://./src/styles/testsPage.scss"],"names":[],"mappings":"AAsCA;EACI,sBAAA;EAEA,8BAAA;ACtCJ;;ADyCA;EACI,oCAAA;ACtCJ;;ADyCA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,eAAA;EACA,QAAA;EACA,WAAA;EACA,SAAA;EACA,UAAA;EAEA,uCAAA;ACxCJ;AD0CI;EACI,UAAA;EACA,WAAA;EAEA,mBAAA;EAEA,uBAAA;AC1CR;;AD8CA;EAlEI,yBALW;EAyBX,iBAAA;EAiDA,WAAA;EAEA,YAAA;EACA,kBAAA;AC5CJ;AD1BI;EAEQ,yBAAA;AC2BZ;ADpBI;EAEQ,yBAAA;ACqBZ;;ADyCA;EA7CI,kBAAA;EAgDA,gBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,6BAAA;ACzCJ;;AD4CA;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EAEA,iBAAA;EACA,gBAAA;AC1CJ;;AD6CA;EACI,UAAA;EACA,kCAAA;AC1CJ;;AD6CA;EACI,kCAAA;AC1CJ;;AD6CA;EAxGI,gCAHQ;EAuBR,iBAAA;EAuFA,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,WAAA;EAEA,kBAAA;AC7CJ;ADpEI;EAEQ,yBAAA;ACqEZ;AD9DI;EAEQ,yBAAA;AC+DZ;;AD0CA;EACI,WAAA;ACvCJ;ADyCI;EAzHA,yBAJU;EAwBV,iBAAA;EAwGI,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;ACzCR;ADvFI;EAEQ,yBAAA;ACwFZ;ADjFI;EAEQ,yBAAA;ACkFZ;;ADuCA;EACI,gBAAA;EAEA,WAAA;ACrCJ;ADuCI;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,mBAAA;EAEA,WAAA;EACA,iBAAA;EAEA,uBAAA;EAEA,WAAA;ACxCR;AD0CQ;EACI,UAAA;EAEA,gBAAA;ACzCZ;AD4CQ;EA9JJ,yBALW;EAyBX,iBAAA;EA6IQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;AC5CZ;ADzHI;EAEQ,yBAAA;AC0HZ;ADnHI;EAEQ,yBAAA;ACoHZ;ADyCQ;EA1KJ,gCAHQ;EAuBR,iBAAA;EAyJQ,YAAA;EACA,YAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;ACzCZ;ADxII;EAEQ,yBAAA;ACyIZ;ADlII;EAEQ,yBAAA;ACmIZ;;AAnJA;EDGI,yBALW;EAyBX,iBAAA;EAIA,YAAA;EACA,qBAAA;EACA,kBAAA;ECzBA,YAAA;EACA,YAAA;EACA,iBAAA;EAEA,YAAA;EACA,kBAAA;EAEA,kBAAA;EACA,kBAAA;AAsJJ;AD7JI;EAEQ,yBAAA;AC8JZ;ADvJI;EAEQ,yBAAA;ACwJZ","sourcesContent":["$normalYellow: #a5a500;\r\n$normalGreen: #05a500;\r\n$normalRed: rgb(165, 0, 0);\r\n\r\n@mixin coloredInteractable($normalColor, $hoverColor: null, $activeColor: null) {\r\n    background-color: $normalColor;\r\n\r\n    &:hover {\r\n        @if ($hoverColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 25%);\r\n        }\r\n        @else {\r\n            background-color: $hoverColor;\r\n        }\r\n    }\r\n\r\n    &:active, &:is(input:focus), &:has(:active), &:has(input:focus) {\r\n        @if ($activeColor == null) {\r\n            background-color: lighten($color: $normalColor, $amount: 50%);\r\n        }\r\n        @else {\r\n            background-color: $activeColor;\r\n        }\r\n    }\r\n\r\n    transition: 0.25s;\r\n}\r\n\r\n@mixin noDecorationLink() {\r\n    color: black;\r\n    text-decoration: none;\r\n    font-style: normal;\r\n}\r\n\r\n@mixin noOutline() {\r\n    outline-width: 0px;\r\n}\r\n\r\n* {\r\n    box-sizing: border-box;\r\n\r\n    font-family: sans-serif, Arial;\r\n}\r\n\r\nbody {\r\n    background-color: rgb(200, 200, 200);\r\n}\r\n\r\n#popUpContainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    position: fixed;\r\n    top: 0px;\r\n    bottom: 0px;\r\n    left: 0px;\r\n    right: 0px;\r\n\r\n    background: #0000007f;\r\n\r\n    #popUpBox {\r\n        width: 50%;\r\n        height: 35%;\r\n\r\n        border-radius: 25px;\r\n\r\n        background-color: white;\r\n    }\r\n}\r\n\r\n.dataFormButton {\r\n    @include coloredInteractable($normalYellow);\r\n\r\n    margin: 5px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n}\r\n\r\n.dataFormInput {\r\n    @include noOutline();\r\n\r\n    min-height: 25px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    box-shadow: 1px 1px 5px black;\r\n}\r\n\r\n#pageHeader {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    font-size: 2.5rem;\r\n    font-weight: 750;\r\n}\r\n\r\n.errorMessage {\r\n    color: red;\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.loadingMessage {\r\n    font-family: \"consolas\", monospace;\r\n}\r\n\r\n.backButton {\r\n    @include coloredInteractable($normalRed);\r\n\r\n    width: 250px;\r\n    height: 50px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    margin: 5px;\r\n\r\n    font-size: 1.25rem;\r\n}\r\n\r\n#addDataArea {\r\n    margin: 5px;\r\n\r\n    #addDataButton {\r\n        @include coloredInteractable($normalGreen);\r\n\r\n        width: 250px;\r\n        height: 50px;\r\n\r\n        border: none;\r\n        border-radius: 5px;\r\n\r\n        font-size: 1.25rem;\r\n    }\r\n}\r\n\r\n.dataList {\r\n    list-style: none;\r\n\r\n    margin: 0px;\r\n\r\n    li {\r\n        display: flex;\r\n        flex-direction: row;\r\n        justify-content: space-evenly;\r\n        align-items: center;\r\n\r\n        width: 100%;\r\n        min-height: 100px;\r\n\r\n        border: 2px solid black;\r\n\r\n        margin: 5px;\r\n\r\n        .detailsText {\r\n            width: 50%;\r\n\r\n            font-weight: 750;\r\n        }\r\n\r\n        .editDataButton {\r\n            @include coloredInteractable($normalYellow);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n\r\n        .excludeDataButton {\r\n            @include coloredInteractable($normalRed);\r\n\r\n            width: 250px;\r\n            height: 50px;\r\n\r\n            border: none;\r\n            border-radius: 5px;\r\n\r\n            font-size: 1.25rem;\r\n        }\r\n    }\r\n}","@use \"./index.scss\" as global;\r\n\r\n.editTestGradesLink {\r\n    @include global.coloredInteractable(global.$normalYellow);\r\n    @include global.noDecorationLink();\r\n\r\n    width: 125px;\r\n    height: 50px;\r\n    line-height: 50px;\r\n\r\n    border: none;\r\n    border-radius: 5px;\r\n\r\n    font-size: 1.25rem;\r\n    text-align: center;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

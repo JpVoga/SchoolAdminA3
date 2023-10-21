@@ -4,6 +4,8 @@ CREATE USER "joaoSchoolAdminA3" IDENTIFIED BY "school";
 
 GRANT ALL PRIVILEGES ON *.* TO "joaoSchoolAdminA3";
 
+ALTER USER "joaoSchoolAdminA3" IDENTIFIED WITH mysql_native_password BY "school"; -- Needs this to work for some reason????
+
 
 -- Create database
 
@@ -52,3 +54,6 @@ ALTER TABLE student AUTO_INCREMENT = 1;
 ALTER TABLE test AUTO_INCREMENT = 1;
 
 ALTER TABLE grade AUTO_INCREMENT = 1;
+
+
+SELECT * FROM student

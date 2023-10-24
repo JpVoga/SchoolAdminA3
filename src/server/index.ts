@@ -1,5 +1,5 @@
 import fs from "fs";
-import express from "express";
+import express, { request, response } from "express";
 import mysql, {MysqlError} from "mysql";
 import {isNameValid, nameMaxLength} from "../util";
 
@@ -91,5 +91,37 @@ app.get("/api/read-student", (request, response) => {
         }
 
         response.send({id: result[0].id, firstName: result[0].first_name, lastName: result[0].last_name});
+    });
+});
+
+app.get("/api/update-student", (request, response) => {
+    const url = new URL(request.url, `http://${request.headers.host}`);
+    const id = parseInt(url.searchParams.get("id") ?? "");
+    const firstName = url.searchParams.get("firstName") ?? "";
+    const lastName = url.searchParams.get("lastName") ?? "";
+
+    if (isNaN(id)) {
+        response.send(new Error("Can't read student without ID."));
+        return;
+    }
+
+    if ((!(isNameValid(firstName))) || (!(isNameValid(lastName)))) {
+        response.send("Nome e sobrenome de aluno devem ter de 1 a " + nameMaxLength.toString() + " caracteres.");
+        return;
+    }
+
+    query(`UPDATE student SET first_name = "${escapeQuotes(firstName)}", last_name="${escapeQuotes(lastName)}" WHERE id = ${id}`, (error, result) => {
+        if (error) response.send(error);
+        else response.send({id, firstName, lastName});
+    });
+});
+
+app.get("/api/delete-student", (request, response) => {
+    const url = new URL(request.url, `http://${request.headers.host}`);
+    const id = parseInt(url.searchParams.get("id") ?? "");
+
+    query(`DELETE FROM student WHERE id = ${id}`, (error, result) => {
+        if (error) response.send(error);
+        else response.send(null);
     });
 });

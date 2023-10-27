@@ -1,7 +1,7 @@
 import fs from "fs";
 import express, { request, response } from "express";
 import mysql, {MysqlError} from "mysql";
-import {isError, isNameValid, nameMaxLength} from "../util";
+import {ITestData, isError, isNameValid, nameMaxLength} from "../util";
 
 
 const page = (fs.readFileSync("./public/index.html").toString());
@@ -127,6 +127,7 @@ app.get("/api/delete-student", (request, response) => {
 
     query(`DELETE FROM student WHERE id = ${id}`, (error, result) => {
         if (error) response.send({name: "Erro", message: error.message});
+        else if (isNaN(id)) response.send({name: "Erro", message: "Impossível deletar aluno sem ID."} satisfies Error);
         else response.send(null);
     });
 });
@@ -179,4 +180,30 @@ app.get("/api/read-test", (request, response) => {
     });
 });
 
-fetch("http://localhost/api/read-test?id=45").then(response => response.json().then(data=>console.log(isError(data))));
+app.get("/api/update-test", (request, response) => {
+    const url = new URL(request.url, `http://${request.headers.host}`);
+    const id = parseInt(url.searchParams.get("id") ?? "");
+    const name = url.searchParams.get("name") ?? "";
+
+    if (!(isNameValid(name))) response.send({name: "Erro", message: "Nome de avaliação deve ter de 1 a " + nameMaxLength.toString() + " caracteres."});
+    else if (isNaN(id)) response.send({name: "Erro", message: "Impossível atualizar avaliação sem ID."} satisfies Error);
+    else {
+        query(`UPDATE test SET name = "${name}" WHERE id = ${id}`, (error, result) => {
+            if (error) response.send({name: "Erro", message: error.message} satisfies Error);
+            else response.send({id, name} satisfies ITestData);
+        });
+    }
+});
+
+app.get("/api/delete-test", (request, response) => {
+    const url = new URL(request.url, `http://${request.headers.host}`);
+    const id = parseInt(url.searchParams.get("id") ?? "");
+
+    if (isNaN(id)) response.send({name: "Erro", message: "Impossível deletar avaliação sem ID."} satisfies Error);
+    else {
+        query(`DELETE FROM test WHERE id = ${id}`, (error, result) => {
+            if (error) response.send({name: "Erro", message: error.message} satisfies Error);
+            else response.send(null);
+        });
+    };
+});

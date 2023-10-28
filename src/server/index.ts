@@ -1,7 +1,7 @@
 import fs from "fs";
 import express, { request, response } from "express";
 import mysql, {MysqlError} from "mysql";
-import {ITestData, isError, isNameValid, nameMaxLength} from "../util";
+import {IGradeData, ITestData, isError, isNameValid, nameMaxLength} from "../util";
 
 
 const page = (fs.readFileSync("./public/index.html").toString());
@@ -206,4 +206,51 @@ app.get("/api/delete-test", (request, response) => {
             else response.send(null);
         });
     };
+});
+
+
+// Grades api:
+app.get("/api/get-all-grades", (request, response) => {
+    query("SELECT * FROM grade", (error, result) => {
+        if (error) response.send({name: "Erro", message: error.message} satisfies Error);
+        else {
+            response.send((result as any[]).map(grade => ({id: grade.id, grade: grade.grade, studentId: grade.student_id, testId: grade.test_id} satisfies IGradeData)));
+        }
+    });
+});
+
+app.get("/api/create-grade", (request, response) => {
+    const url = new URL(request.url, `http://${request.headers.host}`);
+    const grade = parseFloat(url.searchParams.get("grade") ?? "");
+    const studentId = parseInt(url.searchParams.get("studentId") ?? "");
+    const testId = parseInt(url.searchParams.get("testId") ?? "");
+
+    if (isNaN(grade) || isNaN(studentId) || isNaN(testId)) {
+        response.send({name: "Erro", message: "Nota, ID de avaliação e ID de aluno são necessários."} satisfies Error);
+        return;
+    }
+
+    query(`INSERT INTO grade(grade, student_id, test_id) VALUE(${grade}, ${studentId}, ${testId})`, (error, result) => {
+        if (error) response.send({name: "Erro", message: error.message} satisfies Error);
+        else {
+            query("SELECT MAX(id) AS \"id\" FROM grade", (error1, result1) => {
+                if (error1) response.send({name: "Erro", message: error1.message});
+                else response.send({id: result1[0]["id"], grade, studentId, testId} satisfies IGradeData);
+            });
+        }
+    });
+});
+
+app.get("/api/read-grade", (request, response) => {
+    const url = new URL(request.url, `http://${request.headers.host}`);
+    const id = parseInt(url.searchParams.get("id") ?? "");
+
+    if (isNaN(id)) response.send({name: "Erro", message: "Impossível ler nota sem ID."} satisfies Error);
+    else {
+        query(`SELECT * FROM grade WHERE id = ${id}`, (error, result) => {
+            if (error) response.send({name: "Erro", message: error.message} satisfies Error);
+            else if ((result.length ?? 0) < 1) response.send({name: "Erro", message: "Nota não encontrada."} satisfies Error);
+            else response.send({id, grade: result[0].grade, studentId: result[0].student_id, testId: result[0].test_id} satisfies IGradeData);
+        });
+    }
 });

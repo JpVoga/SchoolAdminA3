@@ -226,7 +226,7 @@ app.get("/api/create-grade", (request, response) => {
     const testId = parseInt(url.searchParams.get("testId") ?? "");
 
     if (isNaN(grade) || isNaN(studentId) || isNaN(testId)) {
-        response.send({name: "Erro", message: "Nota, ID de avaliação e ID de aluno são necessários."} satisfies Error);
+        response.send({name: "Erro", message: "Nota, ID de avaliação e ID de aluno são necessários para criar nota."} satisfies Error);
         return;
     }
 
@@ -253,4 +253,37 @@ app.get("/api/read-grade", (request, response) => {
             else response.send({id, grade: result[0].grade, studentId: result[0].student_id, testId: result[0].test_id} satisfies IGradeData);
         });
     }
+});
+
+app.get("/api/update-grade", (request, response) => {
+    const url = new URL(request.url, `http://${request.headers.host}`);
+    const id = parseInt(url.searchParams.get("id") ?? "");
+    const grade = parseFloat(url.searchParams.get("grade") ?? "");
+    const studentId = parseInt(url.searchParams.get("studentId") ?? "");
+    const testId = parseInt(url.searchParams.get("testId") ?? "");
+
+    if (isNaN(id) || isNaN(grade) || isNaN(studentId) || isNaN(testId)) {
+        response.send({name: "Erro", message: "ID da nota, nota, ID de avaliação e ID de aluno são necessários para atualizar nota."} satisfies Error);
+        return;
+    }
+
+    query(`UPDATE grade SET grade = ${grade}, student_id = ${studentId}, test_id = ${testId} WHERE id = ${id}`, (error, result) => {
+        if (error) response.send({name: "Erro", message: error.message} satisfies Error);
+        else response.send({id, grade, studentId, testId} satisfies IGradeData);
+    });
+});
+
+app.get("/api/delete-grade", (request, response) => {
+    const url = new URL(request.url, `http://${request.headers.host}`);
+    const id = parseInt(url.searchParams.get("id") ?? "");
+
+    if (isNaN(id)) {
+        response.send({name: "Erro", message: "ID da nota é necessário para deletar nota."} satisfies Error);
+        return;
+    }
+
+    query(`DELETE FROM grade WHERE id = ${id}`, (error, result) => {
+        if (error) response.send({name: "Erro", message: error.message} satisfies Error);
+        else response.send(null);
+    });
 });

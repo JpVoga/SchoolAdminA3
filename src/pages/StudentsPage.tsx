@@ -1,5 +1,5 @@
 import React, {JSX, useContext, useEffect, useMemo} from "react";
-import {Student, filterForPage, getCurrentPageNumber, globalContext, isError, isNameValid, itemsPerPage} from "../util";
+import {IStudentData, Student, filterForPage, getCurrentPageNumber, globalContext, isError, isNameValid, itemsPerPage} from "../util";
 import {BackButton, ConfirmDialog, PageNavArea, StudentDataForm} from "../components";
 import "../styles/index.scss";
 
@@ -9,14 +9,25 @@ export function StudentsPage(): JSX.Element {
     const studentCount = useMemo(() => (Array.isArray(students))? students.length:0, [students]);
 
 
+    function handleStudentError(e: unknown) {
+        if (isError(e)) setStudents(e);
+        else if (typeof e === "string") setStudents(new Error(e));
+        else throw e;
+    }
+
     function onAddStudentButtonClicked(): void {
         setPopUpBox((
             <StudentDataForm
                 confirmActionButtonText="Criar Aluno"
                 cancelActionButtonText="Cancelar"
-                confirmAction={({firstName, lastName}) => {
+                confirmAction={async ({firstName, lastName}) => {
                     if (Array.isArray(students)) {
-                        setStudents(students.concat([(new Student(0, firstName, lastName))])); // TODO: Change id to pull from DB!!!!!!!!!!
+                        try {
+                            const studentData: IStudentData =
+                                (await (await fetch(`/api/create-student?firstName=${encodeURIComponent(firstName)}&lastName=${encodeURIComponent(lastName)}`)).json());
+                            setStudents(students.concat([Student.fromData(studentData)]));
+                        }
+                        catch (e) {handleStudentError(e);}
                     }
 
                     setPopUpBox(null);
@@ -31,9 +42,14 @@ export function StudentsPage(): JSX.Element {
             <StudentDataForm
                 confirmActionButtonText="Salvar Alterações"
                 cancelActionButtonText="Cancelar"
-                confirmAction={({firstName, lastName}) => {
-                    student.firstName = firstName;
-                    student.lastName = lastName;
+                confirmAction={async ({firstName, lastName}) => {
+                    try {
+                        await fetch(`/api/update-student?id=${encodeURIComponent(student.id)}&firstName=${encodeURIComponent(firstName)}&lastName=${encodeURIComponent(lastName)}`);
+                        student.firstName = firstName;
+                        student.lastName = lastName;
+                    }
+                    catch (e) {handleStudentError(e);}
+
                     setPopUpBox(null);
                 }}
                 cancelAction={() => setPopUpBox(null)}
@@ -45,8 +61,12 @@ export function StudentsPage(): JSX.Element {
         setPopUpBox((
             <ConfirmDialog
                 mainText={`Tem certeza que deseja excluir ${student.firstName} ${student.lastName}?`}
-                confirmAction={() => {
-                    if (Array.isArray(students)) setStudents(students.filter(s => s.id != student.id));
+                confirmAction={async () => {
+                    try {
+                        await fetch("/api/delete-student?id=" + encodeURIComponent(student.id));
+                        if (Array.isArray(students)) setStudents(students.filter(s => s.id != student.id));
+                    }
+                    catch (e) {handleStudentError(e);}
                     setPopUpBox(null);
                 }}
                 cancelAction={() => setPopUpBox(null)}

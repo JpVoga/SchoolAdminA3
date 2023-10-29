@@ -43089,6 +43089,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./src/util/index.tsx");
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components */ "./src/components/index.tsx");
 /* harmony import */ var _styles_index_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/index.scss */ "./src/styles/index.scss");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 
 
 
@@ -43096,27 +43105,53 @@ __webpack_require__.r(__webpack_exports__);
 function StudentsPage() {
     const { students, setStudents, setPopUpBox } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_util__WEBPACK_IMPORTED_MODULE_1__.globalContext);
     const studentCount = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => (Array.isArray(students)) ? students.length : 0, [students]);
+    function handleStudentError(e) {
+        if ((0,_util__WEBPACK_IMPORTED_MODULE_1__.isError)(e))
+            setStudents(e);
+        else if (typeof e === "string")
+            setStudents(new Error(e));
+        else
+            throw e;
+    }
     function onAddStudentButtonClicked() {
-        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.StudentDataForm, { confirmActionButtonText: "Criar Aluno", cancelActionButtonText: "Cancelar", confirmAction: ({ firstName, lastName }) => {
+        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.StudentDataForm, { confirmActionButtonText: "Criar Aluno", cancelActionButtonText: "Cancelar", confirmAction: ({ firstName, lastName }) => __awaiter(this, void 0, void 0, function* () {
                 if (Array.isArray(students)) {
-                    setStudents(students.concat([(new _util__WEBPACK_IMPORTED_MODULE_1__.Student(0, firstName, lastName))])); // TODO: Change id to pull from DB!!!!!!!!!!
+                    try {
+                        const studentData = (yield (yield fetch(`/api/create-student?firstName=${encodeURIComponent(firstName)}&lastName=${encodeURIComponent(lastName)}`)).json());
+                        setStudents(students.concat([_util__WEBPACK_IMPORTED_MODULE_1__.Student.fromData(studentData)]));
+                    }
+                    catch (e) {
+                        handleStudentError(e);
+                    }
                 }
                 setPopUpBox(null);
-            }, cancelAction: () => setPopUpBox(null) })));
+            }), cancelAction: () => setPopUpBox(null) })));
     }
     function onEditStudentButtonClicked(student) {
-        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.StudentDataForm, { confirmActionButtonText: "Salvar Altera\u00E7\u00F5es", cancelActionButtonText: "Cancelar", confirmAction: ({ firstName, lastName }) => {
-                student.firstName = firstName;
-                student.lastName = lastName;
+        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.StudentDataForm, { confirmActionButtonText: "Salvar Altera\u00E7\u00F5es", cancelActionButtonText: "Cancelar", confirmAction: ({ firstName, lastName }) => __awaiter(this, void 0, void 0, function* () {
+                try {
+                    yield fetch(`/api/update-student?id=${encodeURIComponent(student.id)}&firstName=${encodeURIComponent(firstName)}&lastName=${encodeURIComponent(lastName)}`);
+                    student.firstName = firstName;
+                    student.lastName = lastName;
+                }
+                catch (e) {
+                    handleStudentError(e);
+                }
                 setPopUpBox(null);
-            }, cancelAction: () => setPopUpBox(null) })));
+            }), cancelAction: () => setPopUpBox(null) })));
     }
     function onExcludeStudentButtonClicked(student) {
-        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.ConfirmDialog, { mainText: `Tem certeza que deseja excluir ${student.firstName} ${student.lastName}?`, confirmAction: () => {
-                if (Array.isArray(students))
-                    setStudents(students.filter(s => s.id != student.id));
+        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.ConfirmDialog, { mainText: `Tem certeza que deseja excluir ${student.firstName} ${student.lastName}?`, confirmAction: () => __awaiter(this, void 0, void 0, function* () {
+                try {
+                    yield fetch("/api/delete-student?id=" + encodeURIComponent(student.id));
+                    if (Array.isArray(students))
+                        setStudents(students.filter(s => s.id != student.id));
+                }
+                catch (e) {
+                    handleStudentError(e);
+                }
                 setPopUpBox(null);
-            }, cancelAction: () => setPopUpBox(null) })));
+            }), cancelAction: () => setPopUpBox(null) })));
     }
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", { id: "pageHeader" },
@@ -43571,7 +43606,7 @@ function App() {
     const [tests, setTests] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
     const [grades, setGrades] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]); // TODO: Pull grades from DB !!!!!!!!!!!!!!!!!!!
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        const studentUrl = "/json/sampleStudents.json"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        const studentUrl = "/api/get-all-students"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         const testUrl = "/json/sampleTests.json"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         const possibleError = new Error("Erro ao conectar-se com o banco de dados");
         // Fetch students
@@ -43617,6 +43652,15 @@ function App() {
             })
             .catch(() => setGrades(possibleError));*/
     }, []);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        // TODO: Update DB!!!!!!!!
+    }, [students]);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        // TODO: Update DB!!!!!!!!
+    }, [tests]);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        // TODO: Update DB!!!!!!!!
+    }, [grades]);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_util__WEBPACK_IMPORTED_MODULE_3__.globalContext.Provider, { value: { popUpBox, setPopUpBox, students, setStudents, tests, setTests, grades, setGrades } },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, { basename: "/" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Routes, null,

@@ -43204,6 +43204,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./src/util/index.tsx");
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components */ "./src/components/index.tsx");
 /* harmony import */ var _styles_testsPage_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/testsPage.scss */ "./src/styles/testsPage.scss");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 
 
 
@@ -43211,25 +43220,53 @@ __webpack_require__.r(__webpack_exports__);
 function TestsPage() {
     const { tests, setTests, setPopUpBox } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_util__WEBPACK_IMPORTED_MODULE_1__.globalContext);
     const testCount = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => Array.isArray(tests) ? tests.length : 0, [tests]);
+    function handleTestError(e) {
+        if ((0,_util__WEBPACK_IMPORTED_MODULE_1__.isError)(e))
+            setTests(e);
+        else if (typeof e === "string")
+            setTests(new Error(e));
+        else
+            throw e;
+    }
     function onAddTestButtonClicked() {
-        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.TestDataForm, { confirmActionButtonText: "Criar Avalia\u00E7\u00E3o", cancelActionButtonText: "Cancelar", confirmAction: ({ name }) => {
-                if (Array.isArray(tests))
-                    setTests(tests.concat([new _util__WEBPACK_IMPORTED_MODULE_1__.Test(0, name)])); // TODO: Change ID to pull from database!!!!!
+        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.TestDataForm, { confirmActionButtonText: "Criar Avalia\u00E7\u00E3o", cancelActionButtonText: "Cancelar", confirmAction: ({ name }) => __awaiter(this, void 0, void 0, function* () {
+                if (Array.isArray(tests)) {
+                    try {
+                        const testData = (yield (yield fetch(`/api/create-test?name=${encodeURIComponent(name)}`)).json());
+                        setTests(tests.concat([_util__WEBPACK_IMPORTED_MODULE_1__.Test.fromData(testData)]));
+                    }
+                    catch (e) {
+                        handleTestError(e);
+                    }
+                }
                 setPopUpBox(null);
-            }, cancelAction: () => setPopUpBox(null) })));
+            }), cancelAction: () => setPopUpBox(null) })));
     }
     function onEditTestButtonClicked(test) {
-        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.TestDataForm, { confirmActionButtonText: "Salvar Altera\u00E7\u00F5es", cancelActionButtonText: "Cancelar", confirmAction: ({ name }) => {
-                test.name = name;
+        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.TestDataForm, { confirmActionButtonText: "Salvar Altera\u00E7\u00F5es", cancelActionButtonText: "Cancelar", confirmAction: ({ name }) => __awaiter(this, void 0, void 0, function* () {
+                try {
+                    yield fetch(`/api/update-test?id=${encodeURIComponent(test.id)}&name=${encodeURIComponent(name)}`);
+                    test.name = name;
+                }
+                catch (e) {
+                    handleTestError(e);
+                }
                 setPopUpBox(null);
-            }, cancelAction: () => setPopUpBox(null) })));
+            }), cancelAction: () => setPopUpBox(null) })));
     }
     function onExcludeTestButtonClicked(test) {
-        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.ConfirmDialog, { mainText: `Tem certeza que deseja descartar a avaliação ${test.name}?`, confirmAction: () => {
-                if (Array.isArray(tests))
-                    setTests(tests.filter(t => t.id != test.id));
+        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.ConfirmDialog, { mainText: `Tem certeza que deseja descartar a avaliação ${test.name}?`, confirmAction: () => __awaiter(this, void 0, void 0, function* () {
+                if (Array.isArray(tests)) {
+                    try {
+                        yield fetch(`/api/delete-test?id=${encodeURIComponent(test.id)}`);
+                        setTests(tests.filter(t => t.id != test.id));
+                    }
+                    catch (e) {
+                        handleTestError(e);
+                    }
+                }
                 setPopUpBox(null);
-            }, cancelAction: () => setPopUpBox(null) })));
+            }), cancelAction: () => setPopUpBox(null) })));
     }
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", { id: "pageHeader" },
@@ -43606,8 +43643,8 @@ function App() {
     const [tests, setTests] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
     const [grades, setGrades] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]); // TODO: Pull grades from DB !!!!!!!!!!!!!!!!!!!
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        const studentUrl = "/api/get-all-students"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        const testUrl = "/json/sampleTests.json"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        const studentUrl = "/api/get-all-students";
+        const testUrl = "/api/get-all-tests"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         const possibleError = new Error("Erro ao conectar-se com o banco de dados");
         // Fetch students
         fetch(studentUrl)
@@ -43652,15 +43689,6 @@ function App() {
             })
             .catch(() => setGrades(possibleError));*/
     }, []);
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        // TODO: Update DB!!!!!!!!
-    }, [students]);
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        // TODO: Update DB!!!!!!!!
-    }, [tests]);
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        // TODO: Update DB!!!!!!!!
-    }, [grades]);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_util__WEBPACK_IMPORTED_MODULE_3__.globalContext.Provider, { value: { popUpBox, setPopUpBox, students, setStudents, tests, setTests, grades, setGrades } },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, { basename: "/" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Routes, null,

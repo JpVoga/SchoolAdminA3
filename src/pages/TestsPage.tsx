@@ -1,5 +1,5 @@
 import React, {JSX, useContext, useMemo} from "react";
-import {Test, filterForPage, globalContext, isError, itemsPerPage} from "../util";
+import {ITestData, Test, filterForPage, globalContext, isError, itemsPerPage} from "../util";
 import {BackButton, ConfirmDialog, PageNavArea, TestDataForm} from "../components";
 import "../styles/testsPage.scss";
 
@@ -8,13 +8,25 @@ export function TestsPage(): JSX.Element {
     const {tests, setTests, setPopUpBox} = useContext(globalContext);
     const testCount = useMemo(() => Array.isArray(tests)? tests.length:0, [tests]);
 
+    function handleTestError(e: unknown) {
+        if (isError(e)) setTests(e);
+        else if (typeof e === "string") setTests(new Error(e));
+        else throw e;
+    }
+
     function onAddTestButtonClicked(): void {
         setPopUpBox((
             <TestDataForm
                 confirmActionButtonText="Criar Avaliação"
                 cancelActionButtonText="Cancelar"
-                confirmAction={({name}) => {
-                    if (Array.isArray(tests)) setTests(tests.concat([new Test(0, name)])); // TODO: Change ID to pull from database!!!!!
+                confirmAction={async ({name}) => {
+                    if (Array.isArray(tests)) {
+                        try {
+                            const testData: ITestData = (await (await fetch(`/api/create-test?name=${encodeURIComponent(name)}`)).json());
+                            setTests(tests.concat([Test.fromData(testData)]));
+                        }
+                        catch (e) {handleTestError(e);}
+                    }
                     setPopUpBox(null);
                 }}
                 cancelAction={() => setPopUpBox(null)}
@@ -27,8 +39,13 @@ export function TestsPage(): JSX.Element {
             <TestDataForm
                 confirmActionButtonText="Salvar Alterações"
                 cancelActionButtonText="Cancelar"
-                confirmAction={({name}) => {
-                    test.name = name;
+                confirmAction={async ({name}) => {
+                    try {
+                        await fetch(`/api/update-test?id=${encodeURIComponent(test.id)}&name=${encodeURIComponent(name)}`);
+                        test.name = name;
+                    }
+                    catch (e) {handleTestError(e);}
+
                     setPopUpBox(null);
                 }}
                 cancelAction={() => setPopUpBox(null)}
@@ -40,8 +57,14 @@ export function TestsPage(): JSX.Element {
         setPopUpBox((
             <ConfirmDialog
                 mainText={`Tem certeza que deseja descartar a avaliação ${test.name}?`}
-                confirmAction={() => {
-                    if (Array.isArray(tests)) setTests(tests.filter(t => t.id != test.id));
+                confirmAction={async () => {
+                    if (Array.isArray(tests)) {
+                        try {
+                            await fetch(`/api/delete-test?id=${encodeURIComponent(test.id)}`);
+                            setTests(tests.filter(t => t.id != test.id));
+                        }
+                        catch (e) {handleTestError(e);}
+                    }
                     setPopUpBox(null);
                 }}
                 cancelAction={() => setPopUpBox(null)}

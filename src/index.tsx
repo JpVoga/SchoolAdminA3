@@ -13,8 +13,8 @@ function App(): JSX.Element {
     const [grades, setGrades] = useState<Grade[] | Error | null>([]); // TODO: Pull grades from DB !!!!!!!!!!!!!!!!!!!
 
     useEffect(() => {
-        const studentUrl = "/api/get-all-students"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        const testUrl = "/json/sampleTests.json"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        const studentUrl = "/api/get-all-students";
+        const testUrl = "/api/get-all-tests"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         const possibleError = new Error("Erro ao conectar-se com o banco de dados");
 
         // Fetch students
@@ -62,18 +62,6 @@ function App(): JSX.Element {
             })
             .catch(() => setGrades(possibleError));*/
     }, []);
-
-    useEffect(() => {
-        // TODO: Update DB!!!!!!!!
-    }, [students]);
-
-    useEffect(() => {
-        // TODO: Update DB!!!!!!!!
-    }, [tests]);
-
-    useEffect(() => {
-        // TODO: Update DB!!!!!!!!
-    }, [grades]);
 
 
     return (

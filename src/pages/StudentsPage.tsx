@@ -9,7 +9,7 @@ export function StudentsPage(): JSX.Element {
     const studentCount = useMemo(() => (Array.isArray(students))? students.length:0, [students]);
 
 
-    function handleStudentError(e: unknown) {
+    function handleStudentError(e: unknown): void {
         if (isError(e)) setStudents(e);
         else if (typeof e === "string") setStudents(new Error(e));
         else throw e;

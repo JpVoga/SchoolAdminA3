@@ -13,12 +13,10 @@ function App(): JSX.Element {
     const [grades, setGrades] = useState<Grade[] | Error | null>([]); // TODO: Pull grades from DB !!!!!!!!!!!!!!!!!!!
 
     useEffect(() => {
-        const studentUrl = "/api/get-all-students";
-        const testUrl = "/api/get-all-tests"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         const possibleError = new Error("Erro ao conectar-se com o banco de dados");
 
         // Fetch students
-        fetch(studentUrl)
+        fetch("/api/get-all-students")
             .then(response => {
                 response.json()
                     .then(data => {
@@ -33,7 +31,7 @@ function App(): JSX.Element {
             .catch(() => setStudents(possibleError));
 
         // Fetch tests
-        fetch(testUrl)
+        fetch("/api/get-all-tests")
             .then(response => {
                 response.json()
                     .then(data => {
@@ -48,7 +46,7 @@ function App(): JSX.Element {
             .catch(() => setTests(possibleError));
 
         // Fetch grades
-        /*fetch("") // TODO: Change this to actual URL!!!!!!!!!!!!!!!!!!!
+        fetch("/api/get-all-grades")
             .then(response => {
                 response.json()
                     .then(data => {
@@ -60,7 +58,7 @@ function App(): JSX.Element {
                     })
                     .catch(() => setGrades(possibleError));
             })
-            .catch(() => setGrades(possibleError));*/
+            .catch(() => setGrades(possibleError));
     }, []);
 
 

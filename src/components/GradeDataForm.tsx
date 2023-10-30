@@ -45,8 +45,6 @@ export function GradeDataForm(props: GradeDataFormProps): JSX.Element {
         const studentId = parseInt((studentSelectRef?.current?.value)!);
 
         props.confirmAction({grade, studentId, testId: props.testId});
-
-        console.log(grade);
     }
 
     return (

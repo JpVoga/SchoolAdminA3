@@ -221,16 +221,18 @@ app.get("/api/get-all-grades", (request, response) => {
 
 app.get("/api/create-grade", (request, response) => {
     const url = new URL(request.url, `http://${request.headers.host}`);
-    const grade = parseFloat(url.searchParams.get("grade") ?? "");
+    let grade: number | undefined = parseFloat(url.searchParams.get("grade") ?? "");
     const studentId = parseInt(url.searchParams.get("studentId") ?? "");
     const testId = parseInt(url.searchParams.get("testId") ?? "");
 
-    if (isNaN(grade) || isNaN(studentId) || isNaN(testId)) {
-        response.send({name: "Erro", message: "Nota, ID de avaliação e ID de aluno são necessários para criar nota."} satisfies Error);
+    if (isNaN(grade)) grade = undefined;
+
+    if (isNaN(studentId) || isNaN(testId)) {
+        response.send({name: "Erro", message: "ID de avaliação e ID de aluno são necessários para criar nota."} satisfies Error);
         return;
     }
 
-    query(`INSERT INTO grade(grade, student_id, test_id) VALUE(${grade}, ${studentId}, ${testId})`, (error, result) => {
+    query(`INSERT INTO grade(grade, student_id, test_id) VALUE(${(grade == undefined)? "NULL":grade.toString()}, ${studentId}, ${testId})`, (error, result) => {
         if (error) response.send({name: "Erro", message: error.message} satisfies Error);
         else {
             query("SELECT MAX(id) AS \"id\" FROM grade", (error1, result1) => {
@@ -258,16 +260,18 @@ app.get("/api/read-grade", (request, response) => {
 app.get("/api/update-grade", (request, response) => {
     const url = new URL(request.url, `http://${request.headers.host}`);
     const id = parseInt(url.searchParams.get("id") ?? "");
-    const grade = parseFloat(url.searchParams.get("grade") ?? "");
+    let grade: number | undefined = parseFloat(url.searchParams.get("grade") ?? "");
     const studentId = parseInt(url.searchParams.get("studentId") ?? "");
     const testId = parseInt(url.searchParams.get("testId") ?? "");
 
-    if (isNaN(id) || isNaN(grade) || isNaN(studentId) || isNaN(testId)) {
-        response.send({name: "Erro", message: "ID da nota, nota, ID de avaliação e ID de aluno são necessários para atualizar nota."} satisfies Error);
+    if (isNaN(grade)) grade = undefined;
+
+    if (isNaN(id) || isNaN(studentId) || isNaN(testId)) {
+        response.send({name: "Erro", message: "ID da nota, ID de avaliação e ID de aluno são necessários para atualizar nota."} satisfies Error);
         return;
     }
 
-    query(`UPDATE grade SET grade = ${grade}, student_id = ${studentId}, test_id = ${testId} WHERE id = ${id}`, (error, result) => {
+    query(`UPDATE grade SET grade = ${(grade == undefined)? "NULL":grade.toString()}, student_id = ${studentId}, test_id = ${testId} WHERE id = ${id}`, (error, result) => {
         if (error) response.send({name: "Erro", message: error.message} satisfies Error);
         else response.send({id, grade, studentId, testId} satisfies IGradeData);
     });

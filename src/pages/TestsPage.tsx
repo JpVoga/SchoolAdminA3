@@ -8,7 +8,7 @@ export function TestsPage(): JSX.Element {
     const {tests, setTests, setPopUpBox} = useContext(globalContext);
     const testCount = useMemo(() => Array.isArray(tests)? tests.length:0, [tests]);
 
-    function handleTestError(e: unknown) {
+    function handleTestError(e: unknown): void {
         if (isError(e)) setTests(e);
         else if (typeof e === "string") setTests(new Error(e));
         else throw e;

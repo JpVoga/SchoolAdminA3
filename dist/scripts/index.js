@@ -42749,7 +42749,6 @@ function GradeDataForm(props) {
             grade = parseFloat((_d = (_c = gradeInputRef === null || gradeInputRef === void 0 ? void 0 : gradeInputRef.current) === null || _c === void 0 ? void 0 : _c.value) !== null && _d !== void 0 ? _d : "0");
         const studentId = parseInt(((_e = studentSelectRef === null || studentSelectRef === void 0 ? void 0 : studentSelectRef.current) === null || _e === void 0 ? void 0 : _e.value));
         props.confirmAction({ grade, studentId, testId: props.testId });
-        console.log(grade);
     }
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", { className: "gradeDataForm", onSubmit: onSubmit },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "gradeDataFormInputsArea" },
@@ -42945,6 +42944,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components */ "./src/components/index.tsx");
 /* harmony import */ var _styles_gradesPage_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/gradesPage.scss */ "./src/styles/gradesPage.scss");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 
 
 
@@ -42955,34 +42963,71 @@ function GradesPage() {
     const { setPopUpBox, students, tests, grades, setGrades } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_util__WEBPACK_IMPORTED_MODULE_1__.globalContext);
     const testId = parseInt((_a = new URL(document.URL).searchParams.get("test")) !== null && _a !== void 0 ? _a : "0");
     const navigate = (0,react_router__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
+    function handleGradeError(e) {
+        if ((0,_util__WEBPACK_IMPORTED_MODULE_1__.isError)(e))
+            setGrades(e);
+        else if (typeof e === "string")
+            setGrades(new Error(e));
+        else
+            throw e;
+    }
     function onAddGradeButtonClicked() {
-        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.GradeDataForm, { confirmAction: ({ grade, studentId, testId }) => {
+        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.GradeDataForm, { confirmAction: ({ grade, studentId, testId }) => __awaiter(this, void 0, void 0, function* () {
                 if (Array.isArray(grades)) {
-                    const gradesWithStudentAndTest = grades.filter(g => ((g.studentId == studentId) && (g.testId == testId)));
-                    if (gradesWithStudentAndTest.length > 0) {
-                        gradesWithStudentAndTest.forEach(target => { target.grade = grade; });
+                    try {
+                        console.log(grade);
+                        const gradesWithStudentAndTest = grades.filter(g => ((g.studentId == studentId) && (g.testId == testId)));
+                        if (gradesWithStudentAndTest.length > 0) {
+                            gradesWithStudentAndTest.forEach((target) => __awaiter(this, void 0, void 0, function* () {
+                                yield fetch(`/api/update-grade?id=${encodeURIComponent(target.id)}&` +
+                                    ((grade == undefined) ? "" : `grade=${encodeURIComponent(grade)}&`) +
+                                    `studentId=${encodeURIComponent(studentId)}&testId=${encodeURIComponent(testId)}`);
+                                target.grade = grade;
+                            }));
+                        }
+                        else {
+                            const gradeData = yield (yield fetch(`/api/create-grade?` +
+                                ((grade == undefined) ? "" : `grade=${encodeURIComponent(grade)}&`) +
+                                `studentId=${encodeURIComponent(studentId)}&testId=${encodeURIComponent(testId)}`)).json();
+                            setGrades(grades.concat([_util__WEBPACK_IMPORTED_MODULE_1__.Grade.fromData(gradeData)]));
+                        }
                     }
-                    else {
-                        grades.push(new _util__WEBPACK_IMPORTED_MODULE_1__.Grade(0, grade, studentId, testId)); // TODO: Pull ID from DB!!!!!!!!!!!
+                    catch (e) {
+                        handleGradeError(e);
                     }
                 }
                 setPopUpBox(null);
-            }, cancelAction: () => setPopUpBox(null), confirmActionButtonText: "Lan\u00E7ar Nota", cancelActionButtonText: "Cancelar", testId: testId })));
+            }), cancelAction: () => setPopUpBox(null), confirmActionButtonText: "Lan\u00E7ar Nota", cancelActionButtonText: "Cancelar", testId: testId })));
     }
     function onEditGradeButtonClicked(grade) {
-        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.GradeDataForm, { confirmAction: ({ grade: value, studentId, testId }) => {
-                grade.grade = value;
-                grade.studentId = studentId;
-                grade.testId = testId;
+        setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.GradeDataForm, { confirmAction: ({ grade: value, studentId, testId }) => __awaiter(this, void 0, void 0, function* () {
+                try {
+                    yield fetch(`/api/update-grade?id=${encodeURIComponent(grade.id)}&` +
+                        ((value == undefined) ? "" : `grade=${encodeURIComponent(value)}&`) +
+                        `studentId=${encodeURIComponent(studentId)}&testId=${encodeURIComponent(testId)}`);
+                    grade.grade = value;
+                    grade.studentId = studentId;
+                    grade.testId = testId;
+                }
+                catch (e) {
+                    handleGradeError(e);
+                }
                 setPopUpBox(null);
-            }, cancelAction: () => setPopUpBox(null), confirmActionButtonText: "Salvar Nota", cancelActionButtonText: "Cancelar", gradeInitialValue: grade.grade, studentIdFixedValue: grade.studentId, testId: testId })));
+            }), cancelAction: () => setPopUpBox(null), confirmActionButtonText: "Salvar Nota", cancelActionButtonText: "Cancelar", gradeInitialValue: grade.grade, studentIdFixedValue: grade.studentId, testId: testId })));
     }
     function onExcludeGradeButtonClicked(grade) {
-        setPopUpBox(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.ConfirmDialog, { mainText: "Deseja excluir essa nota?", confirmAction: () => {
-                if (Array.isArray(grades))
-                    setGrades(grades.filter(g => g.id != grade.id));
+        setPopUpBox(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.ConfirmDialog, { mainText: "Deseja excluir essa nota?", confirmAction: () => __awaiter(this, void 0, void 0, function* () {
+                if (Array.isArray(grades)) {
+                    try {
+                        yield fetch(`/api/delete-grade?id=${encodeURIComponent(grade.id)}`);
+                        setGrades(grades.filter(g => g.id != grade.id));
+                    }
+                    catch (e) {
+                        handleGradeError(e);
+                    }
+                }
                 setPopUpBox(null);
-            }, cancelAction: () => setPopUpBox(null) }));
+            }), cancelAction: () => setPopUpBox(null) }));
     }
     if ((isNaN(testId)) || (testId < 1)) {
         navigate("/");
@@ -43643,11 +43688,9 @@ function App() {
     const [tests, setTests] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
     const [grades, setGrades] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]); // TODO: Pull grades from DB !!!!!!!!!!!!!!!!!!!
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        const studentUrl = "/api/get-all-students";
-        const testUrl = "/api/get-all-tests"; // TODO: Change this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         const possibleError = new Error("Erro ao conectar-se com o banco de dados");
         // Fetch students
-        fetch(studentUrl)
+        fetch("/api/get-all-students")
             .then(response => {
             response.json()
                 .then(data => {
@@ -43661,7 +43704,7 @@ function App() {
         })
             .catch(() => setStudents(possibleError));
         // Fetch tests
-        fetch(testUrl)
+        fetch("/api/get-all-tests")
             .then(response => {
             response.json()
                 .then(data => {
@@ -43675,19 +43718,19 @@ function App() {
         })
             .catch(() => setTests(possibleError));
         // Fetch grades
-        /*fetch("") // TODO: Change this to actual URL!!!!!!!!!!!!!!!!!!!
+        fetch("/api/get-all-grades")
             .then(response => {
-                response.json()
-                    .then(data => {
-                        const array: Grade[] = [];
-                        for (const i of data) {
-                            array.push(Grade.fromData(i));
-                        }
-                        setGrades(array);
-                    })
-                    .catch(() => setGrades(possibleError));
+            response.json()
+                .then(data => {
+                const array = [];
+                for (const i of data) {
+                    array.push(_util__WEBPACK_IMPORTED_MODULE_3__.Grade.fromData(i));
+                }
+                setGrades(array);
             })
-            .catch(() => setGrades(possibleError));*/
+                .catch(() => setGrades(possibleError));
+        })
+            .catch(() => setGrades(possibleError));
     }, []);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_util__WEBPACK_IMPORTED_MODULE_3__.globalContext.Provider, { value: { popUpBox, setPopUpBox, students, setStudents, tests, setTests, grades, setGrades } },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, { basename: "/" },

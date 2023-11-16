@@ -42975,14 +42975,20 @@ function GradesPage() {
         setPopUpBox((react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components__WEBPACK_IMPORTED_MODULE_2__.GradeDataForm, { confirmAction: ({ grade, studentId, testId }) => __awaiter(this, void 0, void 0, function* () {
                 if (Array.isArray(grades)) {
                     try {
-                        console.log(grade);
                         const gradesWithStudentAndTest = grades.filter(g => ((g.studentId == studentId) && (g.testId == testId)));
                         if (gradesWithStudentAndTest.length > 0) {
-                            gradesWithStudentAndTest.forEach((target) => __awaiter(this, void 0, void 0, function* () {
-                                yield fetch(`/api/update-grade?id=${encodeURIComponent(target.id)}&` +
+                            for (const g of gradesWithStudentAndTest) {
+                                yield fetch(`/api/update-grade?id=${encodeURIComponent(g.id)}&` +
                                     ((grade == undefined) ? "" : `grade=${encodeURIComponent(grade)}&`) +
                                     `studentId=${encodeURIComponent(studentId)}&testId=${encodeURIComponent(testId)}`);
-                                target.grade = grade;
+                            }
+                            setGrades(grades.map((g) => {
+                                if ((g.studentId == studentId) && (g.testId == testId)) {
+                                    g.grade = grade;
+                                    return g;
+                                }
+                                else
+                                    return g;
                             }));
                         }
                         else {

@@ -22,18 +22,23 @@ export function GradesPage(): JSX.Element {
                 confirmAction={async ({grade, studentId, testId}) => {
                     if (Array.isArray(grades)) {
                         try {
-                            console.log(grade);
-
                             const gradesWithStudentAndTest = grades.filter(g => ((g.studentId == studentId) && (g.testId == testId)));
                             if (gradesWithStudentAndTest.length > 0) {
-                                gradesWithStudentAndTest.forEach(async (target) => {
+                                for (const g of gradesWithStudentAndTest) {
                                     await fetch(
-                                        `/api/update-grade?id=${encodeURIComponent(target.id)}&` +
+                                        `/api/update-grade?id=${encodeURIComponent(g.id)}&` +
                                         ((grade == undefined)? "":`grade=${encodeURIComponent(grade!)}&`) +
                                         `studentId=${encodeURIComponent(studentId)}&testId=${encodeURIComponent(testId)}`
                                     );
-                                    target.grade = grade;
-                                });
+                                }
+
+                                setGrades(grades.map((g) => {
+                                    if ((g.studentId == studentId) && (g.testId == testId)) {
+                                        g.grade = grade;
+                                        return g;
+                                    }
+                                    else return g;
+                                }));
                             }
                             else {
                                 const gradeData: IGradeData = await (await fetch(
